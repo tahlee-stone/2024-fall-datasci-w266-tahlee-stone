@@ -1,0 +1,13 @@
+boto3
+datasets
+jinja2
+json
+jupyter
+matplotlib
+numpy
+openai
+os
+pandas
+python-dotenv
+scikit-learn
+seaborn
