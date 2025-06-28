@@ -1,0 +1,299 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+\usepackage{acl2023}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out.
+% However, it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+\usepackage{amsmath}
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
+%Including images in your LaTeX document requires adding
+%additional package(s)
+\usepackage{graphicx}
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{microtype}
+\title{Fine-Tuning Cross-Encoders for Detecting Hallucinations in Financial Customer Chatbots}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+\author{
+  Tahlee Stone \\
+  University of California, Berkeley, School of Information \\
+  \texttt{tahlee.stone@berkeley.edu}
+}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Mitigating hallucination risk in large language models (LLMs) is essential for customer-facing production chatbots, particularly in sensitive sectors such as finance and healthcare. This paper presents a groundedness classification approach that fine-tunes a cross-encoder model to detect hallucinations in LLM-generated responses. The model is trained on two datasets: the benchmark HaluEval corpus and a synthetically constructed challenger set derived from U.S. retail bank customer interactions. Performance is evaluated against three baselines: a bi-encoder classifier, a prompted GPT-4o groundedness binary classifier, and a commercial guardrail (AWS Bedrock). The cross-encoder jointly encodes the query, context, and response, enabling fine-grained detection of factual inconsistencies. Results show that fine-tuned cross-encoders outperform all baselines, offering a scalable and effective solution for post-generation hallucination detection in financial dialogue systems.
+\end{abstract}
+
+
+\section{Introduction}
+
+Large Language Models (LLMs) have rapidly advanced the field of natural language generation (NLG), producing text that is fluent, coherent, and contextually appropriate. However, a critical and persistent challenge remains: hallucination. Hallucination refers to the generation of content that is not grounded in the source material—facts or claims that are either unsupported, inconsistent with the given context, or entirely fabricated. In high-stakes domains such as finance, law, and healthcare, these inaccuracies can lead to harmful misinformation, erode user trust, and impair real-world decision-making~\cite{maynez2020faithfulness, kryscinski2019factcc}.
+
+To address this issue, groundedness guardrails—systems that verify whether generated responses adhere to a trusted knowledge base—have become essential for LLM deployment. These systems frame hallucination detection as a post-generation classification task over (query, context, response) triplets. A response is deemed \textit{grounded} if all its factual assertions are supported by the provided context; otherwise, it is classified as \textit{ungrounded} or hallucinated. Recent research has demonstrated that classifiers using \textbf{cross-encoder architectures} are particularly effective at this task, as they can jointly encode and attend to the full interaction between the query, context, and model response~\cite{falke2019ranking, kryscinski2019factcc}.
+
+This paper presents a groundedness detection framework in which we fine-tune a \textbf{cross-encoder classifier} on a domain-specific dataset drawn from a financial knowledge source—the Reserve Bank of Australia (RBA) website. We generate and label a corpus of synthetic examples using large language models, creating a dataset of (query, context, response) instances annotated as grounded or ungrounded. We then train a cross-encoder model and evaluate its ability to detect hallucinations.
+
+We compare the performance of this classifier against three baselines:
+\begin{enumerate}
+    \item A \textbf{bi-encoder} model that encodes the query, context, and response independently;
+    \item A \textbf{prompted LLM-based verifier} using self-check prompts (e.g., SelfCheckGPT);
+    \item An \textbf{off-the-shelf groundedness guardrail}, such as AWS Bedrock's hallucination filter.
+\end{enumerate}
+
+While cross-encoders incur a higher computational cost than bi-encoders, they offer a practical and cost-effective alternative to full LLM-based verification. Their ability to model token-level interactions allows for fine-grained assessment of semantic consistency, outperforming both bi-encoders and zero-shot LLMs in prior work on entailment and factuality detection~\cite{wang2018glue, reimers2019sentencebert}.
+
+Our contributions are threefold:
+\begin{itemize}
+    \item We construct a new, domain-grounded dataset for hallucination detection in financial language, derived from a trustworthy public source;
+    \item We implement and benchmark a cross-encoder classifier against bi-encoder and LLM-based baselines;
+    \item We demonstrate that cross-encoders strike an effective balance between accuracy and efficiency, making them a viable component in real-world LLM guardrails.
+\end{itemize}
+
+
+\section{Related Work}
+\subsection{Hallucination Detection}
+[Prior work: FactCC, SelfCheckGPT, GPT-4 verifiers.]
+
+\subsection{Cross-Encoders vs Bi-Encoders}
+[Comparison of architectures and use cases.]
+
+\section{Data}
+\subsection{Benchmark Dataset: HaluEval}
+\section{Data}
+
+We utilize the HaluEval dataset \cite{li2023halueval}, a large-scale benchmark for evaluating hallucinations in large language models (LLMs). HaluEval consists of 35,000 examples covering three tasks—question answering, knowledge-grounded dialogue, and summarization—and includes both human-annotated and automatically generated (hallucinated) responses.
+
+Each instance in HaluEval includes a user query, a supporting context passage, and a response generated by an LLM (e.g., ChatGPT). The dataset provides binary hallucination labels (grounded vs. ungrounded), annotated by expert raters using a high-agreement labeling protocol. This rich alignment between query, context, and response enables robust training of supervised models for groundedness detection.
+
+For our experiments, we sample 500 QA-style examples and expand each into two labeled datapoints: one grounded response and one hallucinated response. This results in a dataset of 1,000 (query, context, response) triplets, each labeled as either grounded (1) or hallucinated (0). The HaluEval benchmark was chosen primarily because it contains high-quality, aligned triplets required for training cross-encoder models. Furthermore, its diversity of hallucination types (e.g., factual contradiction, unverifiability, inference errors) aligns well with our objective of learning nuanced hallucination detection.
+
+This curated subset allows for efficient training while preserving task diversity, making it suitable for evaluating both fine-tuned cross-encoders and zero-shot guardrail baselines.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Attribute} & \textbf{Value} \\
+\hline
+Source Dataset & HaluEval (QA subset) \\
+Task Type & Question Answering \\
+Initial Samples & 500 \\
+Total Instances After Expansion & 1,000 \\
+Grounded Responses & 500 \\
+Hallucinated Responses & 500 \\
+Input Format & (Query, Context, Response) triplet \\
+Label Type & Binary (0 = Hallucinated, 1 = Grounded) \\
+Annotation Method & Human + Synthetic Generation \\
+\hline
+\end{tabular}
+\caption{Summary of the dataset used for fine-tuning and evaluation.}
+\label{tab:data_summary}
+\end{table}
+
+
+\subsection{Synthetic Challenger Dataset}
+[Describe generation method, domain specificity, labeling process.]
+
+\section{Methodology}
+\subsection{Model Architecture}
+[Cross-encoder structure. Input formatting. Binary classification.]
+
+\subsection{Baselines}
+\begin{itemize}
+    \item Bi-encoder classifier
+    \item Prompted GPT-4o binary groundedness classifier
+    \item AWS Bedrock hallucination guardrail
+\end{itemize}
+\subsection{Footnotes}
+
+Footnotes are inserted with the \verb|\footnote| command.\footnote{This is a footnote.}
+
+\subsection{Tables and figures}  
+
+See Table~\ref{tab:accents} for an example of a table and its caption.
+\textbf{Do not override the default caption sizes.}
+ See Figure~\ref{fig:experiments} for an example of a figure and its caption.
+\subsection{Hyperlinks}
+
+Users of older versions of \LaTeX{} may encounter the following error during compilation: 
+\begin{quote}
+\tt\verb|\pdfendlink| ended up in different nesting level than \verb|\pdfstartlink|.
+\end{quote}
+This happens when pdf\LaTeX{} is used and a citation splits across a page boundary. The best way to fix this is to upgrade \LaTeX{} to 2018-12-01 or later.
+
+\subsection{Citations}
+
+\verb|\usepackage{graphicx}|.
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{example-image-golden}
+  \caption{A figure with a caption that runs for more than one line.
+    Example image is usually available through the \texttt{mwe} package
+    without even mentioning it in the preamble.}
+  \label{fig:experiments}
+\end{figure}
+
+\begin{figure*}[t]
+  \includegraphics[width=0.48\linewidth]{example-image-a} \hfill
+  \includegraphics[width=0.48\linewidth]{example-image-b}
+  \caption {A minimal working example to demonstrate how to place
+    two images side-by-side.}
+\end{figure*}
+
+Table~\ref{citation-guide} shows the syntax supported by the style files.
+We encourage you to use the natbib styles.
+You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
+You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{Gusfield:97}.
+You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{Gusfield:97}).
+\subsection{Training Setup}
+[Loss function, hyperparameters, evaluation metrics.]
+
+\section{Results}
+\subsection{Main Evaluation}
+
+
+\subsection{Error Analysis}
+[Discuss types of hallucinations missed, false positives, patterns across datasets.]
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.9\linewidth]{example_roc_curve.png}
+%    \caption{ROC curve for all evaluated models.}
+%    \label{fig:roc}
+%\end{figure}
+
+\section{Discussion}
+[Tradeoffs of using cross-encoders. Latency vs performance. Domain transferability. Real-world deployment constraints.]
+
+\section{Limitations}
+[Model size, cost, domain specificity, labeling assumptions.]
+
+\section{Conclusion}
+[Summary of findings. Implications for scalable, reliable financial dialogue systems. Future work.]
+
+\subsection{References}
+
+\nocite{Ando2005,augenstein-etal-2016-stance,andrew2007scalable,rasooli-tetrault-2015,goodman-etal-2016-noise,harper-2014-learning}
+
+The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
+If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
+\begin{quote}
+\begin{verbatim}
+\bibliographystyle{acl_natbib}
+\bibliography{custom}
+\end{verbatim}
+\end{quote}
+You can obtain the complete ACL Anthology as a Bib\TeX{} file from \url{https://aclweb.org/anthology/anthology.bib.gz}.
+To include both the Anthology and your own .bib file, use the following instead of the above.
+\begin{quote}
+\begin{verbatim}
+\bibliographystyle{acl_natbib}
+\bibliography{anthology,custom}
+\end{verbatim}
+\end{quote}
+Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files.
+
+\subsection{Appendices}
+
+Use \verb|\appendix| before any appendix section to switch the section numbering over to letters. See Appendix~\ref{sec:appendix} for an example.
+
+\section{Bib\TeX{} Files}
+\label{sec:bibtex}
+
+Unicode cannot be used in Bib\TeX{} entries, and some ways of typing special characters can disrupt Bib\TeX's alphabetization. The recommended way of typing special characters is shown in Table~\ref{tab:accents}.
+
+Please ensure that Bib\TeX{} records contain DOIs or URLs when possible, and for all the ACL materials that you reference.
+Use the \verb|doi| field for DOIs and the \verb|url| field for URLs.
+If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references section will appear as a hyperlink to the paper, using the hyperref \LaTeX{} package.
+
+\section*{Limitations}
+ACL 2023 requires all submissions to have a section titled ``Limitations'', for discussing the limitations of the paper as a complement to the discussion of strengths in the main text. This section should occur after the conclusion, but before the references. It will not count towards the page limit.
+The discussion of limitations is mandatory. Papers without a limitation section will be desk-rejected without review.
+
+While we are open to different types of limitations, just mentioning that a set of results have been shown for English only probably does not reflect what we expect. 
+Mentioning that the method works mostly for languages with limited morphology, like English, is a much better alternative.
+In addition, limitations such as low scalability to long text, the requirement of large GPU resources, or other things that inspire crucial further investigation are welcome.
+
+\section*{Ethics Statement}
+Scientific work published at ACL 2023 must comply with the ACL Ethics Policy.\footnote{\url{https://www.aclweb.org/portal/content/acl-code-ethics}} We encourage all authors to include an explicit ethics statement on the broader impact of the work, or other ethical considerations after the conclusion but before the references. The ethics statement will not count toward the page limit (8 pages for long, 4 pages for short papers).
+
+\section*{Acknowledgements}
+This document has been adapted by Jordan Boyd-Graber, Naoaki Okazaki, Anna Rogers from the style files used for earlier ACL, EMNLP and NAACL proceedings, including those for
+EACL 2023 by Isabelle Augenstein and Andreas Vlachos,
+EMNLP 2022 by Yue Zhang, Ryan Cotterell and Lea Frermann,
+ACL 2020 by Steven Bethard, Ryan Cotterell and Rui Yan,
+ACL 2019 by Douwe Kiela and Ivan Vuli\'{c},
+NAACL 2019 by Stephanie Lukin and Alla Roskovskaya, 
+ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu, 
+NAACL 2018 by Margaret Mitchell and Stephanie Lukin,
+Bib\TeX{} suggestions for (NA)ACL 2017/2018 from Jason Eisner,
+ACL 2017 by Dan Gildea and Min-Yen Kan, NAACL 2017 by Margaret Mitchell, 
+ACL 2012 by Maggie Li and Michael White, 
+ACL 2010 by Jing-Shin Chang and Philipp Koehn, 
+ACL 2008 by Johanna D. Moore, Simone Teufel, James Allan, and Sadaoki Furui, 
+ACL 2005 by Hwee Tou Ng and Kemal Oflazer, 
+ACL 2002 by Eugene Charniak and Dekang Lin, 
+and earlier ACL and EACL formats written by several people, including
+John Chen, Henry S. Thompson and Donald Walker.
+Additional elements were taken from the formatting instructions of the \emph{International Joint Conference on Artificial Intelligence} and the \emph{Conference on Computer Vision and Pattern Recognition}.
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is a section in the appendix.
+
+\end{document}
