@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Pytest cache
+.cache/
+
+# MyPy
+.mypy_cache/
+
+# VSCode settings
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Jupyter Notebook metadata
+*.nbconvert.ipynb
+
+# Local data files
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.json
+*.parquet
+
+# Model checkpoints and outputs
+*.h5
+*.pt
+*.pkl
+*.joblib
+*.ckpt
+
+# Logs and outputs
+*.log
+*.out
+
+# Build and dist folders
+build/
+dist/
+*.egg-info/
+
+# Environment/config files
+*.env
+*.ini
+*.cfg

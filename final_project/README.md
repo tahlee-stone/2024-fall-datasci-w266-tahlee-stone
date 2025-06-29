@@ -47,7 +47,8 @@ We cast hallucination detection as a **(query, context, response) classification
 ## Usage Instructions
 1. **Preprocess dataset**:
    ```bash
-   python scripts/data_processing.py
+   py scripts/run_data_prep.py --input data/qa_data.json --output data/halueval_groundedness.csv --sample_size 500
+
     ```
 
    
