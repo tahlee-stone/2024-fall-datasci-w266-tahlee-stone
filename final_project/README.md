@@ -43,7 +43,23 @@ Set up for both of these models is detailed below.
 
 - 2,770 synthetic examples based on Banking77 intents (https://huggingface.co/datasets/PolyAI/banking77)
 - Contexts generated using `gpt-4o-mini`, grounded responses via `gpt-4o`, hallucinated responses via `gpt-3.5-turbo`
-- Labels verified using OpenAI `o3-pro` model with 90% agreement
+- Synt
+- Labels verified using OpenAI `o3-pro` model with 90% agreement.
+- Note: Synthetic FAQ-style contexts were used instead of scraping real banking help pages due to commercial and ethical considerations. While early prototypes used BeautifulSoup to scrape public retail bank FAQs, the final dataset was generated using LLMs to avoid intellectual property issues and ensure reproducibility across institutions.
+
+
+### Banking77 Dataset (Original Input Queries)
+
+- Source: [PolyAI Banking77](https://huggingface.co/datasets/PolyAI/banking77)
+- Downloaded from: https://github.com/PolyAI-LDN/task-specific-datasets/tree/master/banking_data
+- Dataset used: `banking_77_train_set.csv`
+- This dataset provides 10,003 customer support queries across 77 banking-specific intent classes.
+- Used as the initial source of real-world customer queries for generating the synthetic RetailBankQA dataset.
+
+- Downloaded from: https://github.com/PolyAI-LDN/task-specific-datasets/tree/master/banking_data
+- Dataset used: `banking_77_train_set.csv`
+- This dataset provides 10,003 customer support queries across 77 banking-specific intent classes.
+- Used as the initial source of real-world customer queries for generating the synthetic RetailBankQA dataset.
 
 ---
 
@@ -108,7 +124,29 @@ export AWS_REGION="us-east-1"
 
 ---
 
-## 🧪 Google Colab Pro Setup (Optional)
+### 🔐 OpenAI API Key Setup
+
+To use the GPT-based evaluators (e.g., GPT-4o, GPT-3.5-Turbo), you must provide an OpenAI API key.
+
+**Create/OpenAI Account**:  
+Sign up at [https://platform.openai.com](https://platform.openai.com)
+
+**Generate an API Key**:  
+Navigate to: **Account → API Keys → Create new key**
+
+**Configure Environment**:  
+You can either:
+
+- **Set via shell**:
+
+```bash
+export OPENAI_API_KEY="your-openai-key"
+```
+- **Or create a .env file**:
+
+Insert OPENAI_API_KEY=your-openai-key
+---
+### 🧪 Google Colab Pro Setup (Optional)
 
 To accelerate training:
 1. Subscribe to [Google Colab Pro](https://colab.research.google.com/signup)
