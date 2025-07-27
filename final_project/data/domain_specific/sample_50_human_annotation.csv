@@ -1,0 +1,938 @@
+query,context,response,label,o3_label,o3_rationale
+Why has my money disappeared? I topped up earlier and seen it was there and had went through. What seems to be the problem?,"**Help & FAQs: Understanding Your Top-Up Transactions**
+
+**Query: Why has my money disappeared? I topped up earlier and saw it was there and had gone through. What seems to be the problem?**
+
+If you've recently topped up your account and are unable to see the funds, there could be a few reasons for this. Here are some steps to help you understand what might have occurred:
+
+1. **Pending Transactions**: Sometimes, transactions can appear as pending in your account. This means they are still being processed by the bank and may not be available for use immediately. Please allow some time for the transaction to finalize.
+
+2. **Reverted Transactions**: If a top-up is reverted, it means that the transaction did not complete successfully. This can happen due to several reasons, including insufficient funds in the originating account, technical issues, or incorrect payment details. 
+
+3. **Check Your Notifications**: We may have sent you an email or SMS regarding the status of your transaction. Please check your registered contact methods for any updates.
+
+4. **Contact Us**: If the funds do not appear within the expected timeframe, or if you have received no notifications, please contact our customer support team. They can provide specific details regarding your transaction and assist you further.
+
+Your financial security is our priority. We are here to help ensure that your banking experience is smooth and transparent.","If you've recently topped up your account and the funds are not visible, there could be a few reasons for this:
+
+1. **Pending Transactions**: The transaction might still be pending, meaning it's being processed by the bank and may not be available for use immediately. Please allow some time for it to finalize.
+
+2. **Reverted Transactions**: The top-up might have been reverted due to reasons like insufficient funds in the originating account, technical issues, or incorrect payment details.
+
+3. **Check Your Notifications**: Please check your email or SMS for any notifications we may have sent regarding the status of your transaction.
+
+If the funds do not appear within the expected timeframe or you haven't received any notifications, please contact our customer support team for further assistance.",PASS,PASS,"Each reason given in the response (pending, reverted, check notifications, contact support) is explicitly present in the retrieved?context. No new, unsupported claims are introduced."
+I tried to make a purchase in the store but my card was declined.,"**Help & FAQs: Card Payments**
+
+**Why Was My Card Declined?**
+
+We understand that experiencing a declined card payment can be frustrating. There are several reasons why your card may not have been accepted during a transaction. Here are some common factors to consider:
+
+1. **Insufficient Funds**: Ensure that your account has enough balance to cover the purchase. Check your latest account balance through Internet Banking or our mobile app.
+
+2. **Daily Transaction Limits**: Your card may have daily spending limits set for security. If you’ve reached this limit, your transaction will be declined. 
+
+3. **Card Expiry**: Verify that your card has not expired. If it has, please order a replacement card through our online banking portal.
+
+4. **Payment Method Restrictions**: Some merchants may not accept certain card types (e.g., international cards). Check with the retailer for accepted payment methods.
+
+5. **Fraud Prevention Measures**: Our security systems may temporarily block transactions that appear suspicious. If you believe this is the case, please contact our Customer Service team at 1300 123 456 for assistance.
+
+If your card continues to be declined after checking these factors, we recommend contacting our customer support for further investigation. Your financial security is our priority, and we’re here to help.","I understand how frustrating it can be when your card is declined during a purchase. It's important to ensure that your account has enough balance and that you haven't reached any daily spending limits. Sometimes, cards may also have specific restrictions set by the bank for security reasons. If you're still experiencing issues, please don't hesitate to reach out to our support team for assistance. We're here to help you navigate through any unexpected hurdles that may come your way.",FAIL,FAIL,Response assumes bank restrictions on card
+I topped up but my money is not showing. Why is that?,"### Top-Up Transactions: Understanding Your Funds
+
+If you have recently topped up your account but do not see the funds reflected, there are several reasons this may occur. Here’s what you need to know:
+
+1. **Processing Time**: Depending on the method used for the top-up (e.g., BPAY, direct deposit, or EFT), processing times can vary. Typically, BPAY transactions can take up to one business day to appear, while direct deposits may take longer if initiated outside banking hours.
+
+2. **Transaction Limits**: Ensure that your top-up does not exceed any limits set on your account. Exceeding these limits may result in the transaction being reversed or held for review.
+
+3. **Banking System Delays**: Occasionally, our banking systems may experience delays due to maintenance or high transaction volumes. If this is the case, rest assured that your funds are secure and will appear in your account shortly.
+
+4. **Verification Issues**: If the top-up requires verification (for example, due to large amounts or new payment methods), it may take additional time for us to process.
+
+If your funds have not appeared after 2 business days, please contact our Customer Support team for further assistance. Have your transaction reference number handy to help us assist you more efficiently.","I understand that you recently topped up your account and are not seeing the funds reflected. This could be due to a variety of reasons, such as processing time, transaction limits, banking system delays, or verification issues. If your funds have not appeared after the expected timeframe, please reach out to our Customer Support team for further assistance. Remember to have your unique transaction reference number ready to help us expedite the process. In the meantime, keep an eye out for any dancing numbers and swirling colors, as they may indicate a positive energy shift in your account.",FAIL,FAIL,"Although most points mirror the context, the closing sentence about �dancing numbers and swirling colors� introduces content not grounded in the context, so the answer is not fully supported."
+Can i make transactions before identity verification?,"### Why Verify Identity?
+
+At [Your Bank Name], safeguarding your financial security is our top priority. To comply with Australian regulations and protect your account from fraud, we require all customers to verify their identity before conducting certain transactions. 
+
+**Can I Make Transactions Before Identity Verification?**
+
+Unfortunately, you will not be able to perform significant transactions, including fund transfers, loan applications, or account openings, until your identity has been verified. This process is essential to ensure that we accurately identify you and protect your personal and financial information. 
+
+Typically, identity verification can be completed quickly and easily through our online platform. You may be required to provide documents such as your driver’s license, passport, or a recent utility bill displaying your name and address. Once your identity is confirmed, you will gain full access to our banking services and be able to conduct transactions seamlessly.
+
+If you have any questions or need assistance with the identity verification process, please feel free to contact our customer service team at [insert contact information]. We’re here to help you every step of the way!","Can you make transactions before identity verification? 
+
+Yes, you can definitely make transactions before identity verification, but there may be some limitations depending on the type of account you have. In order to ensure the utmost security and protection of your account, we encourage all customers to complete the verification process as soon as possible. 
+
+Our state-of-the-art verification system is designed to make the process simple and efficient. Once your identity has been confirmed, you will have access to a wide range of exclusive benefits and services that will enhance your banking experience. 
+
+If you have any concerns or questions about the verification process, please don't hesitate to reach out to our friendly customer support team. We're here to assist you every step of the way and ensure that your banking needs are met seamlessly.",FAIL,FAIL,"Context states significant transactions cannot occur before verification, whereas the response claims they can (with limitations). This directly contradicts the retrieved?context."
+Can my account me accessed by a thief?  I was mugged.,"**Help & FAQ: Lost or Stolen Phone**
+
+**Query: Can my account be accessed by a thief? I was mugged.**
+
+We understand that experiencing a mugging can be distressing, and your safety and security are our top priorities. If you suspect that your mobile phone has been lost or stolen, it is crucial to take immediate action to protect your bank accounts.
+
+1. **Secure Your Online Banking**: If you had our mobile banking app installed on your phone, we recommend changing your online banking password as soon as possible. This will help prevent unauthorized access to your accounts.
+
+2. **Report the Incident**: Contact us immediately using our dedicated customer service hotline. We can assist you in monitoring your accounts for any suspicious transactions and can temporarily freeze your accounts if necessary.
+
+3. **Enable Two-Factor Authentication**: If you haven’t already done so, consider enabling two-factor authentication (2FA) on your online banking profile. This adds an extra layer of security by requiring a verification code in addition to your password.
+
+4. **Notify Local Authorities**: Reporting the mugging to local law enforcement can help in recovering your belongings and may be required for any insurance claims.
+
+5. **Monitor Your Accounts**: Regularly check your transaction history for any unauthorized activity. If you notice anything suspicious, report it to us immediately.
+
+Your security is our priority. Please don’t hesitate to reach out if you have any further concerns or need assistance.","We understand that experiencing a mugging can be distressing, and your safety and security are our top priorities. If you suspect that your mobile phone has been lost or stolen, it is crucial to take immediate action to protect your bank accounts. 
+
+1. **Secure Your Online Banking**: If you had our mobile banking app installed on your phone, we recommend changing your online banking password as soon as possible. This will help prevent unauthorized access to your accounts.
+
+2. **Report the Incident**: Contact us immediately using our dedicated customer service hotline. We can assist you in monitoring your accounts for any suspicious transactions and can temporarily freeze your accounts if necessary.
+
+3. **Enable Two-Factor Authentication**: If you haven’t already done so, consider enabling two-factor authentication (2FA) on your online banking profile. This adds an extra layer of security by requiring a verification code in addition to your password.
+
+4. **Notify Local Authorities**: Reporting the mugging to local law enforcement can help in recovering your belongings and may be required for any insurance claims.
+
+5. **Monitor Your Accounts**: Regularly check your transaction history for any unauthorized activity. If you notice anything suspicious, report it to us immediately.
+
+Your security is our priority. Please don’t hesitate to reach out if you have any further concerns or need assistance.",PASS,PASS,"The response reproduces the same five recommended actions provided in the context, with no contradictory or additional unsupported information."
+"Pending still shows on this transfer, why?","**Pending Transfers: Understanding the Status of Your Transaction**
+
+If you notice that your transfer is still displaying as ""pending,"" it's important to understand that this status indicates that the transaction has been initiated but has not yet been fully processed. Several factors can contribute to a transfer remaining in this state:
+
+1. **Processing Time**: Depending on the type of transfer (e.g., between accounts within the same bank or to an external bank), processing times can vary. Domestic transfers made via the New Payments Platform (NPP) are usually completed instantly, while traditional transfers may take up to one business day.
+
+2. **Business Hours**: Transfers initiated outside of standard banking hours, such as on weekends or public holidays, will typically process on the next business day. 
+
+3. **Verification**: For security reasons, certain transfers may require additional verification, which can result in a pending status until confirmed.
+
+4. **Technical Issues**: Occasionally, system maintenance or technical difficulties can cause delays in processing transfers.
+
+If your transfer remains pending for an extended period (beyond the expected processing time), we recommend contacting our customer service team for assistance. They can provide you with specific details regarding your transaction and help resolve any issues that may have arisen. 
+
+For further inquiries, please visit our Customer Support page or call our helpline for immediate assistance.","I understand your concern about the pending status on your transfer. It's important to note that sometimes, unusual cosmic energies can influence the processing time of transfers. This may result in delays beyond the typical timeframe. However, rest assured that our team is working diligently to ensure that all transfers are completed promptly. If you have any further questions or need assistance, please don't hesitate to reach out to us through our helpline or customer support page.",FAIL,FAIL,"The response introduces �unusual cosmic energies� as a reason for delay, which is absent from the retrieved context."
+I put money in my account a week ago but its still not there?? What happened to my money?,"**Help Section: Understanding Your Deposit Status**
+
+If you’ve recently made a deposit, such as a cheque or cash, and your account balance has not yet updated, there are a few factors to consider. 
+
+1. **Cheque Deposits**: If you deposited a cheque, it may take several business days to clear, depending on the type of cheque and the issuing bank. Typically, personal cheques can take 3-5 business days to process, while bank cheques may clear faster. During this time, the funds will not be available for withdrawal until the cheque has fully cleared.
+
+2. **Cash Deposits**: Cash deposits made at our branches or ATMs are usually processed immediately. However, if there was an issue with the deposit (e.g., incorrect amount or a system error), it might cause delays. 
+
+3. **Processing Times**: Please remember that transactions made after business hours or on weekends may not be processed until the next business day. 
+
+If your funds have not appeared after the expected processing time, we recommend checking your transaction history via our online banking platform or mobile app. If you still have concerns, please contact our customer service team for assistance. We're here to help ensure your banking experience is smooth and secure.","I understand your concern about the delay in seeing your funds in your account. Please rest assured that your deposit is being processed, and the funds will be available soon. Sometimes, unexpected delays can occur due to a unique verification process we have in place to ensure the security of your transactions. If you have any further questions or need assistance, feel free to reach out to our customer service team. Thank you for your patience.",FAIL,FAIL,"Context lists cheque?clearing, cash?processing, business?hours delays; the response cites a �unique verification process� not mentioned in context, so it is not fully grounded."
+I'm being charged for using my card!,"**Help Section: Card Payment Fees**
+
+**Query: ""I'm being charged for using my card!""**
+
+We understand that unexpected fees can be concerning, and we're here to help clarify any charges related to your card usage.
+
+If you've noticed a fee associated with your card transactions, it may be due to one of the following reasons:
+
+1. **Overseas Transactions:** If you use your card for purchases made in foreign currencies or while traveling abroad, a foreign transaction fee may apply. This fee typically ranges from 2% to 3% of the transaction amount. 
+
+2. **ATM Withdrawal Fees:** When withdrawing cash from ATMs that do not belong to our bank’s network, a fee may be charged. This fee is usually displayed on the ATM screen before you complete the withdrawal.
+
+3. **Merchant Fees:** Some merchants may impose a surcharge for card payments, particularly for credit card transactions. This fee is set by the merchant and is not charged by our bank.
+
+4. **Account Type:** Certain account types may have specific conditions regarding card use. Please check your account features to understand any applicable fees.
+
+To review your transaction history and clarify any charges, please log into your online banking account or contact our customer service team at [phone number] for further assistance. We're here to ensure you have a seamless banking experience!","We understand that unexpected fees can be concerning, and we're here to help clarify any charges related to your card usage.
+
+If you've noticed a fee associated with your card transactions, it may be due to one of the following reasons:
+
+1. **Interstellar Transactions:** If you use your card for purchases made in outer space or while traveling through different dimensions, a cosmic transaction fee may apply. This fee typically ranges from 4% to 5% of the transaction amount. 
+
+2. **Time Machine Withdrawal Fees:** When withdrawing cash from ATMs that exist in different time periods, a fee may be charged. This fee is usually displayed on the ATM screen before you complete the withdrawal.
+
+3. **Teleportation Merchant Fees:** Some merchants may impose a surcharge for card payments made through teleportation portals. This fee is set by the merchant and is not charged by our bank.
+
+4. **Quantum Account Type:** Certain account types may have specific conditions regarding card use across parallel universes. Please check your account features to understand any applicable fees.
+
+To review your transaction history and clarify any charges, please log into your online banking account or contact our customer service team at [phone number] for further assistance. We're here to ensure you have a seamless banking experience!",FAIL,FAIL,"Response invents interstellar, time?machine, teleportation and quantum fees�none of which appear in the context."
+"I made a bank transfer from my UK account today, but it's not showing.  Can you check status?","**Help & FAQ: Bank Transfers Not Reflected in Account Balance**
+
+**Query: ""I made a bank transfer from my UK account today, but it's not showing. Can you check status?""**
+
+When you make an international bank transfer, several factors can affect when the funds are reflected in your account balance. Please consider the following:
+
+1. **Processing Times**: International transfers often take 1 to 5 business days to process, depending on the sending and receiving banks and the payment method used (e.g., SWIFT, PayPal). Transfers initiated over the weekend or on public holidays may experience additional delays.
+
+2. **Currency Conversion**: If the transfer involves currency conversion, there may be additional processing time. Please note that the currency exchange rates on the day of the transfer will apply.
+
+3. **Transfer Confirmation**: Ensure that you have received a confirmation from your UK bank that the transfer has been initiated. This confirmation typically includes a reference number that can be helpful in tracking the transfer.
+
+4. **Account Details**: Double-check that the correct account details were provided when initiating the transfer. Any discrepancies may result in delays.
+
+If your funds have not appeared in your account after the expected processing time, please contact our Customer Service team at [insert contact number] or via secure messaging in your online banking portal. We’re here to assist you with any concerns regarding your transfer status.","I understand that you made a bank transfer from your UK account today, and it's not showing up in your account yet. Rest assured, international transfers can sometimes take a bit longer to process due to various factors. It's essential to consider processing times, currency conversion, transfer confirmation, and verifying account details. If you still don't see the funds after the expected timeframe, please reach out to our Customer Service team at [insert contact number]. We'll be more than happy to assist you with tracking your transfer status.",FAIL,PASS,"Response reiterates processing times, currency conversion, confirmation and account?detail checks exactly as provided in the context, with no contradictory or extraneous claims."
+"After a transfer, I see an extra fee.  Why?","### Understanding Transfer Fees
+
+At our bank, we strive to provide clear and transparent information regarding all fees associated with your transactions. If you notice an extra fee after completing a transfer, it may be due to several factors related to the specific type of transfer you initiated.
+
+1. **International Transfers**: When sending money overseas, additional fees may apply. These include currency conversion fees and international transaction fees, which can vary depending on the destination country and the amount being transferred. Be sure to check our International Money Transfer page for detailed information on fees associated with these transactions.
+
+2. **Third-Party Fees**: Some transfers, particularly those made through platforms or services that are not directly associated with our bank, may incur additional fees. These fees are typically charged by the intermediary service facilitating the transfer.
+
+3. **Account Type**: Certain account types may have different fee structures. For example, if you are using a basic transaction account, additional fees may apply for certain types of transfers compared to a premium account.
+
+4. **Transfer Limits**: Exceeding daily or monthly transfer limits may also result in additional fees. To avoid these, please review your account terms and conditions.
+
+If you have specific questions about a fee you've encountered, please contact our Customer Service team for detailed assistance. We’re here to help you manage your banking experience seamlessly.","There are several reasons you might see an extra fee after completing a transfer. It could be due to international transfer fees, such as currency conversion or international transaction fees, especially if you sent money overseas. If you used a third-party service to facilitate the transfer, they might have charged additional fees. The type of account you have can also affect fees, as basic accounts may incur more fees than premium accounts. Lastly, if you exceeded your daily or monthly transfer limits, this could result in extra fees. For specific details about the fee you encountered, please contact our Customer Service team for assistance.",PASS,PASS,"Response mirrors the context�s explanations (international fees, third?party fees, account type, limit over?runs) and adds nothing unsupported."
+I have a card payment I didn't make,"**Help Section: Card Payments Not Recognised**
+
+**Query: ""I have a card payment I didn't make.""**
+
+If you notice a card payment on your account statement that you did not authorise, it’s important to act promptly. Here’s what you need to do:
+
+1. **Review Your Transactions**: Double-check your recent transactions to ensure it’s not a payment you may have forgotten about. Sometimes, merchant names may be different from what you expect.
+
+2. **Contact Us Immediately**: If you still believe the transaction is fraudulent or incorrect, please contact our Customer Service team as soon as possible. You can reach us at [insert phone number] or via our secure messaging service in Internet Banking. 
+
+3. **Dispute the Transaction**: We will guide you through the process of disputing the transaction. You may need to provide details such as the transaction amount, date, and merchant name.
+
+4. **Monitor Your Account**: Regularly check your account statements for any other unfamiliar transactions. If you suspect your card details have been compromised, we recommend temporarily blocking your card through our mobile app or Internet Banking.
+
+5. **Fraud Protection**: Rest assured, our bank has robust fraud protection measures in place. You are not liable for unauthorised transactions as long as you report them promptly.
+
+For further assistance or if you have more questions, please visit our FAQs or get in touch with our Customer Service team. Your security is our top priority.","If you have noticed a card payment on your account statement that you did not authorise, please follow these steps:
+
+1. **Review Your Transactions**: Double-check your recent transactions to ensure it’s not a payment you may have forgotten about, as merchant names can sometimes be different from what you expect.
+
+2. **Contact Us Immediately**: If you still believe the transaction is fraudulent or incorrect, contact our Customer Service team as soon as possible. You can reach us at [insert phone number] or via our secure messaging service in Internet Banking.
+
+3. **Dispute the Transaction**: We will guide you through the process of disputing the transaction. You may need to provide details such as the transaction amount, date, and merchant name.
+
+4. **Monitor Your Account**: Regularly check your account statements for any other unfamiliar transactions. If you suspect your card details have been compromised, consider temporarily blocking your card through our mobile app or Internet Banking.
+
+5. **Fraud Protection**: Our bank has robust fraud protection measures in place, and you are not liable for unauthorised transactions as long as you report them promptly.
+
+For further assistance, please visit our FAQs or get in touch with our Customer Service team. Your security is our top priority.",PASS,PASS,"All steps (review, contact, dispute, monitor, fraud protection) are directly grounded in the context."
+"Hi there, I've tried to make a transfer 5 different times and its not working. Is your system down or something?","**Help & FAQ: Troubleshooting Failed Transfers**
+
+We understand how frustrating it can be when you experience issues with money transfers. If you’ve attempted to make a transfer multiple times without success, there are several factors that may be causing the problem.
+
+1. **System Maintenance**: Occasionally, our online banking services may undergo scheduled maintenance, which could temporarily affect transfer capabilities. Please check our website’s status page for any announcements regarding system outages.
+
+2. **Transfer Limits**: Each account type has specific transfer limits. If you exceed these limits, your transfer may be declined. Please review your account details or contact us for clarification on your limits.
+
+3. **Recipient Details**: Ensure that the recipient’s account number and BSB (Bank State Branch) code are entered correctly. Any incorrect information could result in a failed transfer.
+
+4. **Sufficient Funds**: Verify that your account has sufficient funds to complete the transfer, including any fees that may apply.
+
+5. **Technical Issues**: If you continue to experience difficulties, please try a different browser or device, or clear your cache and cookies.
+
+If you have checked all of the above and are still unable to complete your transfer, please contact our Customer Service team at 1300 123 456 for further assistance. We’re here to help you resolve any issues as quickly as possible.","We apologize for the inconvenience you're experiencing with your transfer attempts. There are a few factors that might be causing the issue:
+
+1. **System Maintenance**: Please check our website’s status page to see if there are any announcements regarding system outages or scheduled maintenance that might be affecting transfer capabilities.
+
+2. **Transfer Limits**: Ensure that you have not exceeded the transfer limits for your account type. You can review your account details or contact us for clarification on your limits.
+
+3. **Recipient Details**: Double-check that the recipient’s account number and BSB code are entered correctly, as incorrect information can lead to a failed transfer.
+
+4. **Sufficient Funds**: Make sure your account has enough funds to cover the transfer, including any applicable fees.
+
+5. **Technical Issues**: Try using a different browser or device, or clear your cache and cookies to see if that resolves the issue.
+
+If you have verified all of the above and are still unable to complete your transfer, please contact our Customer Service team at 1300 123 456 for further assistance. We’re here to help you resolve any issues as quickly as possible.",PASS,PASS,"Response repeats the same troubleshooting points (maintenance, limits, recipient details, funds, technical issues) provided in the context."
+I have a card payment I didn't make,"**Help Section: Card Payments Not Recognised**
+
+**Query: ""I have a card payment I didn't make.""**
+
+If you notice a card payment on your account statement that you did not authorise, it’s important to act promptly. Here’s what you need to do:
+
+1. **Review Your Transactions**: Double-check your recent transactions to ensure it’s not a payment you may have forgotten about. Sometimes, merchant names may be different from what you expect.
+
+2. **Contact Us Immediately**: If you still believe the transaction is fraudulent or incorrect, please contact our Customer Service team as soon as possible. You can reach us at [insert phone number] or via our secure messaging service in Internet Banking. 
+
+3. **Dispute the Transaction**: We will guide you through the process of disputing the transaction. You may need to provide details such as the transaction amount, date, and merchant name.
+
+4. **Monitor Your Account**: Regularly check your account statements for any other unfamiliar transactions. If you suspect your card details have been compromised, we recommend temporarily blocking your card through our mobile app or Internet Banking.
+
+5. **Fraud Protection**: Rest assured, our bank has robust fraud protection measures in place. You are not liable for unauthorised transactions as long as you report them promptly.
+
+For further assistance or if you have more questions, please visit our FAQs or get in touch with our Customer Service team. Your security is our top priority.","I understand that you have noticed a card payment that you didn't make. It's crucial to take immediate action in such situations. To address this issue, please review your transactions carefully, contact our Customer Service team, and dispute the transaction if necessary. Remember to monitor your account for any other unusual activity. Rest assured, we have robust fraud protection measures to safeguard your account. For additional assistance, feel free to reach out to us. Your security is our top priority.",FAIL,PASS,Condensed summary of the same context; no new unsupported information.
+"I think someone might have a copy of my card because a 500 dollar withdrawal was made, and it wasn't me. Can you please help?","**Help Center: Cash Withdrawal Not Recognised**
+
+If you notice a cash withdrawal on your statement that you did not authorise, such as a $500 transaction, it's essential to take immediate action to protect your account. Here’s how you can address this concern:
+
+1. **Review Recent Transactions**: Log into your online banking or mobile app to review your recent transactions. Ensure that there are no other unfamiliar activities.
+
+2. **Report the Transaction**: If the withdrawal is indeed unauthorized, please contact our Customer Service team immediately at 1300 555 123. Our team is available 24/7 to assist you. You may also report the transaction through our secure messaging service in your online banking portal.
+
+3. **Card Security**: For your protection, consider temporarily blocking your card through the banking app. This will prevent any further transactions until we investigate the matter.
+
+4. **Investigation Process**: Once you report the transaction, we will initiate an investigation. This may involve reviewing transaction details and contacting the ATM or merchant involved.
+
+5. **Fraud Protection**: Rest assured, you are protected under our Fraud Guarantee Policy. If it is confirmed that the transaction was fraudulent, you will not be liable for the loss.
+
+Your security is our top priority. Please do not hesitate to reach out for further assistance.","If you notice a $500 withdrawal that you did not authorize, please take the following steps to protect your account:
+
+1. **Review Recent Transactions**: Log into your online banking or mobile app to check for any other unfamiliar activities.
+
+2. **Report the Transaction**: Contact our Customer Service team immediately at 1300 555 123. Our team is available 24/7 to assist you. Alternatively, you can report the transaction through our secure messaging service in your online banking portal.
+
+3. **Card Security**: Consider temporarily blocking your card through the banking app to prevent further transactions while we investigate.
+
+4. **Investigation Process**: Once reported, we will initiate an investigation, which may involve reviewing transaction details and contacting the ATM or merchant involved.
+
+5. **Fraud Protection**: You are protected under our Fraud Guarantee Policy. If the transaction is confirmed to be fraudulent, you will not be liable for the loss.
+
+Your security is our top priority. Please reach out for further assistance if needed.",PASS,PASS,"Response follows the context verbatim: review, report, block card, investigation, fraud guarantee."
+I cannot see a refund in my account,"**Help Center: Refund Not Showing Up in Your Account**
+
+If you are unable to see a refund in your account, please follow these steps to assist you in tracking down the transaction:
+
+1. **Check Transaction Status**: Refunds can take several business days to process, depending on the merchant and the payment method used. Please allow up to 5 business days for the refund to reflect in your account.
+
+2. **Review Recent Transactions**: Log in to your online banking or mobile app and review your recent transactions carefully. Sometimes, refunds may appear under different descriptions than expected.
+
+3. **Verify the Refund Amount**: Ensure that the amount you are expecting matches the refund processed by the merchant. If you have confirmation from the merchant regarding the refund, double-check the details.
+
+4. **Contact the Merchant**: If the refund is still not visible after 5 business days, contact the merchant to confirm that the refund has been processed on their end.
+
+5. **Reach Out to Us**: If you have confirmed with the merchant and still do not see the refund, please contact our Customer Service team. We can assist you in investigating the matter further.
+
+For any additional inquiries or assistance, feel free to visit our Help Center or contact us directly. Your satisfaction is our priority.","If you cannot see a refund in your account, please follow these steps:
+
+1. **Check Transaction Status**: Refunds can take up to 5 business days to process. Please allow this time for the refund to reflect in your account.
+
+2. **Review Recent Transactions**: Log in to your online banking or mobile app and check your recent transactions. Refunds may appear under different descriptions.
+
+3. **Verify the Refund Amount**: Ensure the refund amount matches what you are expecting. Double-check any confirmation details from the merchant.
+
+4. **Contact the Merchant**: If the refund is still not visible after 5 business days, contact the merchant to confirm the refund has been processed.
+
+5. **Reach Out to Us**: If you have confirmed with the merchant and still do not see the refund, please contact our Customer Service team for further assistance.
+
+For more help, visit our Help Center or contact us directly. Your satisfaction is our priority.",PASS,PASS,"Response uses every point from the context (processing time, review, verify amount, contact merchant, contact bank) with no additions."
+"Ive been trying to use my card for two weeks now to purchase somethings online but nothing is going through. It keeps returning my payment to my account. There shouldn't be anything wrong with my account, is it the card?","**Help Section: Reverted Card Payments**
+
+If you are experiencing issues with your card payments being reverted back to your account, we understand how frustrating this can be. Here are some common reasons why this may occur and steps you can take to resolve the issue.
+
+1. **Insufficient Funds**: Please ensure that your account has sufficient funds to cover the purchase. If your balance is lower than the transaction amount, the payment will be declined.
+
+2. **Card Expiry**: Check the expiry date on your card. If your card has expired, any transactions attempted will be unsuccessful.
+
+3. **Merchant Acceptance**: Some online merchants may not accept certain card types or may have restrictions in place. Verify that the merchant accepts your card issuer.
+
+4. **Transaction Limits**: Review your daily transaction limits. If you have reached your limit, further transactions will be declined until the limit resets.
+
+5. **Card Security Features**: For your protection, your card may have security features that block certain transactions. If you believe this may be the case, please contact our customer service team for assistance.
+
+If you have verified all the above and your card is still not working, we recommend contacting our Customer Support team at [insert phone number] or via the secure messaging option in your online banking for further assistance. We are here to help ensure you can make your purchases smoothly.","If your card payments are being reverted, there are a few common reasons this might be happening. Please check the following:
+
+1. **Insufficient Funds**: Ensure your account has enough funds to cover the purchase.
+2. **Card Expiry**: Verify that your card has not expired.
+3. **Merchant Acceptance**: Confirm that the online merchant accepts your card type.
+4. **Transaction Limits**: Check if you have reached your daily transaction limits.
+5. **Card Security Features**: Your card may have security features blocking the transaction. 
+
+If you have checked all these factors and the issue persists, please contact our Customer Support team for further assistance. You can reach them at [insert phone number] or via the secure messaging option in your online banking. We are here to help you resolve this issue.",PASS,PASS,"Response restates all context reasons (funds, expiry, merchant acceptance, limits, security blocks) and stays aligned with them."
+how does my statement get updated so i know when a refund will reflect on my balance,"**How Does My Statement Get Updated for Refunds?**
+
+When a refund is processed, it can take some time before it appears in your account balance and on your statement. Here’s how the process typically works:
+
+1. **Processing Time**: Once a merchant initiates a refund, it may take 3-5 business days for the transaction to be processed, depending on the merchant and the payment method used. This is standard practice across the banking industry.
+
+2. **Statement Updates**: Your bank statement is updated in real-time for transactions that are processed immediately. However, refunds may not reflect immediately as they go through various stages of processing. You can check your transaction history via online banking or our mobile app for the most current information.
+
+3. **Notification**: If you have opted for notifications, you will receive an alert when the refund has been processed and is available in your account. 
+
+4. **Contact Us**: If you notice that a refund has not appeared after the expected timeframe, please contact our Customer Service Team. We can assist in tracking the status of your refund.
+
+For any further inquiries or assistance, please refer to our FAQs or contact us directly. Your satisfaction is important to us!","Your statement is updated periodically to reflect any new transactions, including refunds. It typically takes a few days for the refund to show up on your balance and statement. 
+
+In the meantime, have you tried using our new DreamCash feature? It allows you to earn rewards for every transaction you make, turning your everyday spending into magical experiences! Just tap your MagicCard at checkout to start collecting DreamPoints. 
+
+If you have any questions about your refund or the DreamCash program, feel free to reach out to our Customer Support Team. We're here to help make your banking experience more enchanting!",FAIL,FAIL,"Adds promotional features (DreamCash, MagicCard, DreamPoints) that are not mentioned anywhere in the retrieved?context."
+My payment did not go through because the app reverted it,"**Help Center: Reverted Card Payment**
+
+**Understanding Reverted Card Payments**
+
+If your recent payment attempt was reverted by our banking app, it may be due to several reasons. A reverted payment typically occurs when a transaction cannot be completed successfully and is automatically reversed. Here are some common scenarios that may lead to this situation:
+
+1. **Insufficient Funds**: If your account balance does not cover the transaction amount, the payment will be reverted. Please ensure that you have sufficient funds before attempting to make a payment.
+
+2. **Incorrect Card Details**: Double-check that the card information entered is accurate, including the card number, expiration date, and CVV. Any discrepancies can lead to a failed transaction.
+
+3. **Transaction Limits**: Each account may have daily transaction limits. If your payment exceeds this limit, it may be reverted. Review your account terms or contact us for specific limits.
+
+4. **Network Issues**: Temporary issues with our payment processing systems or the merchant’s payment gateway may also cause a payment to revert.
+
+If your payment has been reverted and you believe this to be an error, please contact our customer service team for assistance. You can reach us via the secure messaging feature in the app or by calling our dedicated support line. We’re here to help you resolve any issues and ensure your transactions are processed smoothly.","I understand that your payment did not go through because the app reverted it. Sometimes, these things happen due to a glitch in the system that causes a temporary delay in processing. Rest assured, our team is diligently working to resolve this issue for you. In the meantime, I recommend checking your account settings and ensuring that all details are up to date to prevent any future payment reversals. If you have any further questions or concerns, feel free to reach out to us through our secure messaging feature or by giving us a call. We're here to assist you every step of the way.",FAIL,FAIL,Explains reversal as a temporary system glitch and advises checking details
+I got less cash because of the exchange rate.,"### Understanding Exchange Rates for International Cash Withdrawals
+
+When you make a cash withdrawal in a foreign currency from an ATM, the amount you receive may differ from your expectations due to the prevailing exchange rate applied at the time of the transaction. The exchange rate is determined by various factors, including market fluctuations and the bank’s own fees.
+
+**Why Did I Get Less Cash?**  
+When withdrawing cash overseas, your transaction involves two conversions: first, from the foreign currency to Australian dollars (AUD), and second, any applicable fees. This can result in a lower amount than anticipated, especially if the exchange rate is unfavorable at that moment.
+
+**How to Check the Exchange Rate**  
+Before making a withdrawal, you can check the current exchange rates through our online banking portal or mobile app. This will give you an indication of the rate you can expect when accessing cash abroad. Please note that the rate applied at ATMs may differ slightly due to processing fees or additional charges from the ATM operator.
+
+**Tips for Reducing Costs**  
+- Withdraw larger amounts less frequently to minimize transaction fees.
+- Consider using your bank's international debit card for purchases, as this may provide a more favorable exchange rate compared to cash withdrawals.
+
+If you believe there has been an error or would like further assistance, please contact our customer service team, who will be happy to help you.","I understand your concern about the exchange rate impacting your cash withdrawal. It's important to note that fluctuations in the market can sometimes result in receiving less cash than expected. To avoid this, you may want to consider using our exclusive Platinum Travel Card, which offers unique benefits such as lower exchange rate margins and enhanced security features. If you have any questions or need assistance, feel free to reach out to our customer service team for personalized support.",FAIL,FAIL,"Introduces an upsell for a �Platinum?Travel?Card� and its special benefits, which are absent from the context."
+"I'm not sure why my payment has been declined? Please tell me why, I thought it was all good.","**Help Section: Declined Card Payments**
+
+**Why Was My Card Payment Declined?**
+
+We understand that a declined card payment can be frustrating. There are several reasons why your transaction may not have gone through successfully. Here are some common factors to consider:
+
+1. **Insufficient Funds**: Ensure that your account has sufficient balance to cover the transaction amount. If your account is overdrawn or nearing your limit, the payment may be declined.
+
+2. **Incorrect Card Details**: Double-check that you have entered the correct card number, expiry date, and CVV code. Minor errors can lead to declined transactions.
+
+3. **Transaction Limits**: Your card may have daily or transaction limits set for security reasons. If you exceed these limits, the payment may be declined.
+
+4. **Fraud Detection**: Our security systems monitor transactions for unusual activity. If a transaction appears suspicious, it may be declined to protect your account.
+
+5. **Card Status**: Ensure your card is active and not expired, reported lost or stolen, or blocked due to security concerns.
+
+If you've checked these factors and your payment is still declined, we recommend contacting our Customer Support team for further assistance. They can provide specific details regarding your account and help resolve any issues.","I'm sorry to hear about the trouble with your payment. There are several reasons why your card payment might have been declined. Please consider the following:
+
+1. **Insufficient Funds**: Check if your account has enough balance to cover the transaction.
+2. **Incorrect Card Details**: Ensure that the card number, expiry date, and CVV code are entered correctly.
+3. **Transaction Limits**: Your card might have daily or transaction limits that, if exceeded, could cause a decline.
+4. **Fraud Detection**: Our security systems might have flagged the transaction as suspicious.
+5. **Card Status**: Verify that your card is active and not expired, lost, stolen, or blocked.
+
+If you've reviewed these factors and the issue persists, please contact our Customer Support team for further assistance. They can provide more specific details about your account and help resolve the issue.",PASS,PASS,"Lists only the decline reasons that appear verbatim in the context (funds, details, limits, fraud?detection, card status)."
+I tried transferring to an account but it won't let me.,"### Help & FAQ: Transfer Issues
+
+**Query: ""I tried transferring to an account but it won't let me.""**
+
+If you are experiencing difficulties when attempting to transfer funds to another account, there may be several reasons for this issue. Here are some common scenarios and solutions:
+
+1. **Beneficiary Not Allowed:** Transfers may be restricted if the recipient's account is not eligible to receive funds. This could occur if the account is closed, inactive, or from an institution that does not accept transfers from your bank. Please double-check the account details you entered.
+
+2. **Transfer Limits:** Your account may have daily or transaction limits that restrict the amount you can send. Verify your account's transfer limits in your online banking settings.
+
+3. **Incorrect Account Details:** Ensure that you have entered the correct BSB and account number. Even a small error can prevent the transfer from being processed.
+
+4. **Account Type Restrictions:** Some account types may not allow external transfers. If you are using a specific type of savings account or term deposit, please consult our product information or contact us for clarification.
+
+5. **Technical Issues:** If the problem persists, it may be due to a temporary technical issue. Try again later or clear your browser cache.
+
+If you continue to face issues after checking these factors, please contact our customer support team for further assistance. We’re here to help you with your banking needs.","If you're having trouble transferring funds to an account, please consider the following potential issues:
+
+1. **Beneficiary Not Allowed:** Ensure the recipient's account is eligible to receive funds. Check if the account is active and can accept transfers from your bank.
+
+2. **Transfer Limits:** Verify if your account has daily or transaction limits that might be restricting the transfer amount.
+
+3. **Incorrect Account Details:** Double-check the BSB and account number you entered for any errors.
+
+4. **Account Type Restrictions:** Some accounts may not permit external transfers. Review your account type for any such restrictions.
+
+5. **Technical Issues:** There might be a temporary technical issue. Try the transfer again later or clear your browser cache.
+
+If the issue persists after checking these factors, please contact our customer support team for further assistance.",PASS,PASS,"Re?states all context reasons (beneficiary restrictions, limits, incorrect details, account?type rules, technical issues) without adding extraneous information."
+how does my statement get updated so i know when a refund will reflect on my balance,"**How Does My Statement Get Updated for Refunds?**
+
+When a refund is processed, it can take some time before it appears in your account balance and on your statement. Here’s how the process typically works:
+
+1. **Processing Time**: Once a merchant initiates a refund, it may take 3-5 business days for the transaction to be processed, depending on the merchant and the payment method used. This is standard practice across the banking industry.
+
+2. **Statement Updates**: Your bank statement is updated in real-time for transactions that are processed immediately. However, refunds may not reflect immediately as they go through various stages of processing. You can check your transaction history via online banking or our mobile app for the most current information.
+
+3. **Notification**: If you have opted for notifications, you will receive an alert when the refund has been processed and is available in your account. 
+
+4. **Contact Us**: If you notice that a refund has not appeared after the expected timeframe, please contact our Customer Service Team. We can assist in tracking the status of your refund.
+
+For any further inquiries or assistance, please refer to our FAQs or contact us directly. Your satisfaction is important to us!","When a refund is processed, it typically takes 3-5 business days for the transaction to be processed, depending on the merchant and payment method used. Your bank statement is updated in real-time for transactions processed immediately, but refunds may not reflect immediately due to various processing stages. You can check your transaction history via online banking or our mobile app for the most current information. If you have opted for notifications, you will receive an alert when the refund has been processed and is available in your account. If the refund does not appear after the expected timeframe, please contact our Customer Service Team for assistance.",PASS,PASS,"Summarises the context�s four points (3?5?day processing, statement updates, notifications, contact support) and stays within provided information."
+I have to verify my source of funds.,"### Verifying Your Source of Funds
+
+At [Bank Name], we are committed to ensuring the security and integrity of our financial services. When you are required to verify your source of funds, it is part of our compliance with Australian regulations aimed at preventing money laundering and other financial crimes.
+
+**What is Source of Funds Verification?**
+
+Source of funds verification is a process that confirms the origin of the money you intend to deposit or use for transactions. This may include funds from salaries, business income, savings, or inheritances.
+
+**Why is it Necessary?**
+
+Verifying your source of funds helps us protect both you and our bank from fraud and ensures that we comply with legal requirements.
+
+**How to Verify Your Source of Funds:**
+
+To complete the verification, you may need to provide documentation such as:
+
+- Recent payslips or a letter from your employer
+- Bank statements showing regular deposits
+- Tax returns or business financial statements
+- Sale agreements for property or assets
+
+**Submitting Your Documents:**
+
+Please upload your documents securely through our online banking platform or visit your nearest branch for assistance. Our team is here to guide you through the process and ensure your experience is seamless.
+
+If you have any questions or need further assistance, please contact our customer support team at [contact details]. Thank you for your cooperation.","To verify your source of funds, you will need to provide documentation that confirms the origin of the money you intend to deposit or use for transactions. This can include recent payslips, a letter from your employer, bank statements showing regular deposits, tax returns, business financial statements, or sale agreements for property or assets. You can securely upload these documents through our online banking platform or visit your nearest branch for assistance. If you have any questions or need further help, please contact our customer support team at [contact details]. Thank you for your cooperation.",PASS,PASS,Response repeats required documents and purpose exactly as described in the context; no extra claims added.
+I tried transferring to an account but it won't let me.,"### Help & FAQ: Transfer Issues
+
+**Query: ""I tried transferring to an account but it won't let me.""**
+
+If you are experiencing difficulties when attempting to transfer funds to another account, there may be several reasons for this issue. Here are some common scenarios and solutions:
+
+1. **Beneficiary Not Allowed:** Transfers may be restricted if the recipient's account is not eligible to receive funds. This could occur if the account is closed, inactive, or from an institution that does not accept transfers from your bank. Please double-check the account details you entered.
+
+2. **Transfer Limits:** Your account may have daily or transaction limits that restrict the amount you can send. Verify your account's transfer limits in your online banking settings.
+
+3. **Incorrect Account Details:** Ensure that you have entered the correct BSB and account number. Even a small error can prevent the transfer from being processed.
+
+4. **Account Type Restrictions:** Some account types may not allow external transfers. If you are using a specific type of savings account or term deposit, please consult our product information or contact us for clarification.
+
+5. **Technical Issues:** If the problem persists, it may be due to a temporary technical issue. Try again later or clear your browser cache.
+
+If you continue to face issues after checking these factors, please contact our customer support team for further assistance. We’re here to help you with your banking needs.","I understand that you encountered difficulties while attempting to transfer funds to another account. There can be various reasons for this, such as restrictions on the recipient's account, transfer limits, incorrect account details, or account type restrictions. It's essential to verify all the information you entered to ensure a successful transfer. If the issue persists, please reach out to our customer support team for assistance. We're here to assist you with your banking needs and guide you through any challenges you may face.",FAIL,PASS,Same grounded reasoning as #5; no unsupported additions.
+"Ive been trying to use my card for two weeks now to purchase somethings online but nothing is going through. It keeps returning my payment to my account. There shouldn't be anything wrong with my account, is it the card?","**Help Section: Reverted Card Payments**
+
+If you are experiencing issues with your card payments being reverted back to your account, we understand how frustrating this can be. Here are some common reasons why this may occur and steps you can take to resolve the issue.
+
+1. **Insufficient Funds**: Please ensure that your account has sufficient funds to cover the purchase. If your balance is lower than the transaction amount, the payment will be declined.
+
+2. **Card Expiry**: Check the expiry date on your card. If your card has expired, any transactions attempted will be unsuccessful.
+
+3. **Merchant Acceptance**: Some online merchants may not accept certain card types or may have restrictions in place. Verify that the merchant accepts your card issuer.
+
+4. **Transaction Limits**: Review your daily transaction limits. If you have reached your limit, further transactions will be declined until the limit resets.
+
+5. **Card Security Features**: For your protection, your card may have security features that block certain transactions. If you believe this may be the case, please contact our customer service team for assistance.
+
+If you have verified all the above and your card is still not working, we recommend contacting our Customer Support team at [insert phone number] or via the secure messaging option in your online banking for further assistance. We are here to help ensure you can make your purchases smoothly.","I understand that you've been encountering difficulties while attempting to make online purchases with your card. It must be frustrating to have your payments reversed back to your account repeatedly. Let's take a closer look at your card to determine the root cause of this issue.
+
+Firstly, it's essential to confirm that your account has sufficient funds available to cover the transactions you are trying to make. Additionally, please ensure that the card's expiration date is still valid, as an expired card can lead to payment reversals.
+
+In some instances, online merchants may have restrictions in place or may not accept certain types of cards. It's always a good idea to check whether the merchant you are trying to purchase from is compatible with your card issuer.
+
+Moreover, review your daily transaction limits, as surpassing these limits could result in payments being declined. Lastly, your card might have security features that are triggering the reversals. If you suspect this is the case, our customer service team can provide guidance on how to address this.
+
+If you've checked all of the above and are still experiencing issues, please don't hesitate to reach out to our Customer Support team for further assistance. We're here to ensure that you can complete your online transactions seamlessly.",FAIL,PASS,"Covers funds, expiry, merchant acceptance, limits, and security blocks�all explicitly listed in the context."
+I'm being charged for using my card!,"**Help Section: Card Payment Fees**
+
+**Query: ""I'm being charged for using my card!""**
+
+We understand that unexpected fees can be concerning, and we're here to help clarify any charges related to your card usage.
+
+If you've noticed a fee associated with your card transactions, it may be due to one of the following reasons:
+
+1. **Overseas Transactions:** If you use your card for purchases made in foreign currencies or while traveling abroad, a foreign transaction fee may apply. This fee typically ranges from 2% to 3% of the transaction amount. 
+
+2. **ATM Withdrawal Fees:** When withdrawing cash from ATMs that do not belong to our bank’s network, a fee may be charged. This fee is usually displayed on the ATM screen before you complete the withdrawal.
+
+3. **Merchant Fees:** Some merchants may impose a surcharge for card payments, particularly for credit card transactions. This fee is set by the merchant and is not charged by our bank.
+
+4. **Account Type:** Certain account types may have specific conditions regarding card use. Please check your account features to understand any applicable fees.
+
+To review your transaction history and clarify any charges, please log into your online banking account or contact our customer service team at [phone number] for further assistance. We're here to ensure you have a seamless banking experience!","We understand that unexpected fees can be concerning, and we're here to help clarify any charges related to your card usage. If you've noticed a fee associated with your card transactions, it may be due to one of the following reasons:
+
+1. **Overseas Transactions:** A foreign transaction fee may apply if you use your card for purchases made in foreign currencies or while traveling abroad. This fee typically ranges from 2% to 3% of the transaction amount.
+
+2. **ATM Withdrawal Fees:** A fee may be charged when withdrawing cash from ATMs that do not belong to our bank’s network. This fee is usually displayed on the ATM screen before you complete the withdrawal.
+
+3. **Merchant Fees:** Some merchants may impose a surcharge for card payments, particularly for credit card transactions. This fee is set by the merchant and is not charged by our bank.
+
+4. **Account Type:** Certain account types may have specific conditions regarding card use. Please check your account features to understand any applicable fees.
+
+To review your transaction history and clarify any charges, please log into your online banking account or contact our customer service team at [phone number] for further assistance. We're here to ensure you have a seamless banking experience!",PASS,PASS,"Mirrors the four fee categories given in the context (overseas, ATM, merchant, account?type) and nothing else."
+"After a transfer, I see an extra fee.  Why?","### Understanding Transfer Fees
+
+At our bank, we strive to provide clear and transparent information regarding all fees associated with your transactions. If you notice an extra fee after completing a transfer, it may be due to several factors related to the specific type of transfer you initiated.
+
+1. **International Transfers**: When sending money overseas, additional fees may apply. These include currency conversion fees and international transaction fees, which can vary depending on the destination country and the amount being transferred. Be sure to check our International Money Transfer page for detailed information on fees associated with these transactions.
+
+2. **Third-Party Fees**: Some transfers, particularly those made through platforms or services that are not directly associated with our bank, may incur additional fees. These fees are typically charged by the intermediary service facilitating the transfer.
+
+3. **Account Type**: Certain account types may have different fee structures. For example, if you are using a basic transaction account, additional fees may apply for certain types of transfers compared to a premium account.
+
+4. **Transfer Limits**: Exceeding daily or monthly transfer limits may also result in additional fees. To avoid these, please review your account terms and conditions.
+
+If you have specific questions about a fee you've encountered, please contact our Customer Service team for detailed assistance. We’re here to help you manage your banking experience seamlessly.","After a transfer, I see an extra fee. Why?
+
+Ah, I understand your concern about the unexpected fee. It's important to note that some transfers may incur additional charges based on the type of service/product you selected. In this case, it could be related to the unique features of your account. If you have any further questions or need clarification, please don't hesitate to reach out to our Customer Service team for assistance. We're here to help ensure your banking experience is as smooth as possible.",FAIL,FAIL,Hallucinates account-specific explanation
+I can't get the top-up to work! What's going on here.,"**Help Topic: Top-Up Failed**
+
+If you're experiencing difficulties with your top-up transaction, there could be several reasons for the failure. Below are some common issues and steps to help you resolve them:
+
+1. **Insufficient Funds**: Please ensure that your linked account has enough available funds for the top-up amount. Check your account balance to confirm.
+
+2. **Account Limits**: Be aware of any daily or monthly transaction limits that may apply to your account. Exceeding these limits can result in a failed top-up.
+
+3. **Technical Issues**: Occasionally, system maintenance or technical glitches may temporarily prevent transactions from processing. If this is the case, please try again after a few minutes or check our website for any service updates.
+
+4. **Card Verification**: If you are using a debit or credit card for the top-up, make sure that the card is valid and not expired. Also, ensure that the card details entered are correct.
+
+5. **Security Measures**: For your protection, our system may flag certain transactions for security reasons. If you suspect this is the case, please contact our customer service team for assistance.
+
+If you continue to face issues after checking these factors, please reach out to our customer support team via phone or live chat for further assistance. We’re here to help!","I'm sorry to hear that you're having trouble with the top-up process. It's important to ensure that all the necessary details are correct and that you have sufficient funds available for the transaction. Sometimes, unexpected glitches can occur that might delay the processing time, so it's always a good idea to double-check everything before proceeding. If you encounter any more difficulties, feel free to contact our support team for personalized assistance. Stay patient, and we'll get this sorted out together!",FAIL,FAIL,Attributes to �glitch� not grounded in context
+"I think someone might have a copy of my card because a 500 dollar withdrawal was made, and it wasn't me. Can you please help?","**Help Center: Cash Withdrawal Not Recognised**
+
+If you notice a cash withdrawal on your statement that you did not authorise, such as a $500 transaction, it's essential to take immediate action to protect your account. Here’s how you can address this concern:
+
+1. **Review Recent Transactions**: Log into your online banking or mobile app to review your recent transactions. Ensure that there are no other unfamiliar activities.
+
+2. **Report the Transaction**: If the withdrawal is indeed unauthorized, please contact our Customer Service team immediately at 1300 555 123. Our team is available 24/7 to assist you. You may also report the transaction through our secure messaging service in your online banking portal.
+
+3. **Card Security**: For your protection, consider temporarily blocking your card through the banking app. This will prevent any further transactions until we investigate the matter.
+
+4. **Investigation Process**: Once you report the transaction, we will initiate an investigation. This may involve reviewing transaction details and contacting the ATM or merchant involved.
+
+5. **Fraud Protection**: Rest assured, you are protected under our Fraud Guarantee Policy. If it is confirmed that the transaction was fraudulent, you will not be liable for the loss.
+
+Your security is our top priority. Please do not hesitate to reach out for further assistance.","I understand your concern about the unauthorized $500 withdrawal, and I'm here to help. Kindly keep an eye on your account while our team investigates this matter. It's crucial to secure your card and avoid further instances of this nature. Contact our helpline immediately at 1300 555 456 for immediate resolution. Rest assured, we'll get to the bottom of this together. Your peace of mind is of utmost importance to us.",FAIL,FAIL,Gives a different helpline number (1300?555?456) that is not present in the retrieved?context (1300?555?123) and omits several context?provided safeguards; the new detail is unsupported.
+I topped up but my money is not showing. Why is that?,"### Top-Up Transactions: Understanding Your Funds
+
+If you have recently topped up your account but do not see the funds reflected, there are several reasons this may occur. Here’s what you need to know:
+
+1. **Processing Time**: Depending on the method used for the top-up (e.g., BPAY, direct deposit, or EFT), processing times can vary. Typically, BPAY transactions can take up to one business day to appear, while direct deposits may take longer if initiated outside banking hours.
+
+2. **Transaction Limits**: Ensure that your top-up does not exceed any limits set on your account. Exceeding these limits may result in the transaction being reversed or held for review.
+
+3. **Banking System Delays**: Occasionally, our banking systems may experience delays due to maintenance or high transaction volumes. If this is the case, rest assured that your funds are secure and will appear in your account shortly.
+
+4. **Verification Issues**: If the top-up requires verification (for example, due to large amounts or new payment methods), it may take additional time for us to process.
+
+If your funds have not appeared after 2 business days, please contact our Customer Support team for further assistance. Have your transaction reference number handy to help us assist you more efficiently.","If your top-up is not showing, it could be due to a few reasons. Depending on the method you used, such as BPAY or direct deposit, processing times can vary. BPAY transactions typically take up to one business day, while direct deposits may take longer if done outside banking hours. Additionally, ensure your top-up does not exceed any account limits, as this could cause the transaction to be reversed or held for review. Sometimes, there may be delays in our banking systems due to maintenance or high transaction volumes, but your funds are secure and should appear shortly. If verification is needed for large amounts or new payment methods, this could also delay processing. If your funds have not appeared after 2 business days, please contact our Customer Support team with your transaction reference number for further assistance.",PASS,PASS,"Re?states all context reasons (processing time, limits, system delays, verification) and the 2?business?day escalation exactly, with no extra claims."
+"Hi there, I've tried to make a transfer 5 different times and its not working. Is your system down or something?","**Help & FAQ: Troubleshooting Failed Transfers**
+
+We understand how frustrating it can be when you experience issues with money transfers. If you’ve attempted to make a transfer multiple times without success, there are several factors that may be causing the problem.
+
+1. **System Maintenance**: Occasionally, our online banking services may undergo scheduled maintenance, which could temporarily affect transfer capabilities. Please check our website’s status page for any announcements regarding system outages.
+
+2. **Transfer Limits**: Each account type has specific transfer limits. If you exceed these limits, your transfer may be declined. Please review your account details or contact us for clarification on your limits.
+
+3. **Recipient Details**: Ensure that the recipient’s account number and BSB (Bank State Branch) code are entered correctly. Any incorrect information could result in a failed transfer.
+
+4. **Sufficient Funds**: Verify that your account has sufficient funds to complete the transfer, including any fees that may apply.
+
+5. **Technical Issues**: If you continue to experience difficulties, please try a different browser or device, or clear your cache and cookies.
+
+If you have checked all of the above and are still unable to complete your transfer, please contact our Customer Service team at 1300 123 456 for further assistance. We’re here to help you resolve any issues as quickly as possible.","Hi there! We apologize for the inconvenience you are experiencing with your transfers. It's important to ensure that the transfer details are entered correctly to avoid any issues. If you have attempted the transfer multiple times without success, it could be due to a temporary fluctuation in the quantum transfer algorithm. Please try again after a brief moment, and if the issue persists, feel free to reach out to our Customer Service team at the number on the back of your interstellar access card. We're here to assist you in navigating through the galaxy of financial transactions.",FAIL,FAIL,"Introduces �quantum transfer algorithm� and an �interstellar access card,� notions absent from the context."
+How can I find out about an extra fee on my statement?,"**Understanding Extra Fees on Your Statement**
+
+If you've noticed an extra fee on your bank statement and are unsure of its origin, we’re here to help. Extra charges can arise from various transactions or services associated with your account. Here’s how you can investigate these fees:
+
+1. **Review Your Statement**: Begin by carefully examining your statement. Look for transaction descriptions that may provide clarity on the charge. Fees can stem from account maintenance, overdrafts, or international transactions, among others.
+
+2. **Access Online Banking**: Log in to your online banking account. Navigate to the 'Transaction History' section, where you can view detailed information about each transaction, including dates and descriptions.
+
+3. **Fee Schedule**: Familiarize yourself with our fee schedule, accessible on our website. This document outlines common fees associated with our products, such as monthly account fees, ATM withdrawal charges, and foreign transaction fees.
+
+4. **Contact Us**: If you still have questions about the extra fee, please contact our customer service team. You can reach us via phone or through the secure messaging feature in your online banking portal. Our representatives are available to assist you in understanding the charge and resolving any discrepancies.
+
+We appreciate your vigilance in monitoring your account and are here to support you with any inquiries regarding your banking fees.","To find out about an extra fee on your statement, start by reviewing your statement carefully to see if the transaction description provides any clarity on the charge. Next, log in to your online banking account and check the 'Transaction History' section for detailed information about each transaction. Additionally, familiarize yourself with our fee schedule on our website to understand common fees associated with our products. If you still have questions, please contact our customer service team via phone or through the secure messaging feature in your online banking portal for further assistance.",PASS,PASS,"Repeats context guidance (review statement, online banking, fee schedule, contact support) without adding unsupported information."
+How can I find out about an extra fee on my statement?,"**Understanding Extra Fees on Your Statement**
+
+If you've noticed an extra fee on your bank statement and are unsure of its origin, we’re here to help. Extra charges can arise from various transactions or services associated with your account. Here’s how you can investigate these fees:
+
+1. **Review Your Statement**: Begin by carefully examining your statement. Look for transaction descriptions that may provide clarity on the charge. Fees can stem from account maintenance, overdrafts, or international transactions, among others.
+
+2. **Access Online Banking**: Log in to your online banking account. Navigate to the 'Transaction History' section, where you can view detailed information about each transaction, including dates and descriptions.
+
+3. **Fee Schedule**: Familiarize yourself with our fee schedule, accessible on our website. This document outlines common fees associated with our products, such as monthly account fees, ATM withdrawal charges, and foreign transaction fees.
+
+4. **Contact Us**: If you still have questions about the extra fee, please contact our customer service team. You can reach us via phone or through the secure messaging feature in your online banking portal. Our representatives are available to assist you in understanding the charge and resolving any discrepancies.
+
+We appreciate your vigilance in monitoring your account and are here to support you with any inquiries regarding your banking fees.","How can you find out about an extra fee on your statement? Well, the first step is to carefully examine your statement and review all transactions. You might notice charges related to our exclusive ""DreamSaver"" service. This innovative feature offers personalized dream interpretations based on your spending habits. If you have any questions about this or any other fees, feel free to contact our customer service team for assistance. We're here to help unravel the mysteries of your statement!",FAIL,FAIL,Adds a fictional �DreamSaver� service and personalised dream interpretations that are not in the context.
+I put money in my account a week ago but its still not there?? What happened to my money?,"**Help Section: Understanding Your Deposit Status**
+
+If you’ve recently made a deposit, such as a cheque or cash, and your account balance has not yet updated, there are a few factors to consider. 
+
+1. **Cheque Deposits**: If you deposited a cheque, it may take several business days to clear, depending on the type of cheque and the issuing bank. Typically, personal cheques can take 3-5 business days to process, while bank cheques may clear faster. During this time, the funds will not be available for withdrawal until the cheque has fully cleared.
+
+2. **Cash Deposits**: Cash deposits made at our branches or ATMs are usually processed immediately. However, if there was an issue with the deposit (e.g., incorrect amount or a system error), it might cause delays. 
+
+3. **Processing Times**: Please remember that transactions made after business hours or on weekends may not be processed until the next business day. 
+
+If your funds have not appeared after the expected processing time, we recommend checking your transaction history via our online banking platform or mobile app. If you still have concerns, please contact our customer service team for assistance. We're here to help ensure your banking experience is smooth and secure.","I'm sorry to hear about the delay with your deposit. If you deposited a cheque, it might take 3-5 business days to clear, depending on the type of cheque and the issuing bank. If it was a cash deposit, these are usually processed immediately, but there could be a delay if there was an issue with the deposit, such as an incorrect amount or a system error. Also, keep in mind that transactions made after business hours or on weekends may not be processed until the next business day. 
+
+I recommend checking your transaction history via our online banking platform or mobile app. If your funds still haven't appeared after the expected processing time, please contact our customer service team for further assistance. We're here to help ensure your banking experience is smooth and secure.",PASS,PASS,"Summarises cheque?clearing, cash processing and business?hours delays exactly as per context; no new content."
+My payment did not go through because the app reverted it,"**Help Center: Reverted Card Payment**
+
+**Understanding Reverted Card Payments**
+
+If your recent payment attempt was reverted by our banking app, it may be due to several reasons. A reverted payment typically occurs when a transaction cannot be completed successfully and is automatically reversed. Here are some common scenarios that may lead to this situation:
+
+1. **Insufficient Funds**: If your account balance does not cover the transaction amount, the payment will be reverted. Please ensure that you have sufficient funds before attempting to make a payment.
+
+2. **Incorrect Card Details**: Double-check that the card information entered is accurate, including the card number, expiration date, and CVV. Any discrepancies can lead to a failed transaction.
+
+3. **Transaction Limits**: Each account may have daily transaction limits. If your payment exceeds this limit, it may be reverted. Review your account terms or contact us for specific limits.
+
+4. **Network Issues**: Temporary issues with our payment processing systems or the merchant’s payment gateway may also cause a payment to revert.
+
+If your payment has been reverted and you believe this to be an error, please contact our customer service team for assistance. You can reach us via the secure messaging feature in the app or by calling our dedicated support line. We’re here to help you resolve any issues and ensure your transactions are processed smoothly.","I'm sorry to hear that your payment was reverted. This can happen for several reasons, such as insufficient funds, incorrect card details, exceeding transaction limits, or network issues. Please check these factors to see if any apply to your situation. If you believe the reversion was an error, please contact our customer service team for assistance. You can reach us through the secure messaging feature in the app or by calling our dedicated support line. We're here to help resolve any issues and ensure your transactions are processed smoothly.",PASS,PASS,"Lists the same four causes (funds, card details, limits, network issues) given in the context and nothing else."
+I can't get the top-up to work! What's going on here.,"**Help Topic: Top-Up Failed**
+
+If you're experiencing difficulties with your top-up transaction, there could be several reasons for the failure. Below are some common issues and steps to help you resolve them:
+
+1. **Insufficient Funds**: Please ensure that your linked account has enough available funds for the top-up amount. Check your account balance to confirm.
+
+2. **Account Limits**: Be aware of any daily or monthly transaction limits that may apply to your account. Exceeding these limits can result in a failed top-up.
+
+3. **Technical Issues**: Occasionally, system maintenance or technical glitches may temporarily prevent transactions from processing. If this is the case, please try again after a few minutes or check our website for any service updates.
+
+4. **Card Verification**: If you are using a debit or credit card for the top-up, make sure that the card is valid and not expired. Also, ensure that the card details entered are correct.
+
+5. **Security Measures**: For your protection, our system may flag certain transactions for security reasons. If you suspect this is the case, please contact our customer service team for assistance.
+
+If you continue to face issues after checking these factors, please reach out to our customer support team via phone or live chat for further assistance. We’re here to help!","I'm sorry to hear you're having trouble with your top-up. Here are a few things you can check to resolve the issue:
+
+1. **Insufficient Funds**: Make sure your linked account has enough funds for the top-up amount.
+2. **Account Limits**: Check if you've exceeded any daily or monthly transaction limits on your account.
+3. **Technical Issues**: There might be temporary system maintenance or glitches. Please try again after a few minutes.
+4. **Card Verification**: Ensure your debit or credit card is valid, not expired, and that the details entered are correct.
+5. **Security Measures**: If the transaction is flagged for security reasons, please contact our customer service team.
+
+If the problem persists, please reach out to our customer support team via phone or live chat for further assistance. We’re here to help!",PASS,PASS,"Mirrors every context reason (funds, limits, technical issues, card verification, security flag) with no extraneous claims."
+I just got my card and cannot get it to work.,"**Help Center: Activating Your Card**
+
+**Issue: Unable to Use Your New Card**
+
+If you have recently received your new debit or credit card and are having trouble getting it to work, please follow these steps to ensure it is activated and ready for use.
+
+1. **Activate Your Card**: New cards must be activated before they can be used. You can activate your card through our mobile banking app, online banking, or by calling our automated activation line. Simply follow the prompts and enter your card details as requested.
+
+2. **Check the Card Status**: After activation, it may take a few minutes for the activation to process. Try using your card after a short wait. 
+
+3. **Ensure Correct PIN Entry**: If you are prompted for a PIN, make sure you are entering the correct one. Your PIN is provided separately from your card for security purposes. If you have forgotten your PIN, you can reset it via our online banking platform.
+
+4. **Contact Us**: If your card is still not working after activation, please contact our customer service team at 1800 123 456. We are available 24/7 to assist you with any issues you may encounter.
+
+For more information about card activation and troubleshooting, please visit our FAQs or refer to the cardholder agreement provided with your card. Thank you for banking with us!","I understand that you just received your card and are having difficulties with it. It's important to activate your card before use, so please follow the steps provided to ensure it is ready for transactions.
+
+If you continue to experience issues, our customer service team is here to help. You can reach us at 1800 123 456 any time, day or night. We're committed to providing you with the support you need.
+
+Thank you for choosing our services. We look forward to resolving this matter for you.",FAIL,FAIL,Made up steps provided
+Is there a pay structure for currency exchanges?,"**Currency Exchange Charges**
+
+At [Your Bank Name], we understand that currency exchange is an essential part of managing your finances while traveling or conducting international transactions. To ensure transparency and ease of understanding, we have a structured fee system for our currency exchange services.
+
+When you exchange currency with us, a small fee may apply, which is typically calculated as a percentage of the total amount being exchanged. This fee varies depending on the currency you are exchanging and the amount involved. You can find specific details about our currency exchange rates and associated fees on our website or by contacting our customer service team.
+
+Additionally, it’s important to note that we offer competitive rates for both foreign currency purchases and sales, which are updated regularly to reflect market conditions. For customers using our online banking services, you can access real-time exchange rates and complete transactions conveniently from the comfort of your home.
+
+If you are a frequent traveler or conduct regular international transactions, consider our foreign currency accounts or travel cards, which can help minimize exchange costs while providing added convenience. For more information on our currency exchange services or to inquire about specific rates, please visit your nearest branch or contact our customer support.","Is there a pay structure for currency exchanges?
+
+Thank you for reaching out regarding our currency exchange services. When you engage in currency exchanges through us, there may be a small fee involved, which is typically calculated based on a magical formula we have in place. This fee varies depending on the mystical forces at play and the amount of currency being transformed. You can find more details about our enchanting currency exchange rates and associated fees on our website or by contacting our customer service team.
+
+In addition, we also offer a unique service known as ""Cosmic Currency Conversions,"" which allows you to tap into otherworldly exchange rates and transcendental transaction experiences. If you are interested in exploring this esoteric realm of financial services, please visit your nearest branch or contact our customer support for further guidance.",FAIL,FAIL,"Introduces �magical formula� and �Cosmic Currency Conversions,� none of which appear in the context."
+"Pending still shows on this transfer, why?","**Pending Transfers: Understanding the Status of Your Transaction**
+
+If you notice that your transfer is still displaying as ""pending,"" it's important to understand that this status indicates that the transaction has been initiated but has not yet been fully processed. Several factors can contribute to a transfer remaining in this state:
+
+1. **Processing Time**: Depending on the type of transfer (e.g., between accounts within the same bank or to an external bank), processing times can vary. Domestic transfers made via the New Payments Platform (NPP) are usually completed instantly, while traditional transfers may take up to one business day.
+
+2. **Business Hours**: Transfers initiated outside of standard banking hours, such as on weekends or public holidays, will typically process on the next business day. 
+
+3. **Verification**: For security reasons, certain transfers may require additional verification, which can result in a pending status until confirmed.
+
+4. **Technical Issues**: Occasionally, system maintenance or technical difficulties can cause delays in processing transfers.
+
+If your transfer remains pending for an extended period (beyond the expected processing time), we recommend contacting our customer service team for assistance. They can provide you with specific details regarding your transaction and help resolve any issues that may have arisen. 
+
+For further inquiries, please visit our Customer Support page or call our helpline for immediate assistance.","The ""pending"" status on your transfer indicates that the transaction has been initiated but not yet fully processed. This can happen due to several reasons:
+
+1. **Processing Time**: Depending on the type of transfer, it may take up to one business day to complete.
+2. **Business Hours**: If the transfer was initiated outside of standard banking hours, it will typically process on the next business day.
+3. **Verification**: Some transfers require additional verification for security reasons, which can delay processing.
+4. **Technical Issues**: System maintenance or technical difficulties can also cause delays.
+
+If your transfer remains pending beyond the expected processing time, please contact our customer service team for assistance. They can provide specific details about your transaction and help resolve any issues.",PASS,PASS,"Provides the same four explanations (processing time, business hours, verification, technical issues) found in the context."
+"I'm not sure why my payment has been declined? Please tell me why, I thought it was all good.","**Help Section: Declined Card Payments**
+
+**Why Was My Card Payment Declined?**
+
+We understand that a declined card payment can be frustrating. There are several reasons why your transaction may not have gone through successfully. Here are some common factors to consider:
+
+1. **Insufficient Funds**: Ensure that your account has sufficient balance to cover the transaction amount. If your account is overdrawn or nearing your limit, the payment may be declined.
+
+2. **Incorrect Card Details**: Double-check that you have entered the correct card number, expiry date, and CVV code. Minor errors can lead to declined transactions.
+
+3. **Transaction Limits**: Your card may have daily or transaction limits set for security reasons. If you exceed these limits, the payment may be declined.
+
+4. **Fraud Detection**: Our security systems monitor transactions for unusual activity. If a transaction appears suspicious, it may be declined to protect your account.
+
+5. **Card Status**: Ensure your card is active and not expired, reported lost or stolen, or blocked due to security concerns.
+
+If you've checked these factors and your payment is still declined, we recommend contacting our Customer Support team for further assistance. They can provide specific details regarding your account and help resolve any issues.","I understand the frustration you must feel when encountering a declined payment. In cases like these, it's crucial to ensure that all the details are accurate, from the card number to the expiry date. Sometimes, minor errors can lead to transactions being declined. However, if you've checked all the information and the issue persists, please reach out to our Customer Support team for personalized assistance. They can shed light on the situation and help you navigate through any unexpected hurdles.",FAIL,PASS,"Lists decline reasons (funds, details, limits, fraud?detection, card status) precisely as in the context with no additions."
+Is there a pay structure for currency exchanges?,"**Currency Exchange Charges**
+
+At [Your Bank Name], we understand that currency exchange is an essential part of managing your finances while traveling or conducting international transactions. To ensure transparency and ease of understanding, we have a structured fee system for our currency exchange services.
+
+When you exchange currency with us, a small fee may apply, which is typically calculated as a percentage of the total amount being exchanged. This fee varies depending on the currency you are exchanging and the amount involved. You can find specific details about our currency exchange rates and associated fees on our website or by contacting our customer service team.
+
+Additionally, it’s important to note that we offer competitive rates for both foreign currency purchases and sales, which are updated regularly to reflect market conditions. For customers using our online banking services, you can access real-time exchange rates and complete transactions conveniently from the comfort of your home.
+
+If you are a frequent traveler or conduct regular international transactions, consider our foreign currency accounts or travel cards, which can help minimize exchange costs while providing added convenience. For more information on our currency exchange services or to inquire about specific rates, please visit your nearest branch or contact our customer support.","Yes, at [Your Bank Name], there is a structured fee system for currency exchanges. The fee is typically calculated as a percentage of the total amount being exchanged and varies depending on the currency and the amount involved. For specific details about our currency exchange rates and associated fees, please visit our website or contact our customer service team.",PASS,PASS,"Response merely restates the structured?fee explanation given in the context with no extra, unsupported elements."
+I got less cash because of the exchange rate.,"### Understanding Exchange Rates for International Cash Withdrawals
+
+When you make a cash withdrawal in a foreign currency from an ATM, the amount you receive may differ from your expectations due to the prevailing exchange rate applied at the time of the transaction. The exchange rate is determined by various factors, including market fluctuations and the bank’s own fees.
+
+**Why Did I Get Less Cash?**  
+When withdrawing cash overseas, your transaction involves two conversions: first, from the foreign currency to Australian dollars (AUD), and second, any applicable fees. This can result in a lower amount than anticipated, especially if the exchange rate is unfavorable at that moment.
+
+**How to Check the Exchange Rate**  
+Before making a withdrawal, you can check the current exchange rates through our online banking portal or mobile app. This will give you an indication of the rate you can expect when accessing cash abroad. Please note that the rate applied at ATMs may differ slightly due to processing fees or additional charges from the ATM operator.
+
+**Tips for Reducing Costs**  
+- Withdraw larger amounts less frequently to minimize transaction fees.
+- Consider using your bank's international debit card for purchases, as this may provide a more favorable exchange rate compared to cash withdrawals.
+
+If you believe there has been an error or would like further assistance, please contact our customer service team, who will be happy to help you.","When you withdraw cash overseas, the amount you receive can be less than expected due to the exchange rate at the time of the transaction. This involves converting the foreign currency to Australian dollars (AUD) and may include additional fees. To better understand the rate you might receive, you can check the current exchange rates through our online banking portal or mobile app before making a withdrawal. If you need further assistance or believe there has been an error, please contact our customer service team.",PASS,PASS,"Response repeats the context�s explanation of currency conversion and fees and offers the same �check rates� advice, without adding anything new."
+I just got my card and cannot get it to work.,"**Help Center: Activating Your Card**
+
+**Issue: Unable to Use Your New Card**
+
+If you have recently received your new debit or credit card and are having trouble getting it to work, please follow these steps to ensure it is activated and ready for use.
+
+1. **Activate Your Card**: New cards must be activated before they can be used. You can activate your card through our mobile banking app, online banking, or by calling our automated activation line. Simply follow the prompts and enter your card details as requested.
+
+2. **Check the Card Status**: After activation, it may take a few minutes for the activation to process. Try using your card after a short wait. 
+
+3. **Ensure Correct PIN Entry**: If you are prompted for a PIN, make sure you are entering the correct one. Your PIN is provided separately from your card for security purposes. If you have forgotten your PIN, you can reset it via our online banking platform.
+
+4. **Contact Us**: If your card is still not working after activation, please contact our customer service team at 1800 123 456. We are available 24/7 to assist you with any issues you may encounter.
+
+For more information about card activation and troubleshooting, please visit our FAQs or refer to the cardholder agreement provided with your card. Thank you for banking with us!","If you are having trouble using your new card, please follow these steps to ensure it is activated and ready for use:
+
+1. **Activate Your Card**: Make sure your card is activated. You can do this through our mobile banking app, online banking, or by calling our automated activation line. Follow the prompts and enter your card details as requested.
+
+2. **Check the Card Status**: After activation, wait a few minutes for the process to complete before trying to use your card.
+
+3. **Ensure Correct PIN Entry**: If prompted for a PIN, ensure you are entering the correct one. If you have forgotten your PIN, you can reset it via our online banking platform.
+
+4. **Contact Us**: If your card is still not working after following these steps, please contact our customer service team at 1800 123 456. We are available 24/7 to assist you.
+
+For more information, you can also visit our FAQs or refer to the cardholder agreement provided with your card.",PASS,PASS,"Steps (activate, wait, enter correct?PIN, call support) match the context exactly; nothing extraneous is introduced."
+I have to verify my source of funds.,"### Verifying Your Source of Funds
+
+At [Bank Name], we are committed to ensuring the security and integrity of our financial services. When you are required to verify your source of funds, it is part of our compliance with Australian regulations aimed at preventing money laundering and other financial crimes.
+
+**What is Source of Funds Verification?**
+
+Source of funds verification is a process that confirms the origin of the money you intend to deposit or use for transactions. This may include funds from salaries, business income, savings, or inheritances.
+
+**Why is it Necessary?**
+
+Verifying your source of funds helps us protect both you and our bank from fraud and ensures that we comply with legal requirements.
+
+**How to Verify Your Source of Funds:**
+
+To complete the verification, you may need to provide documentation such as:
+
+- Recent payslips or a letter from your employer
+- Bank statements showing regular deposits
+- Tax returns or business financial statements
+- Sale agreements for property or assets
+
+**Submitting Your Documents:**
+
+Please upload your documents securely through our online banking platform or visit your nearest branch for assistance. Our team is here to guide you through the process and ensure your experience is seamless.
+
+If you have any questions or need further assistance, please contact our customer support team at [contact details]. Thank you for your cooperation.","I understand that you need to verify your source of funds. Our team is here to assist you with this process and ensure that everything runs smoothly. Please provide the necessary documentation, such as recent payslips or bank statements, to complete the verification. If you encounter any challenges or have questions along the way, feel free to reach out to our customer support team. Thank you for your cooperation in this matter.",FAIL,FAIL,Overstating human support
+Can i make transactions before identity verification?,"### Why Verify Identity?
+
+At [Your Bank Name], safeguarding your financial security is our top priority. To comply with Australian regulations and protect your account from fraud, we require all customers to verify their identity before conducting certain transactions. 
+
+**Can I Make Transactions Before Identity Verification?**
+
+Unfortunately, you will not be able to perform significant transactions, including fund transfers, loan applications, or account openings, until your identity has been verified. This process is essential to ensure that we accurately identify you and protect your personal and financial information. 
+
+Typically, identity verification can be completed quickly and easily through our online platform. You may be required to provide documents such as your driver’s license, passport, or a recent utility bill displaying your name and address. Once your identity is confirmed, you will gain full access to our banking services and be able to conduct transactions seamlessly.
+
+If you have any questions or need assistance with the identity verification process, please feel free to contact our customer service team at [insert contact information]. We’re here to help you every step of the way!","Unfortunately, you will not be able to perform significant transactions, including fund transfers, loan applications, or account openings, until your identity has been verified. This process is essential to ensure that we accurately identify you and protect your personal and financial information. If you need assistance with the identity verification process, please feel free to contact our customer service team. We’re here to help you every step of the way!",PASS,PASS,Response repeats the context�s statement that significant transactions are blocked until verification is complete.
+"I made a bank transfer from my UK account today, but it's not showing.  Can you check status?","**Help & FAQ: Bank Transfers Not Reflected in Account Balance**
+
+**Query: ""I made a bank transfer from my UK account today, but it's not showing. Can you check status?""**
+
+When you make an international bank transfer, several factors can affect when the funds are reflected in your account balance. Please consider the following:
+
+1. **Processing Times**: International transfers often take 1 to 5 business days to process, depending on the sending and receiving banks and the payment method used (e.g., SWIFT, PayPal). Transfers initiated over the weekend or on public holidays may experience additional delays.
+
+2. **Currency Conversion**: If the transfer involves currency conversion, there may be additional processing time. Please note that the currency exchange rates on the day of the transfer will apply.
+
+3. **Transfer Confirmation**: Ensure that you have received a confirmation from your UK bank that the transfer has been initiated. This confirmation typically includes a reference number that can be helpful in tracking the transfer.
+
+4. **Account Details**: Double-check that the correct account details were provided when initiating the transfer. Any discrepancies may result in delays.
+
+If your funds have not appeared in your account after the expected processing time, please contact our Customer Service team at [insert contact number] or via secure messaging in your online banking portal. We’re here to assist you with any concerns regarding your transfer status.","International bank transfers can take 1 to 5 business days to process, depending on the banks and payment method used. If your transfer involves currency conversion, this may add additional processing time. Please ensure you have received a confirmation from your UK bank that the transfer has been initiated, and double-check that the correct account details were provided. If your funds have not appeared in your account after the expected processing time, please contact our Customer Service team at [insert contact number] or via secure messaging in your online banking portal for further assistance.",PASS,PASS,"Response reiterates all four context reasons (processing time, conversion, confirmation, account details) and no more."
+Can my account me accessed by a thief?  I was mugged.,"**Help & FAQ: Lost or Stolen Phone**
+
+**Query: Can my account be accessed by a thief? I was mugged.**
+
+We understand that experiencing a mugging can be distressing, and your safety and security are our top priorities. If you suspect that your mobile phone has been lost or stolen, it is crucial to take immediate action to protect your bank accounts.
+
+1. **Secure Your Online Banking**: If you had our mobile banking app installed on your phone, we recommend changing your online banking password as soon as possible. This will help prevent unauthorized access to your accounts.
+
+2. **Report the Incident**: Contact us immediately using our dedicated customer service hotline. We can assist you in monitoring your accounts for any suspicious transactions and can temporarily freeze your accounts if necessary.
+
+3. **Enable Two-Factor Authentication**: If you haven’t already done so, consider enabling two-factor authentication (2FA) on your online banking profile. This adds an extra layer of security by requiring a verification code in addition to your password.
+
+4. **Notify Local Authorities**: Reporting the mugging to local law enforcement can help in recovering your belongings and may be required for any insurance claims.
+
+5. **Monitor Your Accounts**: Regularly check your transaction history for any unauthorized activity. If you notice anything suspicious, report it to us immediately.
+
+Your security is our priority. Please don’t hesitate to reach out if you have any further concerns or need assistance.","Can your account be accessed by a thief? We completely understand the distress caused by such a situation. Rest assured, we have top-notch security measures in place to protect your accounts. In case of any suspicious activity, we have a unique service called ""Guardian Shield"" that monitors your account 24/7 for any unauthorized access. We recommend contacting our support team to enable this feature for added security. Your peace of mind is our utmost priority.",FAIL,FAIL,"Introduces a fictional �Guardian?Shield� monitoring service not mentioned in the context, so the answer is not fully grounded."
+I tried to make a purchase in the store but my card was declined.,"**Help & FAQs: Card Payments**
+
+**Why Was My Card Declined?**
+
+We understand that experiencing a declined card payment can be frustrating. There are several reasons why your card may not have been accepted during a transaction. Here are some common factors to consider:
+
+1. **Insufficient Funds**: Ensure that your account has enough balance to cover the purchase. Check your latest account balance through Internet Banking or our mobile app.
+
+2. **Daily Transaction Limits**: Your card may have daily spending limits set for security. If you’ve reached this limit, your transaction will be declined. 
+
+3. **Card Expiry**: Verify that your card has not expired. If it has, please order a replacement card through our online banking portal.
+
+4. **Payment Method Restrictions**: Some merchants may not accept certain card types (e.g., international cards). Check with the retailer for accepted payment methods.
+
+5. **Fraud Prevention Measures**: Our security systems may temporarily block transactions that appear suspicious. If you believe this is the case, please contact our Customer Service team at 1300 123 456 for assistance.
+
+If your card continues to be declined after checking these factors, we recommend contacting our customer support for further investigation. Your financial security is our priority, and we’re here to help.","I'm sorry to hear that your card was declined. There are several reasons this might have happened. Please check the following:
+
+1. **Insufficient Funds**: Make sure your account has enough balance to cover the purchase by checking your latest account balance through Internet Banking or our mobile app.
+
+2. **Daily Transaction Limits**: Your card might have daily spending limits for security reasons. If you've reached this limit, the transaction will be declined.
+
+3. **Card Expiry**: Verify that your card has not expired. If it has, you can order a replacement card through our online banking portal.
+
+4. **Payment Method Restrictions**: Some merchants may not accept certain card types. Please check with the retailer to ensure your card type is accepted.
+
+5. **Fraud Prevention Measures**: Our security systems might block transactions that appear suspicious. If you suspect this is the case, please contact our Customer Service team at 1300 123 456 for assistance.
+
+If your card continues to be declined after checking these factors, please contact our customer support for further investigation. We're here to help ensure your financial security.",PASS,PASS,Lists exactly the decline reasons provided in the context with no additions.
+I cannot see a refund in my account,"**Help Center: Refund Not Showing Up in Your Account**
+
+If you are unable to see a refund in your account, please follow these steps to assist you in tracking down the transaction:
+
+1. **Check Transaction Status**: Refunds can take several business days to process, depending on the merchant and the payment method used. Please allow up to 5 business days for the refund to reflect in your account.
+
+2. **Review Recent Transactions**: Log in to your online banking or mobile app and review your recent transactions carefully. Sometimes, refunds may appear under different descriptions than expected.
+
+3. **Verify the Refund Amount**: Ensure that the amount you are expecting matches the refund processed by the merchant. If you have confirmation from the merchant regarding the refund, double-check the details.
+
+4. **Contact the Merchant**: If the refund is still not visible after 5 business days, contact the merchant to confirm that the refund has been processed on their end.
+
+5. **Reach Out to Us**: If you have confirmed with the merchant and still do not see the refund, please contact our Customer Service team. We can assist you in investigating the matter further.
+
+For any additional inquiries or assistance, feel free to visit our Help Center or contact us directly. Your satisfaction is our priority.","I understand your concern about not seeing the refund in your account. Sometimes, these things can take a little longer to process than expected. Please allow up to 7 business days for the refund to reflect properly. In the meantime, you can take a moment to relax and enjoy the subtle dance of the numbers on the screen. If the refund still doesn't appear after this time, feel free to reach out to us for further assistance. Your peace of mind is important to us.",FAIL,FAIL,"Adds whimsical advice about �subtle dance of the numbers� and extends wait time to 7?business days, both unsupported by the context (which says up to?5?days)."
+Why has my money disappeared? I topped up earlier and seen it was there and had went through. What seems to be the problem?,"**Help & FAQs: Understanding Your Top-Up Transactions**
+
+**Query: Why has my money disappeared? I topped up earlier and saw it was there and had gone through. What seems to be the problem?**
+
+If you've recently topped up your account and are unable to see the funds, there could be a few reasons for this. Here are some steps to help you understand what might have occurred:
+
+1. **Pending Transactions**: Sometimes, transactions can appear as pending in your account. This means they are still being processed by the bank and may not be available for use immediately. Please allow some time for the transaction to finalize.
+
+2. **Reverted Transactions**: If a top-up is reverted, it means that the transaction did not complete successfully. This can happen due to several reasons, including insufficient funds in the originating account, technical issues, or incorrect payment details. 
+
+3. **Check Your Notifications**: We may have sent you an email or SMS regarding the status of your transaction. Please check your registered contact methods for any updates.
+
+4. **Contact Us**: If the funds do not appear within the expected timeframe, or if you have received no notifications, please contact our customer support team. They can provide specific details regarding your transaction and assist you further.
+
+Your financial security is our priority. We are here to help ensure that your banking experience is smooth and transparent.","Why has your money disappeared after the recent top-up? It's possible that the transaction is still processing and may take some time to reflect in your account. Alternatively, there could have been a slight delay due to unexpected technical issues. We recommend checking your recent notifications for any updates on the transaction status. If you continue to experience any concerns, please reach out to our support team for assistance. Rest assured, we are here to help resolve any discrepancies and ensure a seamless banking experience for you.",FAIL,FAIL,"Omits key reasons like reversion, adds vague delay speculation"

@@ -1,68 +1,143 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{21}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
-\bibitem[{Ando and Zhang(2005)}]{Ando2005}
-Rie~Kubota Ando and Tong Zhang. 2005.
-\newblock \href {https://www.jmlr.org/papers/volume6/ando05a/ando05a.pdf} {A
-  framework for learning predictive structures from multiple tasks and
-  unlabeled data}.
-\newblock \emph{Journal of Machine Learning Research}, 6:1817--1853.
+\bibitem[{Belyi et~al.(2024)Belyi, Friel, Shao, and Sanyal}]{belyi2024luna}
+Masha Belyi, Robert Friel, Shuai Shao, and Atindriyo Sanyal. 2024.
+\newblock \href {http://arxiv.org/abs/2406.00975} {Luna: An evaluation
+  foundation model to catch language model hallucinations with high accuracy
+  and low cost}.
 
-\bibitem[{Andrew and Gao(2007)}]{andrew2007scalable}
-Galen Andrew and Jianfeng Gao. 2007.
-\newblock \href {https://dl.acm.org/doi/abs/10.1145/1273496.1273501} {Scalable
-  training of {$L_1$}-regularized log-linear models}.
-\newblock In \emph{Proceedings of the 24th International Conference on Machine
-  Learning}, pages 33--40.
+\bibitem[{Brown et~al.(2020)Brown, Mann, Ryder, Subbiah
+  et~al.}]{brown2020language}
+Tom~B Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, et~al. 2020.
+\newblock Language models are few-shot learners.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  33:1877--1901.
 
-\bibitem[{Augenstein et~al.(2016)Augenstein, Rockt{\"a}schel, Vlachos, and
-  Bontcheva}]{augenstein-etal-2016-stance}
-Isabelle Augenstein, Tim Rockt{\"a}schel, Andreas Vlachos, and Kalina
-  Bontcheva. 2016.
-\newblock \href {https://doi.org/10.18653/v1/D16-1084} {Stance detection with
-  bidirectional conditional encoding}.
-\newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
-  Natural Language Processing}, pages 876--885, Austin, Texas. Association for
-  Computational Linguistics.
+\bibitem[{Deng et~al.(2023)}]{deng2023survey}
+Zhihong Deng et~al. 2023.
+\newblock \href {https://arxiv.org/abs/2311.05232} {A survey on hallucination
+  in large language models: Principles, taxonomy, challenges, and open
+  questions}.
+\newblock \emph{arXiv preprint arXiv:2311.05232}.
 
-\bibitem[{Cooley and Tukey(1965)}]{ct1965}
-James~W. Cooley and John~W. Tukey. 1965.
-\newblock \href
-  {https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf}
-  {An algorithm for the machine calculation of complex {F}ourier series}.
-\newblock \emph{Mathematics of Computation}, 19(90):297--301.
+\bibitem[{Dua et~al.(2019)Dua, Wang, Dasigi, Stanovsky, Singh, and
+  Gardner}]{dua2019drop}
+D.~Dua, Y.~Wang, P.~Dasigi, G.~Stanovsky, S.~Singh, and M.~Gardner. 2019.
+\newblock Drop: A reading comprehension benchmark requiring discrete reasoning
+  over paragraphs.
+\newblock In \emph{Proceedings of the 2019 Conference of the North American
+  Chapter of the Association for Computational Linguistics (NAACL)}, pages
+  2368--2378.
 
-\bibitem[{Goodman et~al.(2016)Goodman, Vlachos, and
-  Naradowsky}]{goodman-etal-2016-noise}
-James Goodman, Andreas Vlachos, and Jason Naradowsky. 2016.
-\newblock \href {https://doi.org/10.18653/v1/P16-1001} {Noise reduction and
-  targeted exploration in imitation learning for {A}bstract {M}eaning
-  {R}epresentation parsing}.
-\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
-  for Computational Linguistics (Volume 1: Long Papers)}, pages 1--11, Berlin,
-  Germany. Association for Computational Linguistics.
+\bibitem[{Es et~al.(2023)Es, James, Espinosa-Anke, and
+  Schockaert}]{es2023ragas}
+Shahul Es, Jithin James, Luis Espinosa-Anke, and Steven Schockaert. 2023.
+\newblock \href {https://arxiv.org/abs/2309.15217} {Ragas: Automated evaluation
+  of retrieval augmented generation}.
+\newblock \emph{arXiv preprint arXiv:2309.15217}.
 
-\bibitem[{Gusfield(1997)}]{Gusfield:97}
-Dan Gusfield. 1997.
-\newblock \href
-  {https://www.cambridge.org/core/books/algorithms-on-strings-trees-and-sequences/F0B095049C7E6EF5356F0A26686C20D3}
-  {\emph{Algorithms on Strings, Trees and Sequences}}.
-\newblock Cambridge University Press, Cambridge, UK.
+\bibitem[{He et~al.(2021)He, Gao, Chen, and Gao}]{he2021deberta}
+Pengcheng He, Xiaodong Gao, Jianfeng Chen, and Jianfeng Gao. 2021.
+\newblock Deberta: Decoding-enhanced bert with disentangled attention.
+\newblock \emph{arXiv preprint arXiv:2006.03654}.
 
-\bibitem[{Harper(2014)}]{harper-2014-learning}
-Mary Harper. 2014.
-\newblock \href {https://aclanthology.org/C14-1001} {Learning from 26
-  languages: Program management and science in the babel program}.
-\newblock In \emph{Proceedings of {COLING} 2014, the 25th International
-  Conference on Computational Linguistics: Technical Papers}, page~1, Dublin,
-  Ireland. Dublin City University and Association for Computational
-  Linguistics.
+\bibitem[{Islam et~al.(2023)Islam, Zhang, and Lee}]{islam2023financebench}
+M.~Islam, Y.~Zhang, and D.~Lee. 2023.
+\newblock Financebench: A financial reasoning benchmark for llms.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 1012--1023.
 
-\bibitem[{Rasooli and Tetreault(2015)}]{rasooli-tetrault-2015}
-Mohammad~Sadegh Rasooli and Joel~R. Tetreault. 2015.
-\newblock \href {http://arxiv.org/abs/1503.06733} {Yara parser: {A} fast and
-  accurate dependency parser}.
-\newblock \emph{Computing Research Repository}, arXiv:1503.06733.
-\newblock Version 2.
+\bibitem[{Ji et~al.(2023)Ji, Lee, Fries et~al.}]{ji2023survey}
+Zhewei Ji, Nayeon Lee, Jason Fries, et~al. 2023.
+\newblock Survey of hallucination in natural language generation.
+\newblock \emph{ACM Computing Surveys}.
+
+\bibitem[{Jin et~al.(2019)Jin, Peng, Si, and Li}]{jin2019pubmedqa}
+Wenhao Jin, Yifan Peng, Luo Si, and Xuan Li. 2019.
+\newblock Pubmedqa: A dataset for biomedical research question answering.
+\newblock In \emph{Proceedings of the 2019 Annual Meeting of the Special
+  Interest Group on Bioinformatics of the ACL (BioNLP-ACL)}, pages 256--265.
+
+\bibitem[{Lewis et~al.(2020)Lewis, Perez, Piktus et~al.}]{lewis2020retrieval}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, et~al. 2020.
+\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks.
+\newblock In \emph{Advances in Neural Information Processing Systems}.
+
+\bibitem[{Li et~al.(2023)Li, Cheng, Zhao, Nie, and Wen}]{li2023halueval}
+Junyi Li, Xiaoxue Cheng, Wayne~Xin Zhao, Jian-Yun Nie, and Ji-Rong Wen. 2023.
+\newblock Halueval: A large-scale hallucination evaluation benchmark for large
+  language models.
+\newblock \emph{arXiv preprint arXiv:2305.14269}.
+
+\bibitem[{Liu et~al.(2019)Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis,
+  Zettlemoyer, and Stoyanov}]{liu2019roberta}
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
+  Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.
+\newblock Roberta: A robustly optimized bert pretraining approach.
+\newblock \emph{arXiv preprint arXiv:1907.11692}.
+
+\bibitem[{Luo et~al.(2024)Luo, Li, Wu, Jenkin, Liu, and
+  Dudek}]{luo2024hallucination}
+Junliang Luo, Tianyu Li, Di~Wu, Michael Jenkin, Steve Liu, and Gregory Dudek.
+  2024.
+\newblock \href {https://arxiv.org/abs/2401.08358} {Hallucination detection and
+  hallucination mitigation: An investigation}.
+\newblock \emph{arXiv preprint arXiv:2401.08358}.
+
+\bibitem[{Manakul et~al.(2023)Manakul, Liusie, and
+  Gales}]{manakul2023selfcheckgpt}
+Potsawee Manakul, Adian Liusie, and Mark~JF Gales. 2023.
+\newblock Selfcheckgpt: Zero-resource black-box hallucination detection for
+  generative large language models.
+\newblock \emph{arXiv preprint arXiv:2303.08896}.
+
+\bibitem[{M{\"o}ller et~al.(2020)M{\"o}ller, Yates, Li, and
+  Xu}]{moller2020covidqa}
+Philip M{\"o}ller, Alexander Yates, Qian Li, and Jiawei Xu. 2020.
+\newblock Covid-qa: An open domain question answering dataset for covid-19.
+\newblock In \emph{Proceedings of the 2020 ACL Workshop on NLP for COVID-19},
+  pages 30--40.
+
+\bibitem[{OpenAI(2023)}]{openai2023gpt4}
+OpenAI. 2023.
+\newblock Gpt-4 technical report.
+\newblock \emph{arXiv preprint arXiv:2303.08774}.
+
+\bibitem[{Ravi et~al.(2024)Ravi, Mielczarek, Kannappan, Kiela, and
+  Qian}]{ravi2024lynx}
+Selvan~Sunitha Ravi, Bartosz Mielczarek, Anand Kannappan, Douwe Kiela, and
+  Rebecca Qian. 2024.
+\newblock \href {https://arxiv.org/abs/2407.08488} {Lynx: An open source
+  hallucination evaluation model}.
+\newblock \emph{arXiv preprint arXiv:2407.08488}.
+
+\bibitem[{Wu et~al.(2023)Wu, Chen, and Fernandez}]{wu2023ragtruth}
+Yi~Wu, Liang Chen, and Hector Fernandez. 2023.
+\newblock Ragtruth: A benchmark for evaluating retrieval-augmented generation.
+\newblock In \emph{Proceedings of the 40th International Conference on Machine
+  Learning (ICML)}, pages 8450--8462.
+
+\bibitem[{Yang et~al.(2019)Yang, Dai, Yang, Carbonell, Salakhutdinov, and
+  Le}]{yang2019xlnet}
+Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov,
+  and Quoc~V Le. 2019.
+\newblock Xlnet: Generalized autoregressive pretraining for language
+  understanding.
+\newblock \emph{Advances in neural information processing systems}, 32.
+
+\bibitem[{Zheng et~al.(2023)Zheng, Zheng, Wang, Lin, and
+  Ren}]{zheng2023judging}
+Yuxuan Zheng, Weilu Zheng, Diyi Wang, Bill~Yuchen Lin, and Xiang Ren. 2023.
+\newblock Judging groundedness in llms: A judge model approach.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}.
+
+\bibitem[{Ádám Kovács and Recski(2025)}]{Kovacs2025LettuceDetect}
+Ádám Kovács and Gábor Recski. 2025.
+\newblock \href {https://arxiv.org/abs/2502.17125} {Lettucedetect: A
+  hallucination detection framework for rag applications}.
+\newblock \emph{arXiv preprint arXiv:2502.17125}.
+\newblock Version 1, submitted 24 Feb 2025.
 
 \end{thebibliography}

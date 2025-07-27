@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.28)  28 JUN 2025 19:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.28)  27 JUL 2025 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -255,6 +255,14 @@ Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
+(C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count279
+\float@exts=\toks19
+\float@box=\box51
+\@float@everytoks=\toks20
+\@floatcapt=\box52
+)
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
@@ -265,23 +273,23 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ))
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks19
-\inpenc@posthook=\toks20
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
 )
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
 Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
-\MT@toks=\toks21
-\MT@tempbox=\box51
-\MT@count=\count279
+\MT@toks=\toks23
+\MT@tempbox=\box53
+\MT@count=\count280
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
-\MT@prot@toks=\toks22
+\MT@prot@toks=\toks24
 LaTeX Info: Redefining \rightprotrusion on input line 1107.
 LaTeX Info: Redefining \textls on input line 1449.
 \MT@outer@kern=\dimen161
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count280
+\MT@listname@count=\count281
 
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdf
 tex.def
@@ -307,7 +315,7 @@ Package: amstext 2021/08/26 v2.01 AMS text
 
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks23
+\@emptytoks=\toks25
 \ex@=\dimen162
 ))
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
@@ -317,19 +325,19 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count281
+\inf@bad=\count282
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count282
-\leftroot@=\count283
+\uproot@=\count283
+\leftroot@=\count284
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count284
-\DOTSCASE@=\count285
+\classnum@=\count285
+\DOTSCASE@=\count286
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box52
-\strutbox@=\box53
+\Mathstrutbox@=\box54
+\strutbox@=\box55
 LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
@@ -337,31 +345,31 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen164
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count286
+\macc@depth=\count287
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count287
+\c@MaxMatrixCols=\count288
 \dotsspace@=\muskip17
-\c@parentequation=\count288
-\dspbrk@lvl=\count289
-\tag@help=\toks24
-\row@=\count290
-\column@=\count291
-\maxfields@=\count292
-\andhelp@=\toks25
+\c@parentequation=\count289
+\dspbrk@lvl=\count290
+\tag@help=\toks26
+\row@=\count291
+\column@=\count292
+\maxfields@=\count293
+\andhelp@=\toks27
 \eqnshift@=\dimen165
 \alignsep@=\dimen166
 \tagshift@=\dimen167
 \tagwidth@=\dimen168
 \totwidth@=\dimen169
 \lineht@=\dimen170
-\@envbody=\toks26
+\@envbody=\toks28
 \multlinegap=\skip56
 \multlinetaggap=\skip57
-\mathdisplay@stack=\toks27
+\mathdisplay@stack=\toks29
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
@@ -377,13 +385,25 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
-\XKV@toks=\toks28
-\XKV@tempa@toks=\toks29
+\XKV@toks=\toks30
+\XKV@tempa@toks=\toks31
 )
-\XKV@depth=\count293
+\XKV@depth=\count294
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\zifour@ocount=\count294
+\zifour@ocount=\count295
+) (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen171
+\ar@mcellbox=\box56
+\extrarowheight=\dimen172
+\NC@list=\toks32
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box57
+)
+(C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
 )
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -400,77 +420,87 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen171
-\Gin@req@width=\dimen172
+\Gin@req@height=\dimen173
+\Gin@req@width=\dimen174
 )
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen173
-\lightrulewidth=\dimen174
-\cmidrulewidth=\dimen175
-\belowrulesep=\dimen176
-\belowbottomsep=\dimen177
-\aboverulesep=\dimen178
-\abovetopsep=\dimen179
-\cmidrulesep=\dimen180
-\cmidrulekern=\dimen181
-\defaultaddspace=\dimen182
-\@cmidla=\count295
-\@cmidlb=\count296
-\@aboverulesep=\dimen183
-\@belowrulesep=\dimen184
-\@thisruleclass=\count297
-\@lastruleclass=\count298
-\@thisrulewidth=\dimen185
+\heavyrulewidth=\dimen175
+\lightrulewidth=\dimen176
+\cmidrulewidth=\dimen177
+\belowrulesep=\dimen178
+\belowbottomsep=\dimen179
+\aboverulesep=\dimen180
+\abovetopsep=\dimen181
+\cmidrulesep=\dimen182
+\cmidrulekern=\dimen183
+\defaultaddspace=\dimen184
+\@cmidla=\count296
+\@cmidlb=\count297
+\@aboverulesep=\dimen185
+\@belowrulesep=\dimen186
+\@thisruleclass=\count298
+\@lastruleclass=\count299
+\@thisrulewidth=\dimen187
 )
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip58
-\multirow@cntb=\count299
-\multirow@dima=\skip59
-\bigstrutjot=\dimen186
+\multirow@colwidth=\skip60
+\multirow@cntb=\count300
+\multirow@dima=\skip61
+\bigstrutjot=\dimen188
+)
+(C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen189
+\TX@old@table=\dimen190
+\TX@old@col=\dimen191
+\TX@target=\dimen192
+\TX@delta=\dimen193
+\TX@cols=\count301
+\TX@ftn=\toks33
 )
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count300
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count302
+\l__pdf_internal_box=\box58
 ) (acl2023.aux)
 \openout1 = `acl2023.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count301
-\scratchdimen=\dimen187
-\scratchbox=\box55
-\nofMPsegments=\count302
-\nofMParguments=\count303
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count304
-\MPscratchDim=\dimen188
-\MPnumerator=\count305
-\makeMPintoPDFobject=\count306
-\everyMPtoPDFconversion=\toks31
+\scratchcounter=\count303
+\scratchdimen=\dimen194
+\scratchbox=\box59
+\nofMPsegments=\count304
+\nofMParguments=\count305
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count306
+\MPscratchDim=\dimen195
+\MPnumerator=\count307
+\makeMPintoPDFobject=\count308
+\everyMPtoPDFconversion=\toks35
 )
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -482,7 +512,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 69.
+Package hyperref Info: Link coloring ON on input line 54.
  (acl2023.out) (acl2023.out)
 \@outlinefile=\write3
 \openout3 = `acl2023.out'.
@@ -523,21 +553,22 @@ Package hyperref Info: Link coloring ON on input line 69.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 69.
-Package microtype Info: Applying patch `item' on input line 69.
-Package microtype Info: Applying patch `toc' on input line 69.
-Package microtype Info: Applying patch `eqnum' on input line 69.
-Package microtype Info: Applying patch `footnote' on input line 69.
-Package microtype Info: Applying patch `verbatim' on input line 69.
-LaTeX Info: Redefining \microtypesetup on input line 69.
+LaTeX Info: Redefining \microtypecontext on input line 54.
+Package microtype Info: Applying patch `item' on input line 54.
+Package microtype Info: Applying patch `toc' on input line 54.
+Package microtype Info: Applying patch `eqnum' on input line 54.
+Package microtype Info: Applying patch `footnote' on input line 54.
+Package microtype Info: Applying patch `verbatim' on input line 54.
+LaTeX Info: Redefining \microtypesetup on input line 54.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 69.
+LaTeX Info: Redefining \showhyphens on input line 54.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -552,75 +583,30 @@ tim
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 70
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 55
 .
 
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 70
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 55
 .
 
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 12.0pt on input line 70.
+(Font)              scaled to size 12.0pt on input line 55.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-
-Package natbib Warning: Citation `maynez2020faithfulness' on page 1 undefined o
-n input line 79.
-
-
-Package natbib Warning: Citation `kryscinski2019factcc' on page 1 undefined on 
-input line 79.
-
-
-Package natbib Warning: Citation `falke2019ranking' on page 1 undefined on inpu
-t line 81.
-
-
-Package natbib Warning: Citation `kryscinski2019factcc' on page 1 undefined on 
-input line 81.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-[]\T1/ptm/m/n/10.95 (+20) To ad-dress this is-sue, ground-ed-ness
+Underfull \hbox (badness 4108) in paragraph at lines 75--76
+[]\T1/ptm/b/n/10.95 (+20) LLM-as-a-judge \T1/ptm/m/n/10.95 (+20) meth-ods, in-c
+lud-ing both
  []
 
-
-Underfull \hbox (badness 3312) in paragraph at lines 81--82
-\T1/ptm/m/n/10.95 (+20) These sys-tems frame hal-lu-ci-na-tion de-tec-tion
- []
-
-
-Underfull \hbox (badness 3168) in paragraph at lines 81--82
-\T1/ptm/m/n/10.95 (+20) as a post-generation clas-si-fi-ca-tion task over
- []
-
-
-Underfull \hbox (badness 5133) in paragraph at lines 81--82
-\T1/ptm/b/n/10.95 (+20) cross-encoder ar-chi-tec-tures \T1/ptm/m/n/10.95 (+20) 
-are par-tic-u-larly
- []
-
-
-Package natbib Warning: Citation `wang2018glue' on page 1 undefined on input li
-ne 92.
-
-
-Package natbib Warning: Citation `reimers2019sentencebert' on page 1 undefined 
-on input line 92.
-
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
-6.
-(C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
 [1{C:/Users/tahle/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ta
 hle/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/tahle/A
 ppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc}
@@ -628,123 +614,134 @@ ppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc}
 
 
 ]
-
-Package natbib Warning: Citation `li2023halueval' on page 2 undefined on input 
-line 113.
-
-
-Underfull \hbox (badness 1102) in paragraph at lines 113--114
-\T1/ptm/m/n/10.95 (+20) We uti-lize the HaluE-val dataset (\T1/ptm/b/n/10.95 (+
-20) ?\T1/ptm/m/n/10.95 (+20) ), a large-
+Underfull \hbox (badness 7116) in paragraph at lines 79--80
+[]\T1/ptm/m/n/10.95 (+20) While per-for-mant, LLM-based eval-u-a-tors
  []
 
-
-Underfull \hbox (badness 1077) in paragraph at lines 113--114
-\T1/ptm/m/n/10.95 (+20) scale bench-mark for eval-u-at-ing hal-lu-ci-na-tions
- []
-
-
-Underfull \hbox (badness 2302) in paragraph at lines 113--114
-\T1/ptm/m/n/10.95 (+20) in large lan-guage mod-els (LLMs). HaluE-
- []
-
-
-Overfull \hbox (124.749pt too wide) in paragraph at lines 122--137
- [][] 
- []
-
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
+1.
+(C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 157.
+(Font)              scaled to size 9.0pt on input line 89.
 
-LaTeX Warning: Reference `tab:accents' on page 2 undefined on input line 161.
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
+[][][][][]$\T1/zi4/m/n/9 https : / / huggingface . co / datasets / PolyAI /
+ []
 
 [2]
-<example-image-golden.pdf, id=37, 324.82053pt x 200.75pt>
-File: example-image-golden.pdf Graphic file (type pdf)
-<use example-image-golden.pdf>
-Package pdftex.def Info: example-image-golden.pdf  used on input line 177.
-(pdftex.def)             Requested size: 219.08614pt x 135.40543pt.
+<synthetic_data_construction.png, id=107, 671.50874pt x 303.38344pt>
+File: synthetic_data_construction.png Graphic file (type png)
+<use synthetic_data_construction.png>
+Package pdftex.def Info: synthetic_data_construction.png  used on input line 11
+9.
+(pdftex.def)             Requested size: 432.48051pt x 195.39148pt.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 180.
-<example-image-a.pdf, id=38, 321.2pt x 240.9pt>
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 185.
-(pdftex.def)             Requested size: 218.51521pt x 163.89069pt.
-<example-image-b.pdf, id=39, 321.2pt x 240.9pt>
-File: example-image-b.pdf Graphic file (type pdf)
-<use example-image-b.pdf>
-Package pdftex.def Info: example-image-b.pdf  used on input line 186.
-(pdftex.def)             Requested size: 218.51521pt x 163.89069pt.
+(Font)              scaled to size 10.95pt on input line 130.
 
-
-LaTeX Warning: Reference `citation-guide' on page 3 undefined on input line 191
-.
-
-
-LaTeX Warning: Reference `tab:accents' on page 3 undefined on input line 251.
-
-[3 <C:/Users/tahle/AppData/Local/Programs/MiKTeX/tex/latex/mwe/example-image-go
-lden.pdf>]
-LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 266.
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--266
-[][][][][]$\T1/zi4/m/n/9 https : / / www . aclweb . org / portal / content /
+Underfull \hbox (badness 2057) in paragraph at lines 130--131
+\T1/ptm/m/n/10.95 (+20) sam-ple of 1,385 cus-tomer queries were
  []
 
 
-Underfull \vbox (badness 5417) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+\T1/ptm/m/n/10.95 (+20) ob-tained from the [][]Bank-ing77 dataset[][],
+ []
 
 
-(acl2023.bbl [4 <C:/Users/tahle/AppData/Local/Programs/MiKTeX/tex/latex/mwe/exa
-mple-image-a.pdf> <C:/Users/tahle/AppData/Local/Programs/MiKTeX/tex/latex/mwe/e
-xample-image-b.pdf>])
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+\T1/ptm/m/n/10.95 (+20) cov-er-ing 77 in-tent cat-e-gories (e.g.,
+ []
 
-Package natbib Warning: There were undefined citations.
 
-[5
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+\T1/zi4/m/n/10.95 card_payment_problems\T1/ptm/m/n/10.95 (+20) ,\T1/zi4/m/n/10.
+95 atm_support\T1/ptm/m/n/10.95 (+20) ,
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 137--138
+[]\T1/ptm/b/n/10.95 (+20) Hallucinated re-sponses \T1/ptm/m/n/10.95 (+20) were 
+gen-er-
+ []
+
+
+Underfull \hbox (badness 3354) in paragraph at lines 140--141
+[]\T1/ptm/b/n/10.95 (+20) Step 4: Dataset As-sem-bly. \T1/ptm/m/n/10.95 (+20) T
+he fi-
+ []
+
+[3] [4 <./synthetic_data_construction.png>] [5]
+<context_length.png, id=171, 702.625pt x 451.6875pt>
+File: context_length.png Graphic file (type png)
+<use context_length.png>
+Package pdftex.def Info: context_length.png  used on input line 237.
+(pdftex.def)             Requested size: 219.08731pt x 142.26163pt.
+
+Overfull \hbox (28.28256pt too wide) in paragraph at lines 252--252
+[][][][][]\T1/ptm/m/n/9 (-20) https://docs.aws.amazon.com/bedrock/latest/usergu
+ide/guardrails-
+ []
+
+[6 <./context_length.png>]
+<main_results.png, id=196, 514.5624pt x 325.9377pt>
+File: main_results.png Graphic file (type png)
+<use main_results.png>
+Package pdftex.def Info: main_results.png  used on input line 268.
+(pdftex.def)             Requested size: 219.08614pt x 138.7778pt.
+
+Underfull \hbox (badness 3679) in paragraph at lines 278--279
+\T1/ptm/m/n/10.95 (+20) est. LLM-based meth-ods re-main com-pet-i-
+ []
+
+(acl2023.bbl
+Underfull \hbox (badness 4048) in paragraph at lines 63--66
+[]\T1/ptm/m/n/10 (+20) Patrick Lewis, Ethan Perez, Alek-san-dra Pik-tus,
+ []
+
+[7 <./main_results.png>]
+Underfull \hbox (badness 1199) in paragraph at lines 116--120
+\T1/ptm/m/n/10 (+20) augmented gen-er-a-tion.  In \T1/ptm/m/it/10 (+20) Pro-cee
+d-ings of the
+ []
+
+) [8
+
+]
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 9.0pt on input line 364.
+ [9
 
 ] (acl2023.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `acl2023.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15001 strings out of 474486
- 242510 string characters out of 5743755
- 1944542 words of memory out of 5000000
- 36753 multiletter control sequences out of 15000+600000
- 610508 words of font info for 259 fonts, out of 8000000 for 9000
+ 15409 strings out of 474486
+ 248332 string characters out of 5743755
+ 1947542 words of memory out of 5000000
+ 36983 multiletter control sequences out of 15000+600000
+ 635539 words of font info for 356 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,1017b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{figure.caption.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-<C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/In
-consolata-zi4r.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmi10.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/lm/lmss12.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/lm/lmss17.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/lm/lmsy10.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTe
-X/fonts/type1/urw/times/utmb8a.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTe
-X/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTe
-X/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl2023.pdf (5 pages, 163336 bytes).
+ 90i,10n,93p,1102b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/
+Inconsolata-zi4b.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/tahle/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tahle/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/tahle/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tahle
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Use
+rs/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Use
+rs/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Use
+rs/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on acl2023.pdf (9 pages, 308979 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 55312 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 79376 words of extra memory for PDF output out of 89155 (max. 10000000)
 

@@ -10,6 +10,7 @@
 % Standard package includes
 \usepackage{times}
 \usepackage{latexsym}
+\usepackage{float}
 
 % For proper rendering and hyphenation of words containing Latin characters (including in bib files)
 \usepackage[T1]{fontenc}
@@ -29,7 +30,8 @@
 % However, it will improve the aesthetics of text in
 % the typewriter font.
 \usepackage{inconsolata}
-
+\usepackage{array}
+\usepackage[section]{placeins}
 %Including images in your LaTeX document requires adding
 %additional package(s)
 \usepackage{graphicx}
@@ -41,259 +43,339 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{microtype}
-\title{Fine-Tuning Cross-Encoders for Detecting Hallucinations in Financial Customer Chatbots}
-
-% Author information can be set in various styles:
-% For several authors from the same institution:
-% \author{Author 1 \and ... \and Author n \\
-%         Address line \\ ... \\ Address line}
-% if the names do not fit well on one line use
-%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
-% For authors from different institutions:
-% \author{Author 1 \\ Address line \\  ... \\ Address line
-%         \And  ... \And
-%         Author n \\ Address line \\ ... \\ Address line}
-% To start a seperate ``row'' of authors use \AND, as in
-% \author{Author 1 \\ Address line \\  ... \\ Address line
-%         \AND
-%         Author 2 \\ Address line \\ ... \\ Address line \And
-%         Author 3 \\ Address line \\ ... \\ Address line}
-
+\usepackage{tabularx}
+\title{Fine-Tuning Cross-Encoders for Detecting Hallucinations in Financial Customer Service Chatbots}
 \author{
   Tahlee Stone \\
   University of California, Berkeley, School of Information \\
   \texttt{tahlee.stone@berkeley.edu}
 }
 
-
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Mitigating hallucination risk in large language models (LLMs) is essential for customer-facing production chatbots, particularly in sensitive sectors such as finance and healthcare. This paper presents a groundedness classification approach that fine-tunes a cross-encoder model to detect hallucinations in LLM-generated responses. The model is trained on two datasets: the benchmark HaluEval corpus and a synthetically constructed challenger set derived from U.S. retail bank customer interactions. Performance is evaluated against three baselines: a bi-encoder classifier, a prompted GPT-4o groundedness binary classifier, and a commercial guardrail (AWS Bedrock). The cross-encoder jointly encodes the query, context, and response, enabling fine-grained detection of factual inconsistencies. Results show that fine-tuned cross-encoders outperform all baselines, offering a scalable and effective solution for post-generation hallucination detection in financial dialogue systems.
+Mitigating hallucinations in Large Language Model (LLM) systems remains a key barrier to deployment in higher-risk domains such as finance and medicine where factual accuracy is both a regulatory requirement and component of responsible AI practice. 
+This paper finetunes a cross-encoder DeBERTa-v3 transformer as a lightweight hallucination detection model to identify generated responses that are unsupported by or contradict retrieved evidence. The model is trained on Halubench benchmark data and a synthetic, domain-specific dataset simulating retail bank customer service chatbot responses. Its performance is evaluated against two baselines: a zero-shot prompted LLM-as-a-judge, based on the Lynx framework from \citet{ravi2024lynx}, and a commercial \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock contextual grounding} guardrail. Results show sufficient performance for the cross-encoder model to be considered as a scalable, low latency component of hallucination detection in production-grade systems. 
 \end{abstract}
-
 
 \section{Introduction}
 
-Large Language Models (LLMs) have rapidly advanced the field of natural language generation (NLG), producing text that is fluent, coherent, and contextually appropriate. However, a critical and persistent challenge remains: hallucination. Hallucination refers to the generation of content that is not grounded in the source material—facts or claims that are either unsupported, inconsistent with the given context, or entirely fabricated. In high-stakes domains such as finance, law, and healthcare, these inaccuracies can lead to harmful misinformation, erode user trust, and impair real-world decision-making~\cite{maynez2020faithfulness, kryscinski2019factcc}.
+Large Language Models (LLMs) are increasingly deployed in customer-facing systems, supporting tasks from dialogue generation to decision assistance \citep{brown2020language, openai2023gpt4}. Despite their fluency and versatility, LLMs frequently produce hallucinations—outputs that are unverifiable or contradict retrieved evidence \citep{ji2023survey}. In high-risk domains such as finance, these errors can erode user trust, and introduce compliance and reputational risks.
 
-To address this issue, groundedness guardrails—systems that verify whether generated responses adhere to a trusted knowledge base—have become essential for LLM deployment. These systems frame hallucination detection as a post-generation classification task over (query, context, response) triplets. A response is deemed \textit{grounded} if all its factual assertions are supported by the provided context; otherwise, it is classified as \textit{ungrounded} or hallucinated. Recent research has demonstrated that classifiers using \textbf{cross-encoder architectures} are particularly effective at this task, as they can jointly encode and attend to the full interaction between the query, context, and model response~\cite{falke2019ranking, kryscinski2019factcc}.
+Retrieval-Augmented Generation (RAG) is a commonly used technique for mitigating hallucinations by incorporating externally retrieved documents into the model prompt to support response grounding \citep{lewis2020retrieval}. However, hallucinations persist even in RAG settings, often due to incomplete retrieval, poor integration of evidence, or continued reliance on a model’s intrinsic knowledge. As a result, post-generation hallucination detection has become an important component of production-grade LLM systems, functioning as a safeguard or `guardrail' before output delivery.
 
-This paper presents a groundedness detection framework in which we fine-tune a \textbf{cross-encoder classifier} on a domain-specific dataset drawn from a financial knowledge source—the Reserve Bank of Australia (RBA) website. We generate and label a corpus of synthetic examples using large language models, creating a dataset of (query, context, response) instances annotated as grounded or ungrounded. We then train a cross-encoder model and evaluate its ability to detect hallucinations.
+This paper aims to fine-tune a lightweight cross-encoder on benchmark and synthetic financial data for hallucination detection. It compares this model against an open-source LLM-as-a-judge and a commercial grounding guardrail to assess its viability as a low-latency, scalable guardrail in production LLM-based systems for higher-risk domains like finance.
 
-We compare the performance of this classifier against three baselines:
+Hallucination detection is typically framed as a \textit{groundedness classification} task: for a given query, retrieved context, and model-generated response triplet, the guardrail must determine whether the response is supported by the evidence provided \citep{luo2024hallucination}. Effective solutions must handle semantic nuance, domain-specific language, and variable response structures.
+
+\subsection{Background}
+Several groundedness evaluation frameworks have emerged to address this challenge, with LLM-based approaches among the most widely adopted \citep{deng2023survey, luo2024hallucination}. \textbf{RAGAS} \citep{es2023ragas}, an open-source toolkit based on heuristic metrics, evaluates answer faithfulness by prompting an LLM to extract factual claims from a response and verify each claim against the retrieved context, returning a score based on the proportion of grounded claims.
+
+\textbf{LLM-as-a-judge} methods, including both prompted and fine-tuned models, assess hallucinations by reasoning over the full query, context, and response to provide a more holistic assessment of groundedness. Prompted approaches use general-purpose models such as GPT-4 to classify responses relative to retrieved context \citep{zheng2023judging, manakul2023selfcheckgpt}, while fine-tuned LLM-as-a-judges such as the open-source \textbf{Lynx} \citep{ravi2024lynx} model are explicitly trained on hallucination datasets. Lynx has demonstrated stronger performance than GPT-4 on QA-style hallucination detection tasks. 
+
+Some commercial guardrail systems---e.g., \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock’s contextual grounding} guardrail---offer API-based hallucination checks for LLM outputs, but their inner mechanisms are opaque and they may introduce latency, cost, and privacy risks. 
+
+While performant, LLM-based evaluators present several practical limitations: they are costly to run at scale, introduce latency, and produce non-deterministic outputs---where repeated evaluations of the same input can yield different results. This limits reproducibility, complicates auditing, and creates inconsistencies in quality assurance workflows. These challenges motivate the need for efficient, locally deployable alternatives.
+
+\textbf{Encoder-based models} offer a competitive alternative to LLM-based hallucination detection, combining transparency, low inference overhead, and real-time feasibility. \textbf{Luna} is a DeBERTa-large cross-encoder fine-tuned on multi-domain RAG data to detect hallucinated spans at the token level \citep{belyi2024luna}. It outperforms GPT-3.5-based evaluators on the RAGTruth benchmark while achieving up to 97\% cost reduction and 91\% lower latency. \textbf{Lettuce Detect}, built on the ModernBERT architecture, surpasses Luna and GPT-4-turbo with a 79.2\% F1—despite being 30× smaller than top LLMs. \citep{Kovacs2025LettuceDetect}. 
+
+\subsection{Contributions}
+This paper builds on recent work by addressing key limitations of LLM-based hallucination detection, and proposes a lightweight cross-encoder classifier based on DeBERTa-v3 for groundedness classification. The model is fine-tuned on a combination of benchmark data and a synthetic financial-domain dataset simulating retail bank Q\&A customer service interactions
+ Its performance is evaluated against two LLM-based baselines: an open-source zero-shot verifier based on the Lynx framework \citet{ravi2024lynx}, and a closed-source commercial grounding guardrail provided by \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock}.
+The contributions of this paper are:
 \begin{enumerate}
-    \item A \textbf{bi-encoder} model that encodes the query, context, and response independently;
-    \item A \textbf{prompted LLM-based verifier} using self-check prompts (e.g., SelfCheckGPT);
-    \item An \textbf{off-the-shelf groundedness guardrail}, such as AWS Bedrock's hallucination filter.
+    \item Develop a practical, resource-efficient cross-encoder approach for hallucination detection in RAG systems that balances performance and latency;
+    \item Construct a domain-specific evaluation set reflecting the language and groundedness challenges of retail bank dialogue systems, leveraging the \href{https://huggingface.co/datasets/PolyAI/banking77}{Banking77 dataset} to enrich task realism and intent coverage\footnote{\url{https://huggingface.co/datasets/PolyAI/banking77}};
+    \item Conduct a comparative evaluation of the cross-encoder against both open-source and commercial LLM-based evaluators, highlighting trade-offs in groundedness accuracy, transparency, and deployability.
 \end{enumerate}
 
-While cross-encoders incur a higher computational cost than bi-encoders, they offer a practical and cost-effective alternative to full LLM-based verification. Their ability to model token-level interactions allows for fine-grained assessment of semantic consistency, outperforming both bi-encoders and zero-shot LLMs in prior work on entailment and factuality detection~\cite{wang2018glue, reimers2019sentencebert}.
-
-Our contributions are threefold:
-\begin{itemize}
-    \item We construct a new, domain-grounded dataset for hallucination detection in financial language, derived from a trustworthy public source;
-    \item We implement and benchmark a cross-encoder classifier against bi-encoder and LLM-based baselines;
-    \item We demonstrate that cross-encoders strike an effective balance between accuracy and efficiency, making them a viable component in real-world LLM guardrails.
-\end{itemize}
-
-
-\section{Related Work}
-\subsection{Hallucination Detection}
-[Prior work: FactCC, SelfCheckGPT, GPT-4 verifiers.]
-
-\subsection{Cross-Encoders vs Bi-Encoders}
-[Comparison of architectures and use cases.]
-
-\section{Data}
-\subsection{Benchmark Dataset: HaluEval}
-\section{Data}
-
-We utilize the HaluEval dataset \cite{li2023halueval}, a large-scale benchmark for evaluating hallucinations in large language models (LLMs). HaluEval consists of 35,000 examples covering three tasks—question answering, knowledge-grounded dialogue, and summarization—and includes both human-annotated and automatically generated (hallucinated) responses.
-
-Each instance in HaluEval includes a user query, a supporting context passage, and a response generated by an LLM (e.g., ChatGPT). The dataset provides binary hallucination labels (grounded vs. ungrounded), annotated by expert raters using a high-agreement labeling protocol. This rich alignment between query, context, and response enables robust training of supervised models for groundedness detection.
-
-For our experiments, we sample 500 QA-style examples and expand each into two labeled datapoints: one grounded response and one hallucinated response. This results in a dataset of 1,000 (query, context, response) triplets, each labeled as either grounded (1) or hallucinated (0). The HaluEval benchmark was chosen primarily because it contains high-quality, aligned triplets required for training cross-encoder models. Furthermore, its diversity of hallucination types (e.g., factual contradiction, unverifiability, inference errors) aligns well with our objective of learning nuanced hallucination detection.
-
-This curated subset allows for efficient training while preserving task diversity, making it suitable for evaluating both fine-tuned cross-encoders and zero-shot guardrail baselines.
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Attribute} & \textbf{Value} \\
-\hline
-Source Dataset & HaluEval (QA subset) \\
-Task Type & Question Answering \\
-Initial Samples & 500 \\
-Total Instances After Expansion & 1,000 \\
-Grounded Responses & 500 \\
-Hallucinated Responses & 500 \\
-Input Format & (Query, Context, Response) triplet \\
-Label Type & Binary (0 = Hallucinated, 1 = Grounded) \\
-Annotation Method & Human + Synthetic Generation \\
-\hline
-\end{tabular}
-\caption{Summary of the dataset used for fine-tuning and evaluation.}
-\label{tab:data_summary}
-\end{table}
-
-
-\subsection{Synthetic Challenger Dataset}
-[Describe generation method, domain specificity, labeling process.]
+Together, these findings offer actionable guidance for operationalising hallucination detection in higher-risk environments such as banking and finance, where LLM outputs must be both reliable and auditable.
 
 \section{Methodology}
-\subsection{Model Architecture}
-[Cross-encoder structure. Input formatting. Binary classification.]
 
-\subsection{Baselines}
+\subsection{Data Construction}
+
+The training and evaluation data were sourced from two key datasets: (i) the HaluBench benchmark dataset; and (ii) a synthetic dataset of customer service queries for a retail-banking chatbot.
+
+\subsubsection*{HaluBench Benchmark}
+This benchmark dataset contains around 15,000 query–context–response triplets annotated for hallucination detection. Introduced by \citet{ravi2024lynx} to develop the LYNX model, HaluBench combines multiple established datasets from different domains.\footnote{See Section~3.2 of \citet{ravi2024lynx} for further detail on the construction of the HaluBench benchmark dataset.}
+It includes both naturally occurring hallucinations generated by large language models and synthetic perturbations. 
+The benchmark consists of the following domain-specific subsets:
+
 \begin{itemize}
-    \item Bi-encoder classifier
-    \item Prompted GPT-4o binary groundedness classifier
-    \item AWS Bedrock hallucination guardrail
+    \item \textbf{FinanceBench}—financial reasoning~\citep{islam2023financebench}
+    \item \textbf{DROP}—numerical reasoning~\citep{dua2019drop}
+    \item \textbf{PubMedQA}—biomedical question answering~\citep{jin2019pubmedqa}
+    \item \textbf{RAGTruth}—retrieval-augmented generation evaluation~\citep{wu2023ragtruth}
 \end{itemize}
-\subsection{Footnotes}
 
-Footnotes are inserted with the \verb|\footnote| command.\footnote{This is a footnote.}
+Two sub-datasets-COVID-QA \citep{moller2020covidqa} and HaluEval \citep{li2023halueval} datasets- were excluded from analysis due to lengthy report-style contexts and limited domain relevance, and due to a systematic length bias between grounded and hallucinated responses, respectively.
 
-\subsection{Tables and figures}  
+A final set of 3,900 observations were sampled from Halubench for both fine-tuning and evaluation (with 3,315 for training and 585 for the hold-out evaluation set).\footnote{The reduction in sample size compared to the full \textsc{HaluBench} dataset reflects the exclusion of the \textsc{HaluEval} subset (approximately 10,000 examples), which was removed due to a systematic length bias between hallucinated and grounded responses.}
 
-See Table~\ref{tab:accents} for an example of a table and its caption.
-\textbf{Do not override the default caption sizes.}
- See Figure~\ref{fig:experiments} for an example of a figure and its caption.
-\subsection{Hyperlinks}
-
-Users of older versions of \LaTeX{} may encounter the following error during compilation: 
-\begin{quote}
-\tt\verb|\pdfendlink| ended up in different nesting level than \verb|\pdfstartlink|.
-\end{quote}
-This happens when pdf\LaTeX{} is used and a citation splits across a page boundary. The best way to fix this is to upgrade \LaTeX{} to 2018-12-01 or later.
-
-\subsection{Citations}
-
-\verb|\usepackage{graphicx}|.
-
-\begin{figure}[t]
-  \includegraphics[width=\columnwidth]{example-image-golden}
-  \caption{A figure with a caption that runs for more than one line.
-    Example image is usually available through the \texttt{mwe} package
-    without even mentioning it in the preamble.}
-  \label{fig:experiments}
-\end{figure}
-
-\begin{figure*}[t]
-  \includegraphics[width=0.48\linewidth]{example-image-a} \hfill
-  \includegraphics[width=0.48\linewidth]{example-image-b}
-  \caption {A minimal working example to demonstrate how to place
-    two images side-by-side.}
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.95\textwidth]{synthetic_data_construction.png}
+    \caption{Synthetic data construction pipeline showing the four stages: sampling customer queries, generating synthetic contexts, creating grounded and hallucinated responses, and producing the final labeled dataset.}
+    \label{fig:synthetic-data}
 \end{figure*}
 
-Table~\ref{citation-guide} shows the syntax supported by the style files.
-We encourage you to use the natbib styles.
-You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
-You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{Gusfield:97}.
-You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{Gusfield:97}).
+
+\subsubsection*{RetailbankQA Synthetic Dataset}
+
+To fine-tune a hallucination detection model in the context of a retail bank customer service setting, a synthetic RetailbankQA dataset was constructed using a multi-stage prompting pipeline shown in Figure~\ref{fig:synthetic-data}.
+
+\begin{itemize}
+    \item \textbf{Step 1: Query Sampling.} A representative sample of 1,385 customer queries were obtained from the \href{https://huggingface.co/datasets/PolyAI/banking77}{Banking77 dataset}, covering 77 intent categories (e.g., \texttt{card\_payment\_problems},\texttt{atm\_support}, \texttt{interest\_rate\_query}).\footnote{The Banking77 dataset contains 13,083 real-world customer service queries from the banking domain. It is widely used for research in intent classification and banking-domain conversational AI.}
+    
+    \item \textbf{Step 2: Context Generation.} For each query from Step~1, \texttt{gpt-4o-mini} was prompted to generate a 150--250 word FAQ-style passage that could plausibly be used to answer the customer’s question in a banking customer service setting.
+  
+    \item \textbf{Step 3: Response Generation.} Two responses were created for each query-context pair:
+    \begin{itemize}
+        \item \textbf{Grounded responses} were generated using \texttt{gpt-4o} with temperature set to zero, and prompted to rely strictly on the accompanying context passage, without introducing any external knowledge.
+        \item \textbf{Hallucinated responses} were generated using \texttt{gpt-3.5-turbo-0125}, with prompting designed to subtly introduce factual inconsistencies (e.g., fabricated service features or incorrect fees) while maintaining surface fluency and plausible relevance.
+    \end{itemize}
+    
+    \item \textbf{Step 4: Dataset Assembly.} The final dataset included 2,770 labeled (query, context, response) triplets—1,385 grounded and 1,385 hallucinated. Of these, 1,000 grounded–hallucinated pairs were allocated for training, and 385 pairs were held out as an evaluation set. The train–validation split was performed using unique pair identifiers to ensure no query–context–response overlap across splits, thereby preventing data leakage. All examples were formatted consistently with the HaluBench schema. An illustrative example test case is provided in Appendix A (see Table~\ref{tab:retailbankqa-example}).
+    \item \textbf{Step 5: LLM-based Annotation Verification.} To assess label quality, a random sample of 50 examples (25 grounded, 25 hallucinated) from the synthetic dataset was reviewed by OpenAI’s \texttt{o3-pro} model\footnote{\url{https://platform.openai.com/docs/models/o3}}, prompted to act as an expert human QA reviewer and annotator. This model offers stronger reasoning capabilities than those used during data construction (\texttt{gpt-3.5-turbo-0125} for hallucinations; \texttt{gpt-4o-mini} for context generation; and \texttt{gpt-4o} for grounded responses). Following strict groundedness criteria, the annotation process showed a 90\% agreement with the original labels. This degree of alignment suggests that the synthetic labels are broadly consistent with expert judgment and sufficiently reliable for training purposes.\footnote{Disagreements primarily involved borderline cases with minor omissions or over-specificity, underscoring the need for clearer prompting or light label smoothing in future iterations.}
+
+
+
+\end{itemize}
+\subsubsection*{Final sample}
+The final sample consists of 6,600 observations, with 3,900 from HaluBench and 2,770 test cases from the constructed RetailbankQA dataset.
+
+\begin{table}[H]
+\centering
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Domain} & \textbf{\# Examples} & \textbf{\%H} & \textbf{Med CT} & \textbf{Max CT} \\
+\midrule
+\textbf{RetailBankQA}       & 2,770 & 50\% & 275   & 352  \\
+\midrule
+\textbf{HaluBench}  & 3,900 & 34\% & 291    & 2494  \\
+\quad DROP          & 1,000 & 50\% & 224   & 1204 \\
+\quad FinanceBench  & 1,000 & 50\% & 454   & 2494 \\
+\quad PubMedQA      & 1,000 & 50\% & 280   & 937  \\
+\quad RAGTruth      & 900  & 18\% & 282.5 & 538  \\
+\bottomrule
+\end{tabular}
+}
+\caption{Summary statistics of full training and evaluation dataset, where \textbf{\%H} denotes share of hallucinated responses and \textbf{CT} indicates context token length. HaluBench includes benchmark datasets from finance, biomedical, and general knowledge domains.}
+\label{tab:dataset_stats}
+\end{table}
+
+Table~\ref{tab:dataset_stats} reports token-level statistics across all datasets. The synthetic retail bank dataset (RetailbankQA) contains moderate context lengths compared to other datasets in HaluBench. The share of hallucination are balanced in all datasets but RAGTruth.
+Each dataset was split using stratified sampling into training, validation, and test subsets (70/15/15) to preserve class balance. Validation sets were used for hyperparameter tuning, and final evaluation was conducted on held-out test sets. All examples were tokenized using the DeBERTa-v3-base tokenizer.
+
+\section{Model}
+
+The model used for binary hallucination classification is a fine-tuned cross-encoder based on the \textbf{DeBERTa-v3-base} architecture.\footnote{\href{https://huggingface.co/microsoft/deberta-v3-base}{https://huggingface.co/microsoft/deberta-v3-base}} This transformer has demonstrated performance on natural language inference (NLI) benchmarks such as MNLI, ANLI, and SNLI, outperforming models like BERT, RoBERTa, and XLNet \citep{he2021deberta, liu2019roberta, yang2019xlnet}.
+
+DeBERTa-v3-base is well-suited for hallucination detection tasks that require fine-grained factual consistency checks, due to its pretraining on entailment-style objectives-that is, tasks where the model learns to assess whether one sentence is logically supported by another. Compared to bi-encoders or prompt-based LLM evaluators, the cross-encoder architecture jointly encodes the \textit{query}, \textit{retrieved context}, and \textit{response}, enabling the model to capture rich inter-component dependencies. This design is consistent with recent hallucination detection frameworks such as Luna \citep{belyi2024luna} and Lettuce Detect \citep{Kovacs2025LettuceDetect}, and aligns with answer faithfulness metrics used by LLM evaluation protocols.
+
 \subsection{Training Setup}
-[Loss function, hyperparameters, evaluation metrics.]
 
-\section{Results}
-\subsection{Main Evaluation}
+To adapt the pretrained DeBERTa-v3-base model, a classification head is added to produce a single logit representing the probability that the response is grounded. Inputs are tokenized in the format:
+
+\begin{center}
+\small
+\texttt{[CLS] query [SEP] context [SEP] response [SEP]}
+\end{center}
+
+Training is performed using the Hugging Face \texttt{Trainer} API based on three epochs, a batch size of 8, a learning rate of \(1 \times 10^{-5}\), and the \texttt{AdamW} optimizer (weight decay = 0.01). This configuration was selected based on a targeted grid search, where it achieved the most stable validation performance and highest F1 score, while reducing overfitting and training variance associated with smaller batch sizes.\footnote{\href{https://github.com/tahlee-stone/2024-fall-datasci-w266-tahlee-stone/blob/main/final_project/results/hyperparameter_comparison.xlsx}{Hyperparameter search results available at GitHub.}} Binary cross-entropy loss is applied, with labels encoded as 1 for grounded (\texttt{PASS}) and 0 for hallucinated (\texttt{FAIL}). The training dataset is balanced and composed of examples from both HaluBench (general domain) and RetailBankQA (financial domain). The Hugging Face DeBERTa tokenizer is used to tokenize all inputs.
+
+\subsection{Context Window Constraints}
+
+Context length limitations present a challenge for groundedness assessment of documents. To address the 512-token constraint of DeBERTa-v3-base, a windowed chunking strategy is applied: each input is split into overlapping context chunks and passed independently through the model. Groundedness probabilities are computed for each chunk, and the maximum score across chunks is used to derive a single, example-level binary classification.
+
+Token length distribution analysis (see Figure~\ref{fig:ctx_dist}) indicates that around 94\% of test cases are within the 512-token limit. Given this distribution, more computationally heavy token-level span attribution was considered, but not implemented, particularly as longer contexts were largely to one subdataset which already had known limitations of containing numeric and calculation-heavy test cases (FinanceBench, where 44.3\% of examples exceed the threshold, compared to 2.5\% in DROP, 1.5\% in PubMedQA, and 0.67\% in RAGTruth).
+
+This design aligns with Luna \citep{belyi2024luna}, which also adopts a windowed chunking strategy for processing long RAG inputs. However, unlike Luna—which performs token-level span classification to identify hallucinated spans—this implementation focuses on example-level prediction to reduce computational overhead. As language models evolve to support longer context windows and multi-turn dialogue histories, token-level grounding and span attribution remain important directions for future work.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\columnwidth,  height=5cm]{context_length.png}
+    \caption{Context Token Length Distribution for full dataset (dashed line = 512-token max input for DeBERTa-v3-base).}
+    \label{fig:ctx_dist}
+\end{figure}
 
 
-\subsection{Error Analysis}
+\section{Baseline Comparison Models}
+Baseline comparisons include a prompted GPT-4o evaluator and a commercial grounding guardrail from AWS Bedrock.
+
+\subsection{Prompted LLM Verifier}
+A zero-shot evaluation baseline is implemented using OpenAI’s \texttt{gpt-4o-2024-05-13} model, accessed via the OpenAI API.\footnote{\href{https://platform.openai.com/docs/models/gpt-4o}{https://platform.openai.com/docs/models/gpt-4o}} The prompting approach is adapted from the Lynx framework proposed by \citet{ravi2024lynx} and is presented using a structured Jinja2 template.The full prompt is included in Appendix~\ref{app:prompt}. Each input is formatted as a (query, document, response) triplet, and the model is instructed to assess whether the response is grounded in the retrieved document, based on strict faithfulness criteria.
+
+The model returns a JSON object containing a \texttt{REASONING} field (a brief justification) and a \texttt{SCORE} field, which is parsed as either \texttt{"PASS"} or \texttt{"FAIL"}. These binary outputs are used for groundedness classification in the evaluation.
+\subsection{AWS Bedrock Guardrail}
+
+As an off-the-shelf comparator model, the commercial contextual grounding guardrail from \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{Amazon Bedrock} was selected as a closed-source baseline.\footnote{\href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}} Each (query, context, response) triplet is submitted via the \texttt{apply\_guardrail} API with contextual grounding policies enabled and relevance checks disabled. The system uses Claude Sonnet 4, the foundation model available via AWS at the time of evaluation, to return a grounding score and a threshold-based decision.
+
+A fixed threshold of 0.7 is applied to determine whether the response is grounded. Outputs are mapped to binary \texttt{PASS} or \texttt{FAIL} labels to support direct comparison with other evaluators. Although the guardrail is configured to block ungrounded responses, its decision is used solely for classification in this study. This baseline was selected for its alignment with the contextual grounding task and its accessibility as a managed service.
+
+\subsection{Evaluation}
+
+Model evaluation was conducted on two test sets: the HaluBench hold-out set and the synthetic RetailbankQA test set. The classifier produces chunk-level predictions, which are then aggregated to the example level using the maximum predicted probability across all chunks for each test case.
+
+Performance is reported using example-level accuracy, precision, recall, and F1-score, with \texttt{PASS} indicating a grounded response and \texttt{FAIL} indicating a hallucinated one. Evaluation includes classification reports for each source dataset and confusion matrix breakdowns. Results are further stratified by source domain (e.g., FinanceBench, DROP) to assess generalization under domain shift. Qualitative failure cases are also reviewed to understand where the model struggles with subtle hallucination patterns or ambiguous references.
+
+\section{Results and discussion}
+
+Results in Figure~\ref{fig:performance_metrics} show a comparative evaluation of the cross-encoder classifier and two LLM-based evaluators. Metrics include example-level accuracy, macro precision, macro recall, and macro F1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{main_results.png}
+    \caption{Performance comparison of cross-encoder versus LLM-based models; by evaluation metric.}
+    \label{fig:performance_metrics}
+\end{figure}
+
+The cross-encoder achieves consistent scores across all metrics, with macro precision and recall of 88.5\% and 88.0\%, respectively. Its macro F1 score (88.2\%) is slightly above that of the GPT-4o-based evaluator (85.7\%) and notably higher than the AWS Bedrock guardrail (79.7\%). These results reflect weighted averages across the held-out evaluation sets.
+
+Deterministic outputs and lower latency support the cross-encoder as a practical option for integration into production systems, particularly in domains requiring bounded inference costs and reproducibility.
+
+That said, the performance gap between the cross-encoder and the GPT-4o evaluator is modest. LLM-based methods remain competitive—particularly in low-throughput settings where qualitative reasoning or explanatory outputs are valuabl
+
+A more detailed breakdown of results show that: 
+
+\begin{table*}[ht]
+\centering
+\footnotesize
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+\textbf{Dataset} & \textbf{Model} & \textbf{Accuracy} & \textbf{Macro Precision} & \textbf{Macro Recall} & \textbf{Macro F1} \\
+\midrule
+\textbf{HaluBench} & DeBERTa-v3 Cross-encoder & 69.0\% & 70.0\% & 68.0\% & 68.0\% \\
+          & GPT-4o (LLM Evaluator)      & 82.6\% & 82.9\% & 83.6\% & 82.5\% \\
+          & AWS Bedrock       & 58.6\% & 60.5\% & 60.3\% & 58.6\% \\
+\midrule
+- DROP & DeBERTa-v3 Cross-encoder & 88.0\% & 85.9\% & 89.7\% & 87.8\% \\
+     & GPT-4o (LLM Evaluator)          & 82.4\% & 82.7\% & 82.2\% & 82.2\% \\
+     & AWS Bedrock       & 47.9\% & 46.7\% & 47.1\% & 45.8\% \\
+\midrule
+- FinanceBench & DeBERTa-v3 Cross-encoder & 52.2\% & 51.9\% & 75.6\% & 61.5\% \\
+             & GPT-4o (LLM Evaluator) & 84.8\% & 86.1\% & 84.9\% & 84.7\% \\
+             & AWS Bedrock  & 50.6\% & 51.1\% & 50.8\% & 47.3\% \\
+\midrule
+- RAGTruth & DeBERTa-v3 Cross-encoder & 75.8\% & 85.1\% & 85.1\% & 85.1\% \\
+         & GPT-4o (LLM Evaluator)    & 84.8\% & 74.8\% & 77.2\% & 75.9\% \\
+         & ASW Bedrock       & 80.8\% & 69.9\% & 74.8\% & 71.7\% \\
+\midrule
+- pubmedQA & DeBERTa-v3 Cross-encoder & 68.6\% & 67.0\% & 82.9\% & 74.1\% \\
+         & GPT-4o (LLM Evaluator) & 77.9\% & 82.0\% & 79.4\% & 77.6\% \\
+         & AWS Bedrock       & 60.0\% & 62.2\% & 61.3\% & 59.6\% \\
+\midrule
+\textbf{RetailbankQA} & DeBERTa-v3  Cross-encoder & 97.0\% & 97.0\% & 97.0\% & 97.0\% \\
+             & GPT-4o (LLM Evaluator)           & 79.0\% & 85.2\% & 79.0\% & 78.0\% \\
+             & AWS Bedrock       & 80.9\% & 85.5\% & 80.9\% & 80.3\% \\
+\bottomrule
+\end{tabular}
+\caption{Evaluation results across six datasets comparing cross-encoder, LLM-based, and AWS Bedrock hallucination detection methods. Results are reported as Accuracy, Macro Precision, Macro Recall, and Macro F1. RetailbankQA shows the largest gains from the cross-encoder approach.}
+\label{tab:results_full}
+\end{table*}
+
+Error analysis suggests that: 
 [Discuss types of hallucinations missed, false positives, patterns across datasets.]
+[Limitations]
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.9\linewidth]{example_roc_curve.png}
-%    \caption{ROC curve for all evaluated models.}
-%    \label{fig:roc}
-%\end{figure}
-
-\section{Discussion}
-[Tradeoffs of using cross-encoders. Latency vs performance. Domain transferability. Real-world deployment constraints.]
-
-\section{Limitations}
-[Model size, cost, domain specificity, labeling assumptions.]
 
 \section{Conclusion}
 [Summary of findings. Implications for scalable, reliable financial dialogue systems. Future work.]
 
-\subsection{References}
+%\nocite{}
 
-\nocite{Ando2005,augenstein-etal-2016-stance,andrew2007scalable,rasooli-tetrault-2015,goodman-etal-2016-noise,harper-2014-learning}
-
-The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
-If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
-\begin{quote}
-\begin{verbatim}
-\bibliographystyle{acl_natbib}
-\bibliography{custom}
-\end{verbatim}
-\end{quote}
-You can obtain the complete ACL Anthology as a Bib\TeX{} file from \url{https://aclweb.org/anthology/anthology.bib.gz}.
-To include both the Anthology and your own .bib file, use the following instead of the above.
-\begin{quote}
-\begin{verbatim}
-\bibliographystyle{acl_natbib}
-\bibliography{anthology,custom}
-\end{verbatim}
-\end{quote}
-Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files.
-
-\subsection{Appendices}
-
-Use \verb|\appendix| before any appendix section to switch the section numbering over to letters. See Appendix~\ref{sec:appendix} for an example.
-
-\section{Bib\TeX{} Files}
-\label{sec:bibtex}
-
-Unicode cannot be used in Bib\TeX{} entries, and some ways of typing special characters can disrupt Bib\TeX's alphabetization. The recommended way of typing special characters is shown in Table~\ref{tab:accents}.
-
-Please ensure that Bib\TeX{} records contain DOIs or URLs when possible, and for all the ACL materials that you reference.
-Use the \verb|doi| field for DOIs and the \verb|url| field for URLs.
-If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references section will appear as a hyperlink to the paper, using the hyperref \LaTeX{} package.
-
-\section*{Limitations}
-ACL 2023 requires all submissions to have a section titled ``Limitations'', for discussing the limitations of the paper as a complement to the discussion of strengths in the main text. This section should occur after the conclusion, but before the references. It will not count towards the page limit.
-The discussion of limitations is mandatory. Papers without a limitation section will be desk-rejected without review.
-
-While we are open to different types of limitations, just mentioning that a set of results have been shown for English only probably does not reflect what we expect. 
-Mentioning that the method works mostly for languages with limited morphology, like English, is a much better alternative.
-In addition, limitations such as low scalability to long text, the requirement of large GPU resources, or other things that inspire crucial further investigation are welcome.
-
-\section*{Ethics Statement}
-Scientific work published at ACL 2023 must comply with the ACL Ethics Policy.\footnote{\url{https://www.aclweb.org/portal/content/acl-code-ethics}} We encourage all authors to include an explicit ethics statement on the broader impact of the work, or other ethical considerations after the conclusion but before the references. The ethics statement will not count toward the page limit (8 pages for long, 4 pages for short papers).
-
-\section*{Acknowledgements}
-This document has been adapted by Jordan Boyd-Graber, Naoaki Okazaki, Anna Rogers from the style files used for earlier ACL, EMNLP and NAACL proceedings, including those for
-EACL 2023 by Isabelle Augenstein and Andreas Vlachos,
-EMNLP 2022 by Yue Zhang, Ryan Cotterell and Lea Frermann,
-ACL 2020 by Steven Bethard, Ryan Cotterell and Rui Yan,
-ACL 2019 by Douwe Kiela and Ivan Vuli\'{c},
-NAACL 2019 by Stephanie Lukin and Alla Roskovskaya, 
-ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu, 
-NAACL 2018 by Margaret Mitchell and Stephanie Lukin,
-Bib\TeX{} suggestions for (NA)ACL 2017/2018 from Jason Eisner,
-ACL 2017 by Dan Gildea and Min-Yen Kan, NAACL 2017 by Margaret Mitchell, 
-ACL 2012 by Maggie Li and Michael White, 
-ACL 2010 by Jing-Shin Chang and Philipp Koehn, 
-ACL 2008 by Johanna D. Moore, Simone Teufel, James Allan, and Sadaoki Furui, 
-ACL 2005 by Hwee Tou Ng and Kemal Oflazer, 
-ACL 2002 by Eugene Charniak and Dekang Lin, 
-and earlier ACL and EACL formats written by several people, including
-John Chen, Henry S. Thompson and Donald Walker.
-Additional elements were taken from the formatting instructions of the \emph{International Joint Conference on Artificial Intelligence} and the \emph{Conference on Computer Vision and Pattern Recognition}.
 
 % Entries for the entire Anthology, followed by custom entries
 \bibliography{anthology,custom}
 \bibliographystyle{acl_natbib}
 
+
+\clearpage
+
+
 \appendix
 
-\section{Example Appendix}
-\label{sec:appendix}
+\section{RetailbankQA Triplet with Grounded and Hallucinated Responses}
+\label{app:test_case}
+\FloatBarrier
 
-This is a section in the appendix.
+\begin{table}[H]
+\scriptsize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\centering
+\begin{tabular}{@{}p{0.95\columnwidth}@{}}
+\toprule
+\textbf{QUERY} \\
+\textit{How Long Will My Transaction Take?}  \\
+\midrule
+\textbf{CONTEXT} \\
+When making a transfer, the time it takes to reach the recipient can vary depending on the type of transfer. Faster Payments usually arrive within minutes, while BACS payments can take up to three working days. International transfers may take longer depending on the destination and receiving bank. \\
+\midrule
+\textbf{RESPONSE (Grounded)} \\
+The timing for your transaction to be completed depends on the transfer type. Faster Payments typically arrive within minutes, BACS transfers can take up to three working days, and international transfers may take longer depending on the recipient’s bank. \\
+\midrule
+\textbf{RESPONSE (Hallucinated)} \\
+When you send a transfer, it will always arrive instantly, regardless of the method or country. All transactions are processed in real time by default, including international ones. \\
+\midrule
+\textbf{ANNOTATION} \\
+\textbf{Span:} ``it will always arrive instantly'' and ``including international ones'' \\
+\textbf{Reason:} \\
+Original: ``Faster Payments usually arrive within minutes… BACS… up to three working days… international transfers may take longer'' \\
+Generative: ``all transactions are processed in real time… including international ones'' \\
+\bottomrule
+\end{tabular}
+\caption{Example of a Query-Conext-Response triplet from synthetic RetailbankQA dataset with grounded and hallucinated response.}
+\label{tab:retailbankqa-example}
+\end{table}
+
+\section{Groundedness Evaluation Prompt}
+\label{app:prompt}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+The following prompt was used for LLM-based groundedness evaluation (GPT-4o). Query, context, and response fields were dynamically filled for each example.
+
+\begin{flushleft}
+\ttfamily
+\small
+Given the following QUESTION, DOCUMENT and ANSWER you must analyze the provided answer and determine whether it is faithful to the contents of the DOCUMENT.
+
+A faithful ANSWER must not offer new information beyond the context provided in the DOCUMENT.
+
+A faithful ANSWER must be grounded in the DOCUMENT and not based on external knowledge.
+
+A faithful ANSWER also must not contradict information provided in the DOCUMENT.
+
+Even if there is a slight discrepancy between the ANSWER and the DOCUMENT, or any ungrounded assumptions made in the ANSWER, the ANSWER must be considered not faithful.
+
+The faithfulness of the ANSWER is independent of its relevancy to QUESTION.
+
+Even if the ANSWER is irrelevant to the QUESTION, your task is to evaluate if it is faithful to the DOCUMENT regardless of relevancy.
+
+Output your final verdict by strictly following this format: "PASS" if the answer is faithful to the DOCUMENT and "FAIL" if the answer is not faithful to the DOCUMENT. Briefly, show your reasoning.
+
+\vspace{1em}
+--\\
+\textbf{QUESTION (THIS DOES NOT COUNT AS BACKGROUND INFORMATION):}\\
+\{\{user\_query\}\}\\
+
+--\\
+\textbf{DOCUMENT:}\\
+\{\{retrieved\_context\}\}\\
+
+--\\
+\textbf{ANSWER:}\\
+\{\{model\_answer\}\}\\
+
+--\\
+
+Your output should be in \textbf{JSON format} with the keys \texttt{"REASONING"} and \texttt{"SCORE"}:\\
+\{"REASONING": <brief reasoning as bullet points>, "SCORE": <your final score>\}
+\end{flushleft}
+
 
 \end{document}

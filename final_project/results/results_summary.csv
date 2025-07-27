@@ -1,5 +1,11 @@
-Dataset_Model,Accuracy,Precision_PASS,Recall_PASS,F1_PASS,Precision_FAIL,Recall_FAIL,F1_FAIL,Macro_Precision,Macro_Recall,Macro_F1
-HaluEval_LLM,0.853,0.8037865748709122,0.934,0.8640148011100832,0.9212410501193318,0.772,0.8400435255712732,0.8625138124951219,0.853,0.8520291633406782
-HaluEval_Bedrock,0.808,0.7361963190184049,0.96,0.8333333333333334,0.9425287356321839,0.656,0.7735849056603774,0.8393625273252944,0.808,0.8034591194968554
-Challenger_LLM,0.7896103896103897,0.7038391224862889,1.0,0.8261802575107297,1.0,0.5792207792207792,0.7335526315789473,0.8519195612431445,0.7896103896103897,0.7798664445448384
-Challenger_Bedrock,0.8090909090909091,0.7270992366412213,0.9896103896103896,0.8382838283828383,0.983739837398374,0.6285714285714286,0.7670364500792393,0.8554195370197977,0.8090909090909091,0.8026601392310388
+Dataset_Model,Accuracy,Precision_PASS,Recall_PASS,F1_PASS,Precision_FAIL,Recall_FAIL,F1_FAIL,Macro_Precision,Macro_Recall,Macro_F1,Comments
+HaluEval_LLM,85%,80%,93%,86%,92%,77%,84%,86%,85%,85%,need to run this through prediction model
+HaluEval_Bedrock,81%,74%,96%,83%,94%,66%,77%,84%,81%,80%,need to run this through prediction model
+HaluBench_LLM,83%,91%,77%,83%,74%,90%,82%,83%,84%,83%,test set
+HaluBench_Bedrock,59%,70%,49%,58%,51%,72%,60%,61%,60%,59%,test set
+Challenger_LLM,79%,70%,100%,83%,100%,58%,73%,85%,79%,78%,need to run this through prediction model
+Challenger_Bedrock,81%,73%,99%,84%,98%,63%,77%,86%,81%,80%,need to run this through prediction model
+,,,,,,,,,,,
+HaluEval_Crossencoder,,,,,,,,,,,
+HaluBench_Crossencoder,,,,,,,,,,,
+Challenger_Crossencoder,,,,,,,,,,,
