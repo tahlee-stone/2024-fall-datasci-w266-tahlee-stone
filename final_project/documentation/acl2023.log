@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.28)  27 JUL 2025 12:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.28)  28 JUL 2025 20:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,10 +601,22 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 9.0pt on input line 68.
 
-Underfull \hbox (badness 4108) in paragraph at lines 75--76
-[]\T1/ptm/b/n/10.95 (+20) LLM-as-a-judge \T1/ptm/m/n/10.95 (+20) meth-ods, in-c
-lud-ing both
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+[][][][][]$\T1/zi4/m/n/9 https : / / huggingface . co / datasets / PatronusAI /
+
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 68--69
+[]\T1/ptm/m/n/10.95 (+20) This pa-per aims to fine-tune a lightweight
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 68--69
+\T1/ptm/m/n/10.95 (+20) against two base-lines: an open-source LLM-
  []
 
 [1{C:/Users/tahle/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ta
@@ -614,104 +626,130 @@ ppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc}
 
 
 ]
-Underfull \hbox (badness 7116) in paragraph at lines 79--80
-[]\T1/ptm/m/n/10.95 (+20) While per-for-mant, LLM-based eval-u-a-tors
- []
-
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
 1.
+
 (C:\Users\tahle\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 89.
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
 [][][][][]$\T1/zi4/m/n/9 https : / / huggingface . co / datasets / PolyAI /
  []
 
-[2]
-<synthetic_data_construction.png, id=107, 671.50874pt x 303.38344pt>
+<synthetic_data_construction.png, id=83, 671.50874pt x 303.38344pt>
 File: synthetic_data_construction.png Graphic file (type png)
 <use synthetic_data_construction.png>
 Package pdftex.def Info: synthetic_data_construction.png  used on input line 11
-9.
+8.
 (pdftex.def)             Requested size: 432.48051pt x 195.39148pt.
+[2]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 130.
+(Font)              scaled to size 10.95pt on input line 129.
 
-Underfull \hbox (badness 2057) in paragraph at lines 130--131
-\T1/ptm/m/n/10.95 (+20) sam-ple of 1,385 cus-tomer queries were
+Underfull \hbox (badness 2932) in paragraph at lines 129--130
+[]\T1/ptm/b/n/10.95 (+20) Step 1: Query Sam-pling. \T1/ptm/m/n/10.95 (+20) A re
+p-re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
-\T1/ptm/m/n/10.95 (+20) ob-tained from the [][]Bank-ing77 dataset[][],
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+\T1/ptm/m/n/10.95 (+20) sen-ta-tive sam-ple of 1,385 cus-tomer
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
-\T1/ptm/m/n/10.95 (+20) cov-er-ing 77 in-tent cat-e-gories (e.g.,
+Underfull \hbox (badness 4981) in paragraph at lines 129--130
+\T1/ptm/m/n/10.95 (+20) queries were ob-tained from the [][]Bank-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 1960) in paragraph at lines 129--130
+\T1/ptm/m/n/10.95 (+20) ing77 dataset[][], cov-er-ing 77 in-tents (e.g.,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 \T1/zi4/m/n/10.95 card_payment_problems\T1/ptm/m/n/10.95 (+20) ,\T1/zi4/m/n/10.
 95 atm_support\T1/ptm/m/n/10.95 (+20) ,
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 137--138
+Underfull \hbox (badness 1342) in paragraph at lines 136--137
 []\T1/ptm/b/n/10.95 (+20) Hallucinated re-sponses \T1/ptm/m/n/10.95 (+20) were 
 gen-er-
  []
 
 
-Underfull \hbox (badness 3354) in paragraph at lines 140--141
+Underfull \hbox (badness 3354) in paragraph at lines 139--140
 []\T1/ptm/b/n/10.95 (+20) Step 4: Dataset As-sem-bly. \T1/ptm/m/n/10.95 (+20) T
 he fi-
  []
 
-[3] [4 <./synthetic_data_construction.png>] [5]
-<context_length.png, id=171, 702.625pt x 451.6875pt>
+[3 <./synthetic_data_construction.png>]
+<context_length.png, id=184, 702.625pt x 451.6875pt>
 File: context_length.png Graphic file (type png)
 <use context_length.png>
-Package pdftex.def Info: context_length.png  used on input line 237.
-(pdftex.def)             Requested size: 219.08731pt x 142.26163pt.
-
-Overfull \hbox (28.28256pt too wide) in paragraph at lines 252--252
+Package pdftex.def Info: context_length.png  used on input line 195.
+(pdftex.def)             Requested size: 219.08731pt x 113.81068pt.
+ [4 <./context_length.png>]
+Overfull \hbox (28.28256pt too wide) in paragraph at lines 210--210
 [][][][][]\T1/ptm/m/n/9 (-20) https://docs.aws.amazon.com/bedrock/latest/usergu
 ide/guardrails-
  []
 
-[6 <./context_length.png>]
-<main_results.png, id=196, 514.5624pt x 325.9377pt>
+<main_results.png, id=218, 514.5624pt x 325.9377pt>
 File: main_results.png Graphic file (type png)
 <use main_results.png>
-Package pdftex.def Info: main_results.png  used on input line 268.
+Package pdftex.def Info: main_results.png  used on input line 226.
 (pdftex.def)             Requested size: 219.08614pt x 138.7778pt.
 
-Underfull \hbox (badness 3679) in paragraph at lines 278--279
-\T1/ptm/m/n/10.95 (+20) est. LLM-based meth-ods re-main com-pet-i-
+Underfull \hbox (badness 1043) in paragraph at lines 288--288
+[]|\T1/ptm/m/n/9 (+20) Cross-encoder misses on open-ended, para-
  []
 
+[5 <./main_results.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 (acl2023.bbl
-Underfull \hbox (badness 4048) in paragraph at lines 63--66
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 10.0pt on input line 7.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--9
+[]\T1/ptm/m/n/10 (+20) Anthropic. 2024.  Claude son-net 4 model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--9
+\T1/ptm/m/n/10 (+20) card.  [][]$\T1/zi4/m/n/10 https : / / docs . anthropic . 
+com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--9
+\T1/zi4/m/n/10 claude / docs / model-[]cards-[]overview$[][]\T1/ptm/m/n/10 (+20
+) .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--9
+[][]$\T1/zi4/m/n/10 https : / / docs . anthropic . com / claude / docs /
+ []
+
+[6]
+Underfull \hbox (badness 4048) in paragraph at lines 69--72
 []\T1/ptm/m/n/10 (+20) Patrick Lewis, Ethan Perez, Alek-san-dra Pik-tus,
  []
 
-[7 <./main_results.png>]
-Underfull \hbox (badness 1199) in paragraph at lines 116--120
+
+Underfull \hbox (badness 1199) in paragraph at lines 122--126
 \T1/ptm/m/n/10 (+20) augmented gen-er-a-tion.  In \T1/ptm/m/it/10 (+20) Pro-cee
 d-ings of the
  []
 
-) [8
-
-]
+) [7]
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 9.0pt on input line 364.
- [9
+(Font)              scaled to size 9.0pt on input line 372.
+ [8
 
 ] (acl2023.aux)
  ***********
@@ -722,13 +760,13 @@ Package rerunfilecheck Info: File `acl2023.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15409 strings out of 474486
- 248332 string characters out of 5743755
- 1947542 words of memory out of 5000000
- 36983 multiletter control sequences out of 15000+600000
- 635539 words of font info for 356 fonts, out of 8000000 for 9000
+ 15422 strings out of 474486
+ 248609 string characters out of 5743755
+ 1953542 words of memory out of 5000000
+ 36994 multiletter control sequences out of 15000+600000
+ 636083 words of font info for 360 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,1102b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,93p,1009b,584s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/
 Inconsolata-zi4b.pfb><C:/Users/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/tahle/AppData/Local/Programs/
@@ -739,9 +777,9 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tahle
 rs/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Use
 rs/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tahle/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl2023.pdf (9 pages, 308979 bytes).
+Output written on acl2023.pdf (8 pages, 318541 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 79376 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 331 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
+ 80400 words of extra memory for PDF output out of 89155 (max. 10000000)
 

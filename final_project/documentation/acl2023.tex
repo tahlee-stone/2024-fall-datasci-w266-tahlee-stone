@@ -55,42 +55,40 @@
 \maketitle
 
 \begin{abstract}
-Mitigating hallucinations in Large Language Model (LLM) systems remains a key barrier to deployment in higher-risk domains such as finance and medicine where factual accuracy is both a regulatory requirement and component of responsible AI practice. 
-This paper finetunes a cross-encoder DeBERTa-v3 transformer as a lightweight hallucination detection model to identify generated responses that are unsupported by or contradict retrieved evidence. The model is trained on Halubench benchmark data and a synthetic, domain-specific dataset simulating retail bank customer service chatbot responses. Its performance is evaluated against two baselines: a zero-shot prompted LLM-as-a-judge, based on the Lynx framework from \citet{ravi2024lynx}, and a commercial \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock contextual grounding} guardrail. Results show sufficient performance for the cross-encoder model to be considered as a scalable, low latency component of hallucination detection in production-grade systems. 
+Mitigating hallucinations in Large Language Model (LLM) systems remains a key barrier to deployment in higher-risk domains such as finance and medicine where factual accuracy is both a regulatory requirement and component of responsible AI. 
+This paper finetunes a cross-encoder DeBERTa-v3 transformer as a lightweight hallucination detection model to identify generated responses that are unsupported by retrieved evidence. The model is trained on Halubench benchmark data and a synthetic retail banking dataset. Evaluated against a LLM-as-a-judge, based on the Lynx framework \citet{ravi2024lynx}, and a commercial \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock} contextual grounding guardrail, the model achieves up to 85\% macro F1—outperforming Bedrock by 20–40 points on complex datasets and matching GPT-4o on structured tasks—while offering deterministic, low-latency, and transparent predictions. Results support its use as a scalable hallucination detection component in production systems.
 \end{abstract}
 
 \section{Introduction}
 
-Large Language Models (LLMs) are increasingly deployed in customer-facing systems, supporting tasks from dialogue generation to decision assistance \citep{brown2020language, openai2023gpt4}. Despite their fluency and versatility, LLMs frequently produce hallucinations—outputs that are unverifiable or contradict retrieved evidence \citep{ji2023survey}. In high-risk domains such as finance, these errors can erode user trust, and introduce compliance and reputational risks.
+Large Language Models (LLMs) are increasingly deployed in customer-facing systems, supporting tasks from dialogue generation to decision assistance \citep{brown2020language, openai2023gpt4}. Despite their fluency and versatility, LLMs frequently produce hallucinations—outputs that are unsupported by retrieved evidence \citep{ji2023survey}. In high-risk domains such as finance, these errors can erode user trust, and introduce compliance and reputational risks.
 
 Retrieval-Augmented Generation (RAG) is a commonly used technique for mitigating hallucinations by incorporating externally retrieved documents into the model prompt to support response grounding \citep{lewis2020retrieval}. However, hallucinations persist even in RAG settings, often due to incomplete retrieval, poor integration of evidence, or continued reliance on a model’s intrinsic knowledge. As a result, post-generation hallucination detection has become an important component of production-grade LLM systems, functioning as a safeguard or `guardrail' before output delivery.
 
-This paper aims to fine-tune a lightweight cross-encoder on benchmark and synthetic financial data for hallucination detection. It compares this model against an open-source LLM-as-a-judge and a commercial grounding guardrail to assess its viability as a low-latency, scalable guardrail in production LLM-based systems for higher-risk domains like finance.
-
-Hallucination detection is typically framed as a \textit{groundedness classification} task: for a given query, retrieved context, and model-generated response triplet, the guardrail must determine whether the response is supported by the evidence provided \citep{luo2024hallucination}. Effective solutions must handle semantic nuance, domain-specific language, and variable response structures.
+This paper aims to fine-tune a lightweight DeBERTa-v3-base cross-encoder as a guardrail for hallucination detection on the \href{https://huggingface.co/datasets/PatronusAI/HaluBench}{Halubench} benchmark \citet{ravi2024lynx} and a synthetic financial-domain dataset simulating retail bank Q\&A customer service interactions.\footnote{\url{https://huggingface.co/datasets/PatronusAI/HaluBench}}It compares this model against two baselines: an open-source LLM-evaluator based on the Lynx framework \citet{ravi2024lynx} and a close-sourced commercial contextual grounding guardrail provided by \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock} to assess its viability as a low-latency, scalable guardrail in production LLM-based systems for higher-risk domains like finance.
 
 \subsection{Background}
-Several groundedness evaluation frameworks have emerged to address this challenge, with LLM-based approaches among the most widely adopted \citep{deng2023survey, luo2024hallucination}. \textbf{RAGAS} \citep{es2023ragas}, an open-source toolkit based on heuristic metrics, evaluates answer faithfulness by prompting an LLM to extract factual claims from a response and verify each claim against the retrieved context, returning a score based on the proportion of grounded claims.
+Hallucination detection is typically framed as a \textit{groundedness classification} task: for a given query, retrieved context, and model-generated response triplet, the guardrail must determine whether the response is supported by the evidence provided \citep{luo2024hallucination}. Effective solutions must handle semantic nuance, domain-specific language, and variable response structures.
 
-\textbf{LLM-as-a-judge} methods, including both prompted and fine-tuned models, assess hallucinations by reasoning over the full query, context, and response to provide a more holistic assessment of groundedness. Prompted approaches use general-purpose models such as GPT-4 to classify responses relative to retrieved context \citep{zheng2023judging, manakul2023selfcheckgpt}, while fine-tuned LLM-as-a-judges such as the open-source \textbf{Lynx} \citep{ravi2024lynx} model are explicitly trained on hallucination datasets. Lynx has demonstrated stronger performance than GPT-4 on QA-style hallucination detection tasks. 
+Several groundedness evaluation frameworks have emerged to address this challenge, with LLM-based approaches among the most widely adopted \citep{deng2023survey, luo2024hallucination}. \textbf{RAGAS} \citep{es2023ragas}, an open-source toolkit evaluates answer faithfulness by prompting an LLM to extract factual claims from a response and verify each claim against the retrieved context, returning a score based on the share of grounded claims.
 
-Some commercial guardrail systems---e.g., \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock’s contextual grounding} guardrail---offer API-based hallucination checks for LLM outputs, but their inner mechanisms are opaque and they may introduce latency, cost, and privacy risks. 
+\textbf{Open-source LLM-as-a-judges}, including both prompted and fine-tuned models, assess hallucinations by reasoning over the full query, context, and response to provide a more holistic assessment of groundedness. Prompted approaches use general-purpose models such as GPT-4 to classify responses relative to retrieved context \citep{zheng2023judging, manakul2023selfcheckgpt}, while fine-tuned LLM-as-a-judges such as the open-source \textbf{Lynx} \citep{ravi2024lynx} model are explicitly trained on hallucination datasets. Lynx has demonstrated stronger performance than GPT-4 on QA-style hallucination detection tasks. 
 
-While performant, LLM-based evaluators present several practical limitations: they are costly to run at scale, introduce latency, and produce non-deterministic outputs---where repeated evaluations of the same input can yield different results. This limits reproducibility, complicates auditing, and creates inconsistencies in quality assurance workflows. These challenges motivate the need for efficient, locally deployable alternatives.
+\textbf{Commercial LLM evaluators}, such as \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock’s contextual grounding} guardrail, offer API-based hallucination checks for LLM outputs. 
 
-\textbf{Encoder-based models} offer a competitive alternative to LLM-based hallucination detection, combining transparency, low inference overhead, and real-time feasibility. \textbf{Luna} is a DeBERTa-large cross-encoder fine-tuned on multi-domain RAG data to detect hallucinated spans at the token level \citep{belyi2024luna}. It outperforms GPT-3.5-based evaluators on the RAGTruth benchmark while achieving up to 97\% cost reduction and 91\% lower latency. \textbf{Lettuce Detect}, built on the ModernBERT architecture, surpasses Luna and GPT-4-turbo with a 79.2\% F1—despite being 30× smaller than top LLMs. \citep{Kovacs2025LettuceDetect}. 
+While effective, LLM-based evaluators present several practical limitations: they are costly to run at scale, introduce latency, and produce non-deterministic outputs---where repeated evaluations of the same input can yield different results. This limits reproducibility, complicates auditing, and creates inconsistencies in quality assurance workflows. These challenges motivate the need for efficient, locally deployable alternatives.
+
+\textbf{Encoder-based models} offer a competitive alternative to LLM-based hallucination detection, combining transparency, low inference overhead, and real-time feasibility. \textbf{Luna} is a DeBERTa-large cross-encoder fine-tuned on multi-domain RAG data to detect hallucinated spans at the token level \citep{belyi2024luna}. It outperforms GPT-3.5-based evaluators on the RAGTruth benchmark whith a 97\% cost reduction and 91\% lower latency. \textbf{Lettuce Detect}, built on the ModernBERT architecture, surpasses Luna and GPT-4-turbo with a 79.2\% F1—despite being 30× smaller than leading LLMs. \citep{Kovacs2025LettuceDetect}. 
 
 \subsection{Contributions}
-This paper builds on recent work by addressing key limitations of LLM-based hallucination detection, and proposes a lightweight cross-encoder classifier based on DeBERTa-v3 for groundedness classification. The model is fine-tuned on a combination of benchmark data and a synthetic financial-domain dataset simulating retail bank Q\&A customer service interactions
- Its performance is evaluated against two LLM-based baselines: an open-source zero-shot verifier based on the Lynx framework \citet{ravi2024lynx}, and a closed-source commercial grounding guardrail provided by \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{AWS Bedrock}.
-The contributions of this paper are:
+This paper builds on this recent work aimed at addressing key limitations of LLM-based models. The contributions of this paper are:
 \begin{enumerate}
     \item Develop a practical, resource-efficient cross-encoder approach for hallucination detection in RAG systems that balances performance and latency;
     \item Construct a domain-specific evaluation set reflecting the language and groundedness challenges of retail bank dialogue systems, leveraging the \href{https://huggingface.co/datasets/PolyAI/banking77}{Banking77 dataset} to enrich task realism and intent coverage\footnote{\url{https://huggingface.co/datasets/PolyAI/banking77}};
     \item Conduct a comparative evaluation of the cross-encoder against both open-source and commercial LLM-based evaluators, highlighting trade-offs in groundedness accuracy, transparency, and deployability.
 \end{enumerate}
 
-Together, these findings offer actionable guidance for operationalising hallucination detection in higher-risk environments such as banking and finance, where LLM outputs must be both reliable and auditable.
+Together, these findings offer actionable guidance for operationalising hallucination detection in higher-risk environments such as banking, where LLM outputs must be both reliable and auditable.
 
 \section{Methodology}
 
@@ -99,9 +97,10 @@ Together, these findings offer actionable guidance for operationalising hallucin
 The training and evaluation data were sourced from two key datasets: (i) the HaluBench benchmark dataset; and (ii) a synthetic dataset of customer service queries for a retail-banking chatbot.
 
 \subsubsection*{HaluBench Benchmark}
-This benchmark dataset contains around 15,000 query–context–response triplets annotated for hallucination detection. Introduced by \citet{ravi2024lynx} to develop the LYNX model, HaluBench combines multiple established datasets from different domains.\footnote{See Section~3.2 of \citet{ravi2024lynx} for further detail on the construction of the HaluBench benchmark dataset.}
-It includes both naturally occurring hallucinations generated by large language models and synthetic perturbations. 
-The benchmark consists of the following domain-specific subsets:
+This benchmark dataset contains around 15,000 query–context–response triplets annotated for hallucination detection. Introduced by \citet{ravi2024lynx} to develop the LYNX model, 
+
+HaluBench combines datasets spanning multiple domains and includes both naturally occurring and synthetic hallucinations.\footnote{See Section~3.2 of \citet{ravi2024lynx} for further detail on the construction of the HaluBench benchmark dataset.}
+ The benchmark consists of the following domain-specific subsets:
 
 \begin{itemize}
     \item \textbf{FinanceBench}—financial reasoning~\citep{islam2023financebench}
@@ -117,34 +116,32 @@ A final set of 3,900 observations were sampled from Halubench for both fine-tuni
 \begin{figure*}
     \centering
     \includegraphics[width=0.95\textwidth]{synthetic_data_construction.png}
-    \caption{Synthetic data construction pipeline showing the four stages: sampling customer queries, generating synthetic contexts, creating grounded and hallucinated responses, and producing the final labeled dataset.}
+    \caption{Pipeline for synthetic dataset construction of RetailBankQA}
     \label{fig:synthetic-data}
 \end{figure*}
 
 
-\subsubsection*{RetailbankQA Synthetic Dataset}
+\subsubsection*{RetailBankQA Synthetic Dataset}
 
-To fine-tune a hallucination detection model in the context of a retail bank customer service setting, a synthetic RetailbankQA dataset was constructed using a multi-stage prompting pipeline shown in Figure~\ref{fig:synthetic-data}.
+To fine-tune the model in the context of retail bank customer service, a synthetic RetailBankQA dataset was constructed using the multi-stage prompting pipeline in Figure~\ref{fig:synthetic-data}.
 
 \begin{itemize}
-    \item \textbf{Step 1: Query Sampling.} A representative sample of 1,385 customer queries were obtained from the \href{https://huggingface.co/datasets/PolyAI/banking77}{Banking77 dataset}, covering 77 intent categories (e.g., \texttt{card\_payment\_problems},\texttt{atm\_support}, \texttt{interest\_rate\_query}).\footnote{The Banking77 dataset contains 13,083 real-world customer service queries from the banking domain. It is widely used for research in intent classification and banking-domain conversational AI.}
+    \item \textbf{Step 1: Query Sampling.} A representative sample of 1,385 customer queries were obtained from the \href{https://huggingface.co/datasets/PolyAI/banking77}{Banking77 dataset}, covering 77 intents (e.g., \texttt{card\_payment\_problems},\texttt{atm\_support}, \texttt{interest\_rate\_query}).\footnote{The Banking77 dataset contains 13,083 real-world customer service banking queries and is widely used for research in intent classification and conversational AI.}
     
-    \item \textbf{Step 2: Context Generation.} For each query from Step~1, \texttt{gpt-4o-mini} was prompted to generate a 150--250 word FAQ-style passage that could plausibly be used to answer the customer’s question in a banking customer service setting.
+    \item \textbf{Step 2: Context Generation.} For each query from Step~1, \texttt{gpt-4o-mini} was prompted to generate a 150--250 word FAQ-style passage that could plausibly be used to answer a customer’s banking query. Synthetic FAQ-style contexts were generated using LLMs rather than scraped banking help pages, due to commercial, ethical, and reproducibility concerns with using real institutional content.
   
-    \item \textbf{Step 3: Response Generation.} Two responses were created for each query-context pair:
+    \item \textbf{Step 3: Response Generation.} Two responses created for each query-context pair:
     \begin{itemize}
-        \item \textbf{Grounded responses} were generated using \texttt{gpt-4o} with temperature set to zero, and prompted to rely strictly on the accompanying context passage, without introducing any external knowledge.
-        \item \textbf{Hallucinated responses} were generated using \texttt{gpt-3.5-turbo-0125}, with prompting designed to subtly introduce factual inconsistencies (e.g., fabricated service features or incorrect fees) while maintaining surface fluency and plausible relevance.
+        \item \textbf{Grounded responses} generated using \texttt{gpt-4o} (temperature = 0), prompted to rely strictly on the context passage without using external knowledge.
+        \item \textbf{Hallucinated responses} were generated using \texttt{gpt-3.5-turbo-0125}, with prompting designed to subtly introduce factual inconsistencies (e.g., fabricated service features or incorrect fees) while maintaining plausible relevancy.
     \end{itemize}
     
-    \item \textbf{Step 4: Dataset Assembly.} The final dataset included 2,770 labeled (query, context, response) triplets—1,385 grounded and 1,385 hallucinated. Of these, 1,000 grounded–hallucinated pairs were allocated for training, and 385 pairs were held out as an evaluation set. The train–validation split was performed using unique pair identifiers to ensure no query–context–response overlap across splits, thereby preventing data leakage. All examples were formatted consistently with the HaluBench schema. An illustrative example test case is provided in Appendix A (see Table~\ref{tab:retailbankqa-example}).
-    \item \textbf{Step 5: LLM-based Annotation Verification.} To assess label quality, a random sample of 50 examples (25 grounded, 25 hallucinated) from the synthetic dataset was reviewed by OpenAI’s \texttt{o3-pro} model\footnote{\url{https://platform.openai.com/docs/models/o3}}, prompted to act as an expert human QA reviewer and annotator. This model offers stronger reasoning capabilities than those used during data construction (\texttt{gpt-3.5-turbo-0125} for hallucinations; \texttt{gpt-4o-mini} for context generation; and \texttt{gpt-4o} for grounded responses). Following strict groundedness criteria, the annotation process showed a 90\% agreement with the original labels. This degree of alignment suggests that the synthetic labels are broadly consistent with expert judgment and sufficiently reliable for training purposes.\footnote{Disagreements primarily involved borderline cases with minor omissions or over-specificity, underscoring the need for clearer prompting or light label smoothing in future iterations.}
-
-
+    \item \textbf{Step 4: Dataset Assembly.} The final dataset included 2,770 labeled (query, context, response) triplets—1,385 grounded and 1,385 hallucinated. Of these, 1,000 grounded–hallucinated pairs were allocated for training, and 385 pairs were held out as an evaluation set. The train–validation split was performed using unique pair identifiers to ensure no query–context–response overlap or data leakage across splits. An example test case is provided in Appendix A.
+    \item \textbf{Step 5: LLM-based Annotation Verification.} To assess label quality, a random sample of 50 synthetic examples (25 grounded, 25 hallucinated) were reviewed by OpenAI’s \texttt{o3-pro} model\footnote{\url{https://platform.openai.com/docs/models/o3}}, prompted as an expert QA annotator.  Given its stronger reasoning capabilities than the model used during data construction, o3-pro’s 95\% agreement with the original labels suggests that the synthetic annotations are broadly consistent with expert judgment and suitable for training.
 
 \end{itemize}
 \subsubsection*{Final sample}
-The final sample consists of 6,600 observations, with 3,900 from HaluBench and 2,770 test cases from the constructed RetailbankQA dataset.
+The final sample consists of 6,600 observations, with 3,900 from HaluBench and 2,770 test cases from the constructed RetailBankQA dataset.
 
 \begin{table}[H]
 \centering
@@ -164,18 +161,18 @@ The final sample consists of 6,600 observations, with 3,900 from HaluBench and 2
 \bottomrule
 \end{tabular}
 }
-\caption{Summary statistics of full training and evaluation dataset, where \textbf{\%H} denotes share of hallucinated responses and \textbf{CT} indicates context token length. HaluBench includes benchmark datasets from finance, biomedical, and general knowledge domains.}
+\caption{Summary statistics of full training and evaluation dataset, where \textbf{\%H} denotes share of hallucinated responses and \textbf{CT} indicates context token length.}
 \label{tab:dataset_stats}
 \end{table}
 
-Table~\ref{tab:dataset_stats} reports token-level statistics across all datasets. The synthetic retail bank dataset (RetailbankQA) contains moderate context lengths compared to other datasets in HaluBench. The share of hallucination are balanced in all datasets but RAGTruth.
-Each dataset was split using stratified sampling into training, validation, and test subsets (70/15/15) to preserve class balance. Validation sets were used for hyperparameter tuning, and final evaluation was conducted on held-out test sets. All examples were tokenized using the DeBERTa-v3-base tokenizer.
+Table~\ref{tab:dataset_stats} reports token-level statistics across all datasets. The share of hallucinations are balanced in all datasets but RAGTruth.
+Each dataset was split using stratified sampling into training, validation, and test subsets (70/15/15) to preserve class balance. All examples were tokenized using the DeBERTa-v3-base tokenizer.
 
 \section{Model}
 
 The model used for binary hallucination classification is a fine-tuned cross-encoder based on the \textbf{DeBERTa-v3-base} architecture.\footnote{\href{https://huggingface.co/microsoft/deberta-v3-base}{https://huggingface.co/microsoft/deberta-v3-base}} This transformer has demonstrated performance on natural language inference (NLI) benchmarks such as MNLI, ANLI, and SNLI, outperforming models like BERT, RoBERTa, and XLNet \citep{he2021deberta, liu2019roberta, yang2019xlnet}.
 
-DeBERTa-v3-base is well-suited for hallucination detection tasks that require fine-grained factual consistency checks, due to its pretraining on entailment-style objectives-that is, tasks where the model learns to assess whether one sentence is logically supported by another. Compared to bi-encoders or prompt-based LLM evaluators, the cross-encoder architecture jointly encodes the \textit{query}, \textit{retrieved context}, and \textit{response}, enabling the model to capture rich inter-component dependencies. This design is consistent with recent hallucination detection frameworks such as Luna \citep{belyi2024luna} and Lettuce Detect \citep{Kovacs2025LettuceDetect}, and aligns with answer faithfulness metrics used by LLM evaluation protocols.
+DeBERTa-v3-base is well-suited for hallucination detection tasks that require fine-grained factual consistency checks, due to its pretraining on entailment-style objectives-that is, tasks where the model learns to assess whether one sentence is logically supported by another. Compared to bi-encoders or prompt-based LLM evaluators, the cross-encoder architecture jointly encodes the \textit{query}, \textit{retrieved context}, and \textit{response}, enabling the model to capture rich inter-segment dependencies. 
 
 \subsection{Training Setup}
 
@@ -189,17 +186,14 @@ To adapt the pretrained DeBERTa-v3-base model, a classification head is added to
 Training is performed using the Hugging Face \texttt{Trainer} API based on three epochs, a batch size of 8, a learning rate of \(1 \times 10^{-5}\), and the \texttt{AdamW} optimizer (weight decay = 0.01). This configuration was selected based on a targeted grid search, where it achieved the most stable validation performance and highest F1 score, while reducing overfitting and training variance associated with smaller batch sizes.\footnote{\href{https://github.com/tahlee-stone/2024-fall-datasci-w266-tahlee-stone/blob/main/final_project/results/hyperparameter_comparison.xlsx}{Hyperparameter search results available at GitHub.}} Binary cross-entropy loss is applied, with labels encoded as 1 for grounded (\texttt{PASS}) and 0 for hallucinated (\texttt{FAIL}). The training dataset is balanced and composed of examples from both HaluBench (general domain) and RetailBankQA (financial domain). The Hugging Face DeBERTa tokenizer is used to tokenize all inputs.
 
 \subsection{Context Window Constraints}
-
-Context length limitations present a challenge for groundedness assessment of documents. To address the 512-token constraint of DeBERTa-v3-base, a windowed chunking strategy is applied: each input is split into overlapping context chunks and passed independently through the model. Groundedness probabilities are computed for each chunk, and the maximum score across chunks is used to derive a single, example-level binary classification.
-
-Token length distribution analysis (see Figure~\ref{fig:ctx_dist}) indicates that around 94\% of test cases are within the 512-token limit. Given this distribution, more computationally heavy token-level span attribution was considered, but not implemented, particularly as longer contexts were largely to one subdataset which already had known limitations of containing numeric and calculation-heavy test cases (FinanceBench, where 44.3\% of examples exceed the threshold, compared to 2.5\% in DROP, 1.5\% in PubMedQA, and 0.67\% in RAGTruth).
-
-This design aligns with Luna \citep{belyi2024luna}, which also adopts a windowed chunking strategy for processing long RAG inputs. However, unlike Luna—which performs token-level span classification to identify hallucinated spans—this implementation focuses on example-level prediction to reduce computational overhead. As language models evolve to support longer context windows and multi-turn dialogue histories, token-level grounding and span attribution remain important directions for future work.
+To address the 512-token limit of DeBERTa-v3-base, we apply a windowed chunking strategy: inputs are split into overlapping chunks, evaluated independently, and aggregated via max-pooling to yield an example-level groundedness score.
+Token length analysis (Figure~\ref{fig:ctx_dist}) shows that ~94\% of test cases fall within the limit. While token-level span attribution was considered, it was not implemented due to the added complexity and its limited benefit outside FinanceBench (where 44.3\% of examples exceed 512 tokens, compared to less than 2.5\% in other subsets).
+This approach follows Luna \citep{belyi2024luna} in chunking long RAG inputs but opts for coarse-grained classification to reduce inference cost. As model context windows expand, finer-grained span attribution remains a direction for future work.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\columnwidth,  height=5cm]{context_length.png}
-    \caption{Context Token Length Distribution for full dataset (dashed line = 512-token max input for DeBERTa-v3-base).}
+    \includegraphics[width=\columnwidth,  height=4cm]{context_length.png}
+    \caption{Context Token Length Distribution for full dataset (dashed line = 512-token limit).}
     \label{fig:ctx_dist}
 \end{figure}
 
@@ -213,82 +207,97 @@ A zero-shot evaluation baseline is implemented using OpenAI’s \texttt{gpt-4o-2
 The model returns a JSON object containing a \texttt{REASONING} field (a brief justification) and a \texttt{SCORE} field, which is parsed as either \texttt{"PASS"} or \texttt{"FAIL"}. These binary outputs are used for groundedness classification in the evaluation.
 \subsection{AWS Bedrock Guardrail}
 
-As an off-the-shelf comparator model, the commercial contextual grounding guardrail from \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{Amazon Bedrock} was selected as a closed-source baseline.\footnote{\href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}} Each (query, context, response) triplet is submitted via the \texttt{apply\_guardrail} API with contextual grounding policies enabled and relevance checks disabled. The system uses Claude Sonnet 4, the foundation model available via AWS at the time of evaluation, to return a grounding score and a threshold-based decision.
+As an off-the-shelf comparator model, the commercial contextual grounding guardrail from \href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{Amazon Bedrock} was selected for its alignment with the contextual grounding task and its accessibility as a managed service.\footnote{\href{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}{https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html}} Each (query, context, response) triplet is submitted via the \texttt{apply\_guardrail} API with contextual grounding policies enabled and relevance checks disabled. The system uses Claude Sonnet 4 \citep{anthropic2024claude}, a foundation model available via AWS at the time of evaluation, to return a grounding score and a threshold-based decision.
 
-A fixed threshold of 0.7 is applied to determine whether the response is grounded. Outputs are mapped to binary \texttt{PASS} or \texttt{FAIL} labels to support direct comparison with other evaluators. Although the guardrail is configured to block ungrounded responses, its decision is used solely for classification in this study. This baseline was selected for its alignment with the contextual grounding task and its accessibility as a managed service.
+A fixed threshold of 0.5 is applied to determine whether the response is grounded. Outputs are mapped to binary \texttt{PASS} or \texttt{FAIL} labels to support direct comparison with other evaluators. 
 
 \subsection{Evaluation}
 
-Model evaluation was conducted on two test sets: the HaluBench hold-out set and the synthetic RetailbankQA test set. The classifier produces chunk-level predictions, which are then aggregated to the example level using the maximum predicted probability across all chunks for each test case.
+Model evaluation was conducted on two test sets: the HaluBench hold-out set and the synthetic RetailBankQA test set. The classifier produces chunk-level predictions, which are then aggregated to the example level using the maximum predicted probability across all chunks for each test case.
 
-Performance is reported using example-level accuracy, precision, recall, and F1-score, with \texttt{PASS} indicating a grounded response and \texttt{FAIL} indicating a hallucinated one. Evaluation includes classification reports for each source dataset and confusion matrix breakdowns. Results are further stratified by source domain (e.g., FinanceBench, DROP) to assess generalization under domain shift. Qualitative failure cases are also reviewed to understand where the model struggles with subtle hallucination patterns or ambiguous references.
+Performance is reported using example-level accuracy, precision, recall, and F1-score, with \texttt{PASS} indicating a grounded response and \texttt{FAIL} indicating a hallucinated one. Results are further stratified by source domain (e.g., FinanceBench, DROP) to assess generalization under domain shift. Qualitative failure cases are reviewed to understand where the model struggles with subtle hallucination patterns or ambiguous references.
 
 \section{Results and discussion}
 
-Results in Figure~\ref{fig:performance_metrics} show a comparative evaluation of the cross-encoder classifier and two LLM-based evaluators. Metrics include example-level accuracy, macro precision, macro recall, and macro F1.
+Results in Figure~\ref{fig:performance_metrics} show a comparative evaluation of the cross-encoder classifier and two LLM-based evaluators. Metrics include macro F1 scores, macro precision, macro recall, and accuracy. 
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{main_results.png}
     \caption{Performance comparison of cross-encoder versus LLM-based models; by evaluation metric.}
     \label{fig:performance_metrics}
 \end{figure}
 
-The cross-encoder achieves consistent scores across all metrics, with macro precision and recall of 88.5\% and 88.0\%, respectively. Its macro F1 score (88.2\%) is slightly above that of the GPT-4o-based evaluator (85.7\%) and notably higher than the AWS Bedrock guardrail (79.7\%). These results reflect weighted averages across the held-out evaluation sets.
+The cross-encoder performs consistently across all metrics, with a macro F1 score of around 85\%, compared to 80\% for the GPT-4o evaluator and 71\% for the AWS Bedrock guardrail. This result is influenced by the cross encoder's performance on the RetailBankQA dataset (which may be relatively easy for this model, discussed below). 
+However, these results still shows that a lightweight model can offer competitive predictive power relative to LLM-based alternatives. 
+A more detailed breakdown of results show that the GPT-4o (LLM evaluator) demonstrates the most stable performance across the HaluBench sub-datasets and the RetailBankQA synthetic set, with macro F1 scores ranging from 76\% and 85\%. 
+By contrast, the AWS Bedrock guardrail consistently underperforms with lower overall scores, and elevated false negative rates, particularly on DROP and PubMedQA. Its proprietary nature limits transparency, making it difficult to conduct any further analysis on underlying drivers. 
 
-Deterministic outputs and lower latency support the cross-encoder as a practical option for integration into production systems, particularly in domains requiring bounded inference costs and reproducibility.
 
-That said, the performance gap between the cross-encoder and the GPT-4o evaluator is modest. LLM-based methods remain competitive—particularly in low-throughput settings where qualitative reasoning or explanatory outputs are valuabl
-
-A more detailed breakdown of results show that: 
-
-\begin{table*}[ht]
+\begin{table*}[ht] 
 \centering
 \footnotesize
-\begin{tabular}{@{}llccccc@{}}
+\begin{tabular}{@{}llcccc@{}}
 \toprule
 \textbf{Dataset} & \textbf{Model} & \textbf{Accuracy} & \textbf{Macro Precision} & \textbf{Macro Recall} & \textbf{Macro F1} \\
 \midrule
-\textbf{HaluBench} & DeBERTa-v3 Cross-encoder & 69.0\% & 70.0\% & 68.0\% & 68.0\% \\
-          & GPT-4o (LLM Evaluator)      & 82.6\% & 82.9\% & 83.6\% & 82.5\% \\
-          & AWS Bedrock       & 58.6\% & 60.5\% & 60.3\% & 58.6\% \\
+\textbf{HaluBench} & DeBERTa-v3 Cross-encoder & 69.9\% & 69.8\% & 67.6\% & 67.8\% \\
+          & GPT-4o (LLM Evaluator)      & 82.5\% & 82.9\% & 83.5\% & 82.5\% \\
+          & AWS Bedrock       & 58.6\% & 60.5\% & 60.3\% & 58.5\% \\
 \midrule
-- DROP & DeBERTa-v3 Cross-encoder & 88.0\% & 85.9\% & 89.7\% & 87.8\% \\
+- DROP & DeBERTa-v3 Cross-encoder & 88.0\% & 88.0\% & 88.1\% & 88.0\% \\
      & GPT-4o (LLM Evaluator)          & 82.4\% & 82.7\% & 82.2\% & 82.2\% \\
      & AWS Bedrock       & 47.9\% & 46.7\% & 47.1\% & 45.8\% \\
 \midrule
-- FinanceBench & DeBERTa-v3 Cross-encoder & 52.2\% & 51.9\% & 75.6\% & 61.5\% \\
+- FinanceBench & DeBERTa-v3 Cross-encoder & 52.2\% & 52.5\% & 52.0\% & 49.3\% \\
              & GPT-4o (LLM Evaluator) & 84.8\% & 86.1\% & 84.9\% & 84.7\% \\
              & AWS Bedrock  & 50.6\% & 51.1\% & 50.8\% & 47.3\% \\
 \midrule
-- RAGTruth & DeBERTa-v3 Cross-encoder & 75.8\% & 85.1\% & 85.1\% & 85.1\% \\
-         & GPT-4o (LLM Evaluator)    & 84.8\% & 74.8\% & 77.2\% & 75.9\% \\
-         & ASW Bedrock       & 80.8\% & 69.9\% & 74.8\% & 71.7\% \\
+- RAGTruth & DeBERTa-v3 Cross-encoder & 75.8\% & 60.0\% & 60.0\% & 60.0\% \\
+         & GPT-4o (LLM Evaluator)    & 84.7\% & 74.8\% & 77.2\% & 75.8\% \\
+         & AWS Bedrock       & 80.6\% & 69.9\% & 74.7\% & 71.6\% \\
 \midrule
-- pubmedQA & DeBERTa-v3 Cross-encoder & 68.6\% & 67.0\% & 82.9\% & 74.1\% \\
+- pubmedQA & DeBERTa-v3 Cross-encoder & 68.6\% & 69.4\% & 67.2\% & 67.1\% \\
          & GPT-4o (LLM Evaluator) & 77.9\% & 82.0\% & 79.4\% & 77.6\% \\
          & AWS Bedrock       & 60.0\% & 62.2\% & 61.3\% & 59.6\% \\
 \midrule
-\textbf{RetailbankQA} & DeBERTa-v3  Cross-encoder & 97.0\% & 97.0\% & 97.0\% & 97.0\% \\
+\textbf{RetailBankQA} & DeBERTa-v3  Cross-encoder & 96.6\% & 96.7\% & 96.6\% & 96.6\% \\
              & GPT-4o (LLM Evaluator)           & 79.0\% & 85.2\% & 79.0\% & 78.0\% \\
              & AWS Bedrock       & 80.9\% & 85.5\% & 80.9\% & 80.3\% \\
 \bottomrule
 \end{tabular}
-\caption{Evaluation results across six datasets comparing cross-encoder, LLM-based, and AWS Bedrock hallucination detection methods. Results are reported as Accuracy, Macro Precision, Macro Recall, and Macro F1. RetailbankQA shows the largest gains from the cross-encoder approach.}
+\caption{Evaluation results across six datasets comparing cross-encoder, LLM-based, and AWS Bedrock hallucination detection methods. 
+\textbf{Note:} Accuracy is sensitive to class imbalance, and some datasets are not balanced between hallucinated and non-hallucinated cases. Macro-averaged metrics (precision, recall, F1) provide a more robust measure of detection performance in these settings.
+}
 \label{tab:results_full}
 \end{table*}
 
-Error analysis suggests that: 
-[Discuss types of hallucinations missed, false positives, patterns across datasets.]
-[Limitations]
+\begin{table}[ht]
+\centering
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lp{6cm}c}
+\toprule
+\textbf{Type} & \textbf{Description} & \textbf{\% of FNs} \\
+\midrule
+Numeric reasoning \& extraction & Cross-encoder struggles when interpreting numbers, ratios and financial calculations needed to assess groundedness. It also sometimes has difficulty with number formatting difficulty (e.g. rounding) & 52\% \\
+Narrative summaries/paraphrase & Cross-encoder misses on open-ended, paraphrased, or summary-style responses, often due to low lexical overlap & 26\% \\
+Verdict-based outcome responses & Cross-encoder labels vary from ground truths where completely different wording has been used to deliver an outcome-based response using evidence in context (e.g. biomedical verdicts) & 22\% \\
+\bottomrule
+\end{tabular}
+}
+\caption{Summary of dominant cross-encoder false negative types (mutually exclusive assignment).}
+\label{tab:fn_types}
+\end{table}
 
+The results reveal a clear capability gap between LLM-based and encoder-based methods. The GPT-4o evaluator demonstrates semantic abstraction, numeric reasoning, and broad domain coverage. It can accurately label paraphrased or free-form responses without lexical overlap, as seen in RAGTruth and PubMedQA, and shows strong numerical reasoning in FinanceBench and DROP, including normalization and basic calculations.
+However, GPT-4o can be overly permissive on datasets like RetailBankQA, often passing topically relevant summaries that lack grounding in the retrieved context. In contrast, the cross-encoder flags such vague responses as hallucinations due to its finer semantic alignment—highlighting the need for LLM evaluator calibration.
+The DeBERTa-v3 cross-encoder performs well on structured, template-driven tasks with short factual answers (e.g., RetailBankQA, DROP), where deterministic scoring aligns with consistent patterns. Its performance drops on examples requiring abstraction or multi-step reasoning.
+A manual audit of cross-encoder false negatives (Table~\ref{tab:fn_types}) shows that 52\% stem from numeric reasoning or value extraction failures, especially in financial calculations. Another 26\% involve missed paraphrases or summary-style answers with low lexical overlap, and 22\% involve verdict-style outputs (e.g., biomedical claims) where correct but differently worded answers are not matched.
 
 \section{Conclusion}
-[Summary of findings. Implications for scalable, reliable financial dialogue systems. Future work.]
-
-%\nocite{}
-
-
+Overall, these results show that the open-source LLM-evaluator provides a more flexible mechanism for hallucination detection on diverse, semantically complex, and numerically intensive dialogue settings. By contrast, cross-encoder models remain competitive in highly structured, factoid-heavy domains but struggle with abstraction, paraphrasing, and calculations. 
+These findings support a hybrid approach, with cross-encoders serving as efficient first-stage filters for predictable queries and LLM-based evaluators handling ambiguous or novel cases.
 % Entries for the entire Anthology, followed by custom entries
 \bibliography{anthology,custom}
 \bibliographystyle{acl_natbib}
@@ -299,7 +308,7 @@ Error analysis suggests that:
 
 \appendix
 
-\section{RetailbankQA Triplet with Grounded and Hallucinated Responses}
+\section{RetailBankQA Triplet with Grounded and Hallucinated Responses}
 \label{app:test_case}
 \FloatBarrier
 
@@ -329,7 +338,7 @@ Original: ``Faster Payments usually arrive within minutes… BACS… up to three
 Generative: ``all transactions are processed in real time… including international ones'' \\
 \bottomrule
 \end{tabular}
-\caption{Example of a Query-Conext-Response triplet from synthetic RetailbankQA dataset with grounded and hallucinated response.}
+\caption{Example (query, context, response) triplet from RetailBankQA, showing a grounded and hallucinated response}
 \label{tab:retailbankqa-example}
 \end{table}
 

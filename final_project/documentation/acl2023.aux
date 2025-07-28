@@ -6,6 +6,8 @@
 \citation{brown2020language,openai2023gpt4}
 \citation{ji2023survey}
 \citation{lewis2020retrieval}
+\citation{ravi2024lynx}
+\citation{ravi2024lynx}
 \citation{luo2024hallucination}
 \citation{deng2023survey,luo2024hallucination}
 \citation{es2023ragas}
@@ -15,48 +17,48 @@
 \citation{Kovacs2025LettuceDetect}
 \citation{ravi2024lynx}
 \citation{ravi2024lynx}
-\citation{ravi2024lynx}
 \citation{islam2023financebench}
 \citation{dua2019drop}
 \citation{jin2019pubmedqa}
 \citation{wu2023ragtruth}
 \citation{moller2020covidqa}
 \citation{li2023halueval}
-\newlabel{tab:dataset_stats}{{1}{3}{Summary statistics of full training and evaluation dataset, where \textbf {\%H} denotes share of hallucinated responses and \textbf {CT} indicates context token length. HaluBench includes benchmark datasets from finance, biomedical, and general knowledge domains}{table.caption.5}{}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:synthetic-data}{{1}{4}{Synthetic data construction pipeline showing the four stages: sampling customer queries, generating synthetic contexts, creating grounded and hallucinated responses, and producing the final labeled dataset}{figure.caption.2}{}}
+\newlabel{fig:synthetic-data}{{1}{3}{Pipeline for synthetic dataset construction of RetailBankQA}{figure.caption.2}{}}
 \citation{he2021deberta,liu2019roberta,yang2019xlnet}
 \citation{belyi2024luna}
-\citation{Kovacs2025LettuceDetect}
-\newlabel{tab:results_full}{{2}{5}{Evaluation results across six datasets comparing cross-encoder, LLM-based, and AWS Bedrock hallucination detection methods. Results are reported as Accuracy, Macro Precision, Macro Recall, and Macro F1. RetailbankQA shows the largest gains from the cross-encoder approach}{table.caption.6}{}}
-\citation{belyi2024luna}
+\newlabel{tab:dataset_stats}{{1}{4}{Summary statistics of full training and evaluation dataset, where \textbf {\%H} denotes share of hallucinated responses and \textbf {CT} indicates context token length}{table.caption.5}{}}
+\newlabel{fig:ctx_dist}{{2}{4}{Context Token Length Distribution for full dataset (dashed line = 512-token limit)}{figure.caption.6}{}}
 \citation{ravi2024lynx}
-\newlabel{fig:ctx_dist}{{2}{6}{Context Token Length Distribution for full dataset (dashed line = 512-token max input for DeBERTa-v3-base)}{figure.caption.7}{}}
+\citation{anthropic2024claude}
+\newlabel{fig:performance_metrics}{{3}{5}{Performance comparison of cross-encoder versus LLM-based models; by evaluation metric}{figure.caption.7}{}}
 \bibdata{anthology,custom}
-\bibcite{belyi2024luna}{{1}{2024}{{Belyi et~al.}}{{Belyi, Friel, Shao, and Sanyal}}}
-\bibcite{brown2020language}{{2}{2020}{{Brown et~al.}}{{Brown, Mann, Ryder, Subbiah et~al.}}}
-\bibcite{deng2023survey}{{3}{2023}{{Deng et~al.}}{{}}}
-\bibcite{dua2019drop}{{4}{2019}{{Dua et~al.}}{{Dua, Wang, Dasigi, Stanovsky, Singh, and Gardner}}}
-\bibcite{es2023ragas}{{5}{2023}{{Es et~al.}}{{Es, James, Espinosa-Anke, and Schockaert}}}
-\bibcite{he2021deberta}{{6}{2021}{{He et~al.}}{{He, Gao, Chen, and Gao}}}
-\bibcite{islam2023financebench}{{7}{2023}{{Islam et~al.}}{{Islam, Zhang, and Lee}}}
-\bibcite{ji2023survey}{{8}{2023}{{Ji et~al.}}{{Ji, Lee, Fries et~al.}}}
-\bibcite{jin2019pubmedqa}{{9}{2019}{{Jin et~al.}}{{Jin, Peng, Si, and Li}}}
-\bibcite{lewis2020retrieval}{{10}{2020}{{Lewis et~al.}}{{Lewis, Perez, Piktus et~al.}}}
-\bibcite{li2023halueval}{{11}{2023}{{Li et~al.}}{{Li, Cheng, Zhao, Nie, and Wen}}}
-\bibcite{liu2019roberta}{{12}{2019}{{Liu et~al.}}{{Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis, Zettlemoyer, and Stoyanov}}}
-\bibcite{luo2024hallucination}{{13}{2024}{{Luo et~al.}}{{Luo, Li, Wu, Jenkin, Liu, and Dudek}}}
-\newlabel{fig:performance_metrics}{{3}{7}{Performance comparison of cross-encoder versus LLM-based models; by evaluation metric}{figure.caption.8}{}}
-\bibcite{manakul2023selfcheckgpt}{{14}{2023}{{Manakul et~al.}}{{Manakul, Liusie, and Gales}}}
-\bibcite{moller2020covidqa}{{15}{2020}{{M{\"o}ller et~al.}}{{M{\"o}ller, Yates, Li, and Xu}}}
-\bibcite{openai2023gpt4}{{16}{2023}{{OpenAI}}{{}}}
-\bibcite{ravi2024lynx}{{17}{2024}{{Ravi et~al.}}{{Ravi, Mielczarek, Kannappan, Kiela, and Qian}}}
-\bibcite{wu2023ragtruth}{{18}{2023}{{Wu et~al.}}{{Wu, Chen, and Fernandez}}}
-\bibcite{yang2019xlnet}{{19}{2019}{{Yang et~al.}}{{Yang, Dai, Yang, Carbonell, Salakhutdinov, and Le}}}
-\bibcite{zheng2023judging}{{20}{2023}{{Zheng et~al.}}{{Zheng, Zheng, Wang, Lin, and Ren}}}
-\bibcite{Kovacs2025LettuceDetect}{{21}{2025}{{Ádám Kovács and Recski}}{{}}}
+\bibcite{anthropic2024claude}{{1}{2024}{{Anthropic}}{{}}}
+\bibcite{belyi2024luna}{{2}{2024}{{Belyi et~al.}}{{Belyi, Friel, Shao, and Sanyal}}}
+\newlabel{tab:results_full}{{2}{6}{Evaluation results across six datasets comparing cross-encoder, LLM-based, and AWS Bedrock hallucination detection methods. \textbf {Note:} Accuracy is sensitive to class imbalance, and some datasets are not balanced between hallucinated and non-hallucinated cases. Macro-averaged metrics (precision, recall, F1) provide a more robust measure of detection performance in these settings}{table.caption.8}{}}
+\newlabel{tab:fn_types}{{3}{6}{Summary of dominant cross-encoder false negative types (mutually exclusive assignment)}{table.caption.9}{}}
+\bibcite{brown2020language}{{3}{2020}{{Brown et~al.}}{{Brown, Mann, Ryder, Subbiah et~al.}}}
+\bibcite{deng2023survey}{{4}{2023}{{Deng et~al.}}{{}}}
+\bibcite{dua2019drop}{{5}{2019}{{Dua et~al.}}{{Dua, Wang, Dasigi, Stanovsky, Singh, and Gardner}}}
+\bibcite{es2023ragas}{{6}{2023}{{Es et~al.}}{{Es, James, Espinosa-Anke, and Schockaert}}}
+\bibcite{he2021deberta}{{7}{2021}{{He et~al.}}{{He, Gao, Chen, and Gao}}}
+\bibcite{islam2023financebench}{{8}{2023}{{Islam et~al.}}{{Islam, Zhang, and Lee}}}
+\bibcite{ji2023survey}{{9}{2023}{{Ji et~al.}}{{Ji, Lee, Fries et~al.}}}
+\bibcite{jin2019pubmedqa}{{10}{2019}{{Jin et~al.}}{{Jin, Peng, Si, and Li}}}
+\bibcite{lewis2020retrieval}{{11}{2020}{{Lewis et~al.}}{{Lewis, Perez, Piktus et~al.}}}
+\bibcite{li2023halueval}{{12}{2023}{{Li et~al.}}{{Li, Cheng, Zhao, Nie, and Wen}}}
+\bibcite{liu2019roberta}{{13}{2019}{{Liu et~al.}}{{Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis, Zettlemoyer, and Stoyanov}}}
+\bibcite{luo2024hallucination}{{14}{2024}{{Luo et~al.}}{{Luo, Li, Wu, Jenkin, Liu, and Dudek}}}
+\bibcite{manakul2023selfcheckgpt}{{15}{2023}{{Manakul et~al.}}{{Manakul, Liusie, and Gales}}}
+\bibcite{moller2020covidqa}{{16}{2020}{{M{\"o}ller et~al.}}{{M{\"o}ller, Yates, Li, and Xu}}}
+\bibcite{openai2023gpt4}{{17}{2023}{{OpenAI}}{{}}}
+\bibcite{ravi2024lynx}{{18}{2024}{{Ravi et~al.}}{{Ravi, Mielczarek, Kannappan, Kiela, and Qian}}}
+\bibcite{wu2023ragtruth}{{19}{2023}{{Wu et~al.}}{{Wu, Chen, and Fernandez}}}
+\bibcite{yang2019xlnet}{{20}{2019}{{Yang et~al.}}{{Yang, Dai, Yang, Carbonell, Salakhutdinov, and Le}}}
+\bibcite{zheng2023judging}{{21}{2023}{{Zheng et~al.}}{{Zheng, Zheng, Wang, Lin, and Ren}}}
+\bibcite{Kovacs2025LettuceDetect}{{22}{2025}{{Ádám Kovács and Recski}}{{}}}
 \bibstyle{acl_natbib}
-\newlabel{app:test_case}{{A}{9}{RetailbankQA Triplet with Grounded and Hallucinated Responses}{appendix.A}{}}
-\newlabel{tab:retailbankqa-example}{{3}{9}{Example of a Query-Conext-Response triplet from synthetic RetailbankQA dataset with grounded and hallucinated response}{table.caption.11}{}}
-\newlabel{app:prompt}{{B}{9}{Groundedness Evaluation Prompt}{appendix.B}{}}
-\gdef \@abspage@last{9}
+\newlabel{app:test_case}{{A}{8}{RetailBankQA Triplet with Grounded and Hallucinated Responses}{appendix.A}{}}
+\newlabel{tab:retailbankqa-example}{{4}{8}{Example (query, context, response) triplet from RetailBankQA, showing a grounded and hallucinated response}{table.caption.11}{}}
+\newlabel{app:prompt}{{B}{8}{Groundedness Evaluation Prompt}{appendix.B}{}}
+\gdef \@abspage@last{8}

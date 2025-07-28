@@ -1,5 +1,11 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Anthropic(2024)}]{anthropic2024claude}
+Anthropic. 2024.
+\newblock Claude sonnet 4 model card.
+\newblock \url{https://docs.anthropic.com/claude/docs/model-cards-overview}.
+\newblock \url{https://docs.anthropic.com/claude/docs/model-cards-overview}.
 
 \bibitem[{Belyi et~al.(2024)Belyi, Friel, Shao, and Sanyal}]{belyi2024luna}
 Masha Belyi, Robert Friel, Shuai Shao, and Atindriyo Sanyal. 2024.
